@@ -11,13 +11,15 @@
 #SBATCH --error=sample.err          # 报错信息写入的文件
 #SBATCH --gres=gpu:1                # 需要几块GPU (同时最多8块)
 #SBATCH -p aquila                   # 有GPU的partition
+#SBATCH --nodelist=agpu7            # 3090
 
 module purge                        # 清除所有已加载的模块
 module load anaconda3               # 加载anaconda (load virtual env for training)
 
-cd /gpfsnyu/scratch/[Net ID]/project/folder     # 切到程序目录
+# cd /gpfsnyu/scratch/[Net ID]/project/folder     # 切到程序目录
 
+pip install datasets
 echo "start training"               # 输出起始信息
-source activate [env name]          # 调用 virtual env
-python train.py                     # 用python跑代码
+# source activate [env name]          # 调用 virtual env
+# python train.py                     # 用python跑代码
 echo "FINISH"                       # 输出起始信息
