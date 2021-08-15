@@ -1,6 +1,12 @@
 import numpy as np
 import pandas as pd
 from tqdm.auto import tqdm
+import collections
+import os
+
+def log_score(out_dir, score):
+    with open(os.path.join(out_dir, 'score.txt'), 'w') as f:
+        f.write(str(score))
 
 def jaccard(row): 
     str1 = row[0]
@@ -18,7 +24,7 @@ def convert_answers(r):
         'text': [text]
     }
 
-def prepare_train_features(examples, max_length=384, doc_stride=128, pad_on_right=True):
+def prepare_train_features(examples, tokenizer, max_length=384, doc_stride=128, pad_on_right=True):
     # Some of the questions have lots of whitespace on the left, which is not useful and will make the
     # truncation of the context fail (the tokenized question will take a lots of space). So we remove that
     # left whitespace
@@ -95,7 +101,7 @@ def prepare_train_features(examples, max_length=384, doc_stride=128, pad_on_righ
 
     return tokenized_examples
 
-def prepare_validation_features(examples):
+def prepare_validation_features(examples, tokenizer, max_length=384, doc_stride=128, pad_on_right=True):
     # Some of the questions have lots of whitespace on the left, which is not useful and will make the
     # truncation of the context fail (the tokenized question will take a lots of space). So we remove that
     # left whitespace
@@ -140,7 +146,7 @@ def prepare_validation_features(examples):
 
     return tokenized_examples
 
-def postprocess_qa_predictions(examples, features, raw_predictions, n_best_size = 20, max_answer_length = 30):
+def postprocess_qa_predictions(examples, features, raw_predictions, features_per_example, tokenizer, n_best_size = 20, max_answer_length = 30):
     all_start_logits, all_end_logits = raw_predictions
     # Build a map example to its corresponding features.
     example_id_to_index = {k: i for i, k in enumerate(examples["id"])}
