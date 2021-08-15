@@ -14,8 +14,10 @@
 #SBATCH --nodelist=agpu7            # 3090
 
 module purge                        # 清除所有已加载的模块
-module load anaconda3 cuda/10.2               # 加载anaconda (load virtual env for training)
+module load anaconda3 cuda/11.1.1              # 加载anaconda (load virtual env for training)
 
+nvidia-smi
+nvcc --version
 cd /gpfsnyu/scratch/yw3642/chaii/working/src     # 切到程序目录
 
 echo "START"               # 输出起始信息

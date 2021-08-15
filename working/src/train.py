@@ -7,6 +7,8 @@ import collections
 from tqdm.auto import tqdm
 import os
 from utils import jaccard, convert_answers, prepare_train_features, prepare_validation_features, postprocess_qa_predictions, log_score
+import torch
+print(f"is cuda available: {torch.cuda.is_available()}")
 model_checkpoint = '../../input/deepset-xlm-roberta-base-squad2'
 out_dir = os.path.join('../model', model_checkpoint.split('/')[-1])
 folds = 10
