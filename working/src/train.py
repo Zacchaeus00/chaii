@@ -8,17 +8,19 @@ from tqdm.auto import tqdm
 import os
 from utils import jaccard, convert_answers, prepare_train_features, prepare_validation_features, postprocess_qa_predictions, log_score
 import torch
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 print(f"is cuda available: {torch.cuda.is_available()}")
 model_checkpoint = '../../input/deepset-xlm-roberta-base-squad2'
-name = model_checkpoint.split('/')[-1]
+name = 'deepset-xlm-roberta-base-squad2-maxlen512-stride128'
 out_dir = os.path.join('../model', name)
 folds = 10
 
 tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
-max_length = 384 # The maximum length of a feature (question and context)
-doc_stride = 128 # The authorized overlap between two part of the context when splitting it is needed.
+max_length = 512 # The maximum length of a feature (question and context) default 384
+doc_stride = 128 # The authorized overlap between two part of the context when splitting it is needed. default 128
 pad_on_right = tokenizer.padding_side == "right"
+print(max_length, doc_stride)
 
 train = pd.read_csv('../../input/chaii-hindi-and-tamil-question-answering/train_folds.csv')
 train['answers'] = train[['answer_start', 'answer_text']].apply(convert_answers, axis=1)
@@ -29,9 +31,9 @@ for fold in range(folds):
     args = TrainingArguments(output_dir=fold_out_dir,
                         learning_rate=1e-5,
                         warmup_ratio=0.1,
-                        gradient_accumulation_steps=1,
-                        per_device_train_batch_size=32,
-                        per_device_eval_batch_size=32,
+                        gradient_accumulation_steps=2,
+                        per_device_train_batch_size=16,
+                        per_device_eval_batch_size=16,
                         num_train_epochs=3,
                         weight_decay=0.01,
                         fp16=True,
@@ -78,14 +80,13 @@ for fold in range(folds):
                                             )
     valid_feats_small = validation_features.map(lambda example: example, remove_columns=['example_id', 'offset_mapping'])
     raw_predictions = trainer.predict(valid_feats_small)
-    example_id_to_index = {k: i for i, k in enumerate(valid_dataset["id"])}
-    features_per_example = collections.defaultdict(list)
-    for i, feature in enumerate(validation_features):
-        features_per_example[example_id_to_index[feature["example_id"]]].append(i)
+    # example_id_to_index = {k: i for i, k in enumerate(valid_dataset["id"])}
+    # features_per_example = collections.defaultdict(list)
+    # for i, feature in enumerate(validation_features):
+    #     features_per_example[example_id_to_index[feature["example_id"]]].append(i)
     final_predictions = postprocess_qa_predictions(valid_dataset, 
                                                    validation_features, 
                                                    raw_predictions.predictions,
-                                                   features_per_example,
                                                    tokenizer,
                                                    n_best_size=20,
                                                    max_answer_length=30)
