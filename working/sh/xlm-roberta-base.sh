@@ -19,7 +19,7 @@ module load anaconda3 cuda/10.2               # 加载anaconda (load virtual env
 cd /gpfsnyu/scratch/yw3642/chaii/working/src     # 切到程序目录
 
 echo "START"               # 输出起始信息
-conda deactivate
-conda activate kaggle          # 调用 virtual env
+source deactivate
+source activate kaggle          # 调用 virtual env
 python -u train.py                     # 用python跑代码
 echo "FINISH"                       # 输出起始信息
