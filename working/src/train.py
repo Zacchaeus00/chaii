@@ -8,8 +8,7 @@ from tqdm.auto import tqdm
 import os
 from utils import jaccard, convert_answers, prepare_train_features, prepare_validation_features, postprocess_qa_predictions, log_score
 import torch
-import os
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 print(f"is cuda available: {torch.cuda.is_available()}")
 model_checkpoint = '../../input/deepset-xlm-roberta-base-squad2'
 name = model_checkpoint.split('/')[-1]
@@ -46,7 +45,7 @@ for fold in range(folds):
                         save_steps=100,
                         disable_tqdm=True,
                         logging_dir=f'../runs/{name}_fold{fold}',
-                        pin_memory=False,
+                        dataloader_pin_memory=False,
                         log_level='info'
                         )
 
