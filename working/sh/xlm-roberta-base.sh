@@ -14,11 +14,12 @@
 #SBATCH --nodelist=agpu7            # 3090
 
 module purge                        # 清除所有已加载的模块
-module load anaconda3               # 加载anaconda (load virtual env for training)
+module load anaconda3 cuda/10.2               # 加载anaconda (load virtual env for training)
 
 cd /gpfsnyu/scratch/yw3642/chaii/working/src     # 切到程序目录
 
-echo "start training"               # 输出起始信息
-# source activate [env name]          # 调用 virtual env
+echo "START"               # 输出起始信息
+conda deactivate
+conda activate kaggle          # 调用 virtual env
 python -u train.py                     # 用python跑代码
 echo "FINISH"                       # 输出起始信息
