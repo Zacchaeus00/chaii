@@ -8,11 +8,12 @@ from tqdm.auto import tqdm
 import os
 from utils import jaccard, convert_answers, prepare_train_features, prepare_validation_features, postprocess_qa_predictions, log_score
 import torch
+import shutil
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 print(f"is cuda available: {torch.cuda.is_available()}")
-model_checkpoint = '../../input/deepset-xlm-roberta-base-squad2'
-name = 'deepset-xlm-roberta-base-squad2-maxlen512-stride128'
+model_checkpoint = '../../input/deepset-xlm-roberta-large-squad2'
+name = 'deepset-xlm-roberta-large-squad2-maxlen512-stride128'
 out_dir = os.path.join('../model', name)
 folds = 10
 
@@ -30,10 +31,10 @@ for fold in range(folds):
     fold_out_dir = os.path.join(out_dir, f'fold{fold}')
     args = TrainingArguments(output_dir=fold_out_dir,
                         learning_rate=1e-5,
-                        warmup_ratio=0.1,
-                        gradient_accumulation_steps=2,
-                        per_device_train_batch_size=16,
-                        per_device_eval_batch_size=16,
+                        warmup_ratio=0.2,
+                        gradient_accumulation_steps=4,
+                        per_device_train_batch_size=8,
+                        per_device_eval_batch_size=8,
                         num_train_epochs=3,
                         weight_decay=0.01,
                         fp16=True,
@@ -80,10 +81,6 @@ for fold in range(folds):
                                             )
     valid_feats_small = validation_features.map(lambda example: example, remove_columns=['example_id', 'offset_mapping'])
     raw_predictions = trainer.predict(valid_feats_small)
-    # example_id_to_index = {k: i for i, k in enumerate(valid_dataset["id"])}
-    # features_per_example = collections.defaultdict(list)
-    # for i, feature in enumerate(validation_features):
-    #     features_per_example[example_id_to_index[feature["example_id"]]].append(i)
     final_predictions = postprocess_qa_predictions(valid_dataset, 
                                                    validation_features, 
                                                    raw_predictions.predictions,
@@ -96,5 +93,10 @@ for fold in range(folds):
     res['jaccard'] = res[['answer', 'prediction']].apply(jaccard, axis=1)
     oof_scores[fold] = res.jaccard.mean()
     print(f'fold {fold} jaccard: {res.jaccard.mean()}')
+
+    # save
+    shutil.rmtree(fold_out_dir) 
+    torch.save(model.state_dict(), os.path.join(out_dir, f'fold{fold}.pt'))
+
 print(f'cv jaccard: {oof_scores.mean()}')
 log_score(out_dir, oof_scores.mean())

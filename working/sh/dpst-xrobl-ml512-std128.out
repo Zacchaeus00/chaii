@@ -1,0 +1,52 @@
+Mon Aug 16 02:09:03 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:3D:00.0 Off |                  N/A |
+| 43%   41C    P0    37W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+is cuda available: True
+512 128
+running fold 0
+train/val samples: 1002/112
+{'eval_loss': 0.2919299602508545, 'eval_runtime': 19.0269, 'eval_samples_per_second': 51.401, 'eval_steps_per_second': 6.465, 'epoch': 0.36}
+{'eval_loss': 0.25593331456184387, 'eval_runtime': 19.0587, 'eval_samples_per_second': 51.315, 'eval_steps_per_second': 6.454, 'epoch': 0.72}
+{'eval_loss': 0.2700181305408478, 'eval_runtime': 18.9687, 'eval_samples_per_second': 51.559, 'eval_steps_per_second': 6.484, 'epoch': 1.09}
+{'eval_loss': 0.22892186045646667, 'eval_runtime': 19.0079, 'eval_samples_per_second': 51.452, 'eval_steps_per_second': 6.471, 'epoch': 1.45}
+{'loss': 0.302, 'learning_rate': 5.01510574018127e-06, 'epoch': 1.81}
+{'eval_loss': 0.22646868228912354, 'eval_runtime': 19.0717, 'eval_samples_per_second': 51.28, 'eval_steps_per_second': 6.449, 'epoch': 1.81}
+{'eval_loss': 0.25841930508613586, 'eval_runtime': 18.9377, 'eval_samples_per_second': 51.643, 'eval_steps_per_second': 6.495, 'epoch': 2.17}
+{'eval_loss': 0.2666308879852295, 'eval_runtime': 19.0077, 'eval_samples_per_second': 51.453, 'eval_steps_per_second': 6.471, 'epoch': 2.53}
+{'eval_loss': 0.2604164183139801, 'eval_runtime': 18.9239, 'eval_samples_per_second': 51.681, 'eval_steps_per_second': 6.5, 'epoch': 2.9}
+{'train_runtime': 1405.3534, 'train_samples_per_second': 18.903, 'train_steps_per_second': 0.589, 'train_loss': 0.23883437649639333, 'epoch': 3.0}
+Post-processing 112 example predictions split into 978 features.
+fold 0 jaccard: 0.7265359268707483
+running fold 1
+train/val samples: 1002/112
+{'eval_loss': 0.3460858166217804, 'eval_runtime': 18.4816, 'eval_samples_per_second': 51.457, 'eval_steps_per_second': 6.439, 'epoch': 0.36}
+{'eval_loss': 0.31823545694351196, 'eval_runtime': 18.4969, 'eval_samples_per_second': 51.414, 'eval_steps_per_second': 6.434, 'epoch': 0.72}
+{'eval_loss': 0.36509016156196594, 'eval_runtime': 18.4196, 'eval_samples_per_second': 51.63, 'eval_steps_per_second': 6.461, 'epoch': 1.08}
+{'eval_loss': 0.3511628210544586, 'eval_runtime': 18.4469, 'eval_samples_per_second': 51.553, 'eval_steps_per_second': 6.451, 'epoch': 1.44}
+{'loss': 0.2995, 'learning_rate': 5.045180722891566e-06, 'epoch': 1.8}
+{'eval_loss': 0.3740918040275574, 'eval_runtime': 18.5202, 'eval_samples_per_second': 51.349, 'eval_steps_per_second': 6.425, 'epoch': 1.8}
+{'eval_loss': 0.3739168047904968, 'eval_runtime': 18.4734, 'eval_samples_per_second': 51.479, 'eval_steps_per_second': 6.442, 'epoch': 2.17}
+{'eval_loss': 0.4337444007396698, 'eval_runtime': 18.4491, 'eval_samples_per_second': 51.547, 'eval_steps_per_second': 6.45, 'epoch': 2.53}
