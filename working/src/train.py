@@ -8,11 +8,26 @@ from tqdm.auto import tqdm
 import os
 from utils import jaccard, convert_answers, prepare_train_features, prepare_validation_features, postprocess_qa_predictions, log_score
 import torch
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 print(f"is cuda available: {torch.cuda.is_available()}")
 model_checkpoint = '../../input/deepset-xlm-roberta-base-squad2'
-out_dir = os.path.join('../model', model_checkpoint.split('/')[-1])
+name = model_checkpoint.split('/')[-1]
+out_dir = os.path.join('../model', name)
 folds = 10
-args = TrainingArguments(output_dir=out_dir,
+
+tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
+max_length = 384 # The maximum length of a feature (question and context)
+doc_stride = 128 # The authorized overlap between two part of the context when splitting it is needed.
+pad_on_right = tokenizer.padding_side == "right"
+
+train = pd.read_csv('../../input/chaii-hindi-and-tamil-question-answering/train_folds.csv')
+train['answers'] = train[['answer_start', 'answer_text']].apply(convert_answers, axis=1)
+
+oof_scores = np.zeros(folds)
+for fold in range(folds):
+    fold_out_dir = os.path.join(out_dir, f'fold{fold}')
+    args = TrainingArguments(output_dir=fold_out_dir,
                         learning_rate=1e-5,
                         warmup_ratio=0.1,
                         gradient_accumulation_steps=1,
@@ -28,18 +43,13 @@ args = TrainingArguments(output_dir=out_dir,
                         dataloader_num_workers=8,
                         save_total_limit=1,
                         save_strategy='steps',
-                        save_steps=100
+                        save_steps=100,
+                        disable_tqdm=True,
+                        logging_dir=f'../runs/{name}_fold{fold}',
+                        pin_memory=False,
+                        log_level='info'
                         )
-tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
-max_length = 384 # The maximum length of a feature (question and context)
-doc_stride = 128 # The authorized overlap between two part of the context when splitting it is needed.
-pad_on_right = tokenizer.padding_side == "right"
 
-train = pd.read_csv('../../input/chaii-hindi-and-tamil-question-answering/train_folds.csv')
-train['answers'] = train[['answer_start', 'answer_text']].apply(convert_answers, axis=1)
-
-oof_scores = np.zeros(folds)
-for fold in range(folds):
     print(f'running fold {fold}')
     df_train = train[train['kfold']!=fold].reset_index(drop=True)
     df_valid = train[train['kfold']==fold].reset_index(drop=True)
@@ -85,6 +95,6 @@ for fold in range(folds):
     res['prediction'] = res['id'].apply(lambda r: final_predictions[r])
     res['jaccard'] = res[['answer', 'prediction']].apply(jaccard, axis=1)
     oof_scores[fold] = res.jaccard.mean()
-    print(f'jaccard: {res.jaccard.mean()}')
+    print(f'fold {fold} jaccard: {res.jaccard.mean()}')
 print(f'cv jaccard: {oof_scores.mean()}')
 log_score(out_dir, oof_scores.mean())
