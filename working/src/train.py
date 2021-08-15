@@ -7,8 +7,8 @@ import collections
 from tqdm.auto import tqdm
 import os
 from utils import jaccard, convert_answers, prepare_train_features, prepare_validation_features, postprocess_qa_predictions, log_score
-model_checkpoint = 'deepset/xlm-roberta-base-squad2'
-out_dir = os.path.join('../model', '-'.join(model_checkpoint.split('/')))
+model_checkpoint = '../../input/deepset-xlm-roberta-base-squad2'
+out_dir = os.path.join('../model', model_checkpoint.split('/')[-1])
 folds = 10
 args = TrainingArguments(output_dir=out_dir,
                         learning_rate=1e-5,
