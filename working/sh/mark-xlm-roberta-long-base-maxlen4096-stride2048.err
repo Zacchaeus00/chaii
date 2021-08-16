@@ -1,11 +1,867 @@
 DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
-  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:34<00:34, 34.65s/ba]100%|██████████| 2/2 [00:34<00:00, 14.42s/ba]100%|██████████| 2/2 [00:34<00:00, 17.46s/ba]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:04<00:00,  4.34s/ba]100%|██████████| 1/1 [00:04<00:00,  4.34s/ba]
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:33<00:33, 33.94s/ba]100%|██████████| 2/2 [00:34<00:00, 14.13s/ba]100%|██████████| 2/2 [00:34<00:00, 17.10s/ba]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:04<00:00,  4.29s/ba]100%|██████████| 1/1 [00:04<00:00,  4.29s/ba]
 Using amp fp16 backend
 ***** Running training *****
-  Num examples = 1561
+  Num examples = 2368
   Num Epochs = 5
-  Instantaneous batch size per device = 2
-  Total train batch size (w. parallel, distributed & accumulation) = 16
+  Instantaneous batch size per device = 1
+  Total train batch size (w. parallel, distributed & accumulation) = 8
   Gradient Accumulation steps = 8
-  Total optimization steps = 485
+  Total optimization steps = 1480
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-100/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-200/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-100] due to args.save_total_limit
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-300/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-400/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-300] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-500
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-500/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-500/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-500/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-500/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-400] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-600
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-600/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-600/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-600/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-600/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-500] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-700
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-700/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-700/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-700/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-700/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-600] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-800
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-800/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-800/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-800/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-800/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-700] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-900
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-900/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-900/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-900/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-900/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-800] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1000
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1000/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1000/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1000/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1000/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1100/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-900] due to args.save_total_limit
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1000] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1200/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1300/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 265
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1400/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1300] due to args.save_total_limit
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+Loading best model from ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold0/checkpoint-1200 (score: 3.1714301109313965).
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:05<00:00,  5.79s/ba]100%|██████████| 1/1 [00:05<00:00,  5.79s/ba]
+  0%|          | 0/265 [00:00<?, ?ex/s]  8%|▊         | 22/265 [00:00<00:01, 215.37ex/s] 17%|█▋        | 44/265 [00:00<00:01, 214.68ex/s] 25%|██▌       | 67/265 [00:00<00:00, 219.45ex/s] 34%|███▎      | 89/265 [00:00<00:00, 210.04ex/s] 43%|████▎     | 113/265 [00:00<00:00, 216.80ex/s] 51%|█████     | 135/265 [00:00<00:00, 217.06ex/s] 60%|██████    | 159/265 [00:00<00:00, 222.78ex/s] 69%|██████▊   | 182/265 [00:00<00:00, 221.74ex/s] 77%|███████▋  | 205/265 [00:00<00:00, 220.71ex/s] 86%|████████▌ | 228/265 [00:01<00:00, 220.70ex/s] 95%|█████████▌| 252/265 [00:01<00:00, 224.51ex/s]100%|██████████| 265/265 [00:01<00:00, 220.21ex/s]
+***** Running Prediction *****
+  Num examples = 265
+  Batch size = 1
+  0%|          | 0/112 [00:00<?, ?it/s]  4%|▎         | 4/112 [00:00<00:02, 38.11it/s]  8%|▊         | 9/112 [00:00<00:02, 40.53it/s] 12%|█▎        | 14/112 [00:00<00:02, 36.41it/s] 18%|█▊        | 20/112 [00:00<00:02, 41.65it/s] 23%|██▎       | 26/112 [00:00<00:02, 42.96it/s] 28%|██▊       | 31/112 [00:00<00:02, 30.50it/s] 32%|███▏      | 36/112 [00:01<00:02, 33.56it/s] 37%|███▋      | 41/112 [00:01<00:01, 36.93it/s] 42%|████▏     | 47/112 [00:01<00:01, 41.31it/s] 46%|████▋     | 52/112 [00:01<00:01, 41.96it/s] 51%|█████     | 57/112 [00:01<00:01, 40.53it/s] 60%|█████▉    | 67/112 [00:01<00:00, 47.11it/s] 65%|██████▌   | 73/112 [00:01<00:00, 48.75it/s] 70%|██████▉   | 78/112 [00:01<00:00, 48.09it/s] 75%|███████▌  | 84/112 [00:01<00:00, 48.45it/s] 79%|███████▉  | 89/112 [00:02<00:00, 40.37it/s] 84%|████████▍ | 94/112 [00:02<00:00, 42.58it/s] 91%|█████████ | 102/112 [00:02<00:00, 43.94it/s] 96%|█████████▋| 108/112 [00:02<00:00, 36.33it/s]100%|██████████| 112/112 [00:02<00:00, 41.35it/s]
+PyTorch: setting up devices
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:34<00:34, 34.75s/ba]100%|██████████| 2/2 [00:35<00:00, 14.49s/ba]100%|██████████| 2/2 [00:35<00:00, 17.53s/ba]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:03<00:00,  3.35s/ba]100%|██████████| 1/1 [00:03<00:00,  3.36s/ba]
+loading configuration file ../../input/markussagen-xlm-roberta-longformer-base-4096/config.json
+Model config XLMRobertaConfig {
+  "_name_or_path": "markussagen/xlm-roberta-longformer-base-4096",
+  "architectures": [
+    "XLMRobertaForQuestionAnswering"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "attention_window": [
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512
+  ],
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 4098,
+  "model_type": "xlm-roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.9.2",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 250002
+}
+
+loading weights file ../../input/markussagen-xlm-roberta-longformer-base-4096/pytorch_model.bin
+All model checkpoint weights were used when initializing XLMRobertaForQuestionAnswering.
+
+All the weights of XLMRobertaForQuestionAnswering were initialized from the model checkpoint at ../../input/markussagen-xlm-roberta-longformer-base-4096.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use XLMRobertaForQuestionAnswering for predictions without further training.
+Using amp fp16 backend
+***** Running training *****
+  Num examples = 2383
+  Num Epochs = 5
+  Instantaneous batch size per device = 1
+  Total train batch size (w. parallel, distributed & accumulation) = 8
+  Gradient Accumulation steps = 8
+  Total optimization steps = 1485
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-100/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-200/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-300/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-400/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-300] due to args.save_total_limit
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-500
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-500/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-500/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-500/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-500/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-400] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-600
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-600/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-600/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-600/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-600/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-500] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-700
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-700/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-700/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-700/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-700/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-600] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-800
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-800/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-800/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-800/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-800/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-700] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-900
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-900/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-900/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-900/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-900/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1000
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1000/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1000/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1000/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1000/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-800] due to args.save_total_limit
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-900] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1100/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1200/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1000] due to args.save_total_limit
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1300/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 250
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1400/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1300] due to args.save_total_limit
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+Loading best model from ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold1/checkpoint-1200 (score: 3.5293214321136475).
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:04<00:00,  4.80s/ba]100%|██████████| 1/1 [00:04<00:00,  4.80s/ba]
+  0%|          | 0/250 [00:00<?, ?ex/s]  9%|▉         | 23/250 [00:00<00:01, 220.16ex/s] 18%|█▊        | 46/250 [00:00<00:00, 215.85ex/s] 27%|██▋       | 68/250 [00:00<00:00, 211.10ex/s] 36%|███▌      | 90/250 [00:00<00:00, 210.72ex/s] 45%|████▍     | 112/250 [00:00<00:00, 187.09ex/s] 54%|█████▎    | 134/250 [00:00<00:00, 195.22ex/s] 63%|██████▎   | 158/250 [00:00<00:00, 206.46ex/s] 72%|███████▏  | 181/250 [00:00<00:00, 211.50ex/s] 82%|████████▏ | 204/250 [00:00<00:00, 216.75ex/s] 90%|█████████ | 226/250 [00:01<00:00, 215.58ex/s]100%|█████████▉| 249/250 [00:01<00:00, 219.19ex/s]100%|██████████| 250/250 [00:01<00:00, 211.06ex/s]
+***** Running Prediction *****
+  Num examples = 250
+  Batch size = 1
+  0%|          | 0/112 [00:00<?, ?it/s]  5%|▌         | 6/112 [00:00<00:01, 59.05it/s] 11%|█         | 12/112 [00:00<00:02, 45.60it/s] 17%|█▋        | 19/112 [00:00<00:01, 50.73it/s] 22%|██▏       | 25/112 [00:00<00:02, 42.99it/s] 27%|██▋       | 30/112 [00:00<00:02, 31.06it/s] 31%|███▏      | 35/112 [00:00<00:02, 34.61it/s] 36%|███▌      | 40/112 [00:01<00:02, 35.16it/s] 43%|████▎     | 48/112 [00:01<00:01, 44.97it/s] 48%|████▊     | 54/112 [00:01<00:01, 42.19it/s] 53%|█████▎    | 59/112 [00:01<00:01, 39.38it/s] 57%|█████▋    | 64/112 [00:01<00:01, 40.42it/s] 65%|██████▌   | 73/112 [00:01<00:00, 51.40it/s] 71%|███████▏  | 80/112 [00:01<00:00, 49.77it/s] 78%|███████▊  | 87/112 [00:02<00:00, 46.34it/s] 83%|████████▎ | 93/112 [00:02<00:00, 46.78it/s] 88%|████████▊ | 98/112 [00:02<00:00, 46.58it/s] 92%|█████████▏| 103/112 [00:02<00:00, 45.02it/s] 97%|█████████▋| 109/112 [00:02<00:00, 42.93it/s]100%|██████████| 112/112 [00:02<00:00, 43.68it/s]
+PyTorch: setting up devices
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:34<00:34, 34.49s/ba]100%|██████████| 2/2 [00:34<00:00, 14.36s/ba]100%|██████████| 2/2 [00:34<00:00, 17.38s/ba]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:03<00:00,  3.37s/ba]100%|██████████| 1/1 [00:03<00:00,  3.37s/ba]
+loading configuration file ../../input/markussagen-xlm-roberta-longformer-base-4096/config.json
+Model config XLMRobertaConfig {
+  "_name_or_path": "markussagen/xlm-roberta-longformer-base-4096",
+  "architectures": [
+    "XLMRobertaForQuestionAnswering"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "attention_window": [
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512
+  ],
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 4098,
+  "model_type": "xlm-roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.9.2",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 250002
+}
+
+loading weights file ../../input/markussagen-xlm-roberta-longformer-base-4096/pytorch_model.bin
+All model checkpoint weights were used when initializing XLMRobertaForQuestionAnswering.
+
+All the weights of XLMRobertaForQuestionAnswering were initialized from the model checkpoint at ../../input/markussagen-xlm-roberta-longformer-base-4096.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use XLMRobertaForQuestionAnswering for predictions without further training.
+Using amp fp16 backend
+***** Running training *****
+  Num examples = 2381
+  Num Epochs = 5
+  Instantaneous batch size per device = 1
+  Total train batch size (w. parallel, distributed & accumulation) = 8
+  Gradient Accumulation steps = 8
+  Total optimization steps = 1485
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-100/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-200/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-300/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-200] due to args.save_total_limit
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-400/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-300] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-500
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-500/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-500/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-500/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-500/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-400] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-600
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-600/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-600/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-600/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-600/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-500] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-700
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-700/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-700/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-700/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-700/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-600] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-800
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-800/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-800/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-800/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-800/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-700] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-900
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-900/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-900/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-900/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-900/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-800] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1000
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1000/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1000/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1000/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1000/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1100/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-900] due to args.save_total_limit
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1000] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1200/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1300/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 252
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1400/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1300] due to args.save_total_limit
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+Loading best model from ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold2/checkpoint-1100 (score: 3.4790351390838623).
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:04<00:00,  4.86s/ba]100%|██████████| 1/1 [00:04<00:00,  4.86s/ba]
+  0%|          | 0/252 [00:00<?, ?ex/s]  8%|▊         | 21/252 [00:00<00:01, 205.25ex/s] 17%|█▋        | 43/252 [00:00<00:00, 210.77ex/s] 26%|██▌       | 65/252 [00:00<00:00, 212.43ex/s] 35%|███▍      | 87/252 [00:00<00:00, 208.54ex/s] 43%|████▎     | 108/252 [00:00<00:00, 208.76ex/s] 53%|█████▎    | 133/252 [00:00<00:00, 219.06ex/s] 62%|██████▏   | 155/252 [00:00<00:00, 195.32ex/s] 70%|███████   | 177/252 [00:00<00:00, 202.32ex/s] 80%|███████▉  | 201/252 [00:00<00:00, 212.35ex/s] 89%|████████▉ | 224/252 [00:01<00:00, 216.58ex/s] 98%|█████████▊| 246/252 [00:01<00:00, 216.08ex/s]100%|██████████| 252/252 [00:01<00:00, 211.89ex/s]
+***** Running Prediction *****
+  Num examples = 252
+  Batch size = 1
+  0%|          | 0/112 [00:00<?, ?it/s]  2%|▏         | 2/112 [00:00<00:07, 14.57it/s]  5%|▌         | 6/112 [00:00<00:04, 26.33it/s]  9%|▉         | 10/112 [00:00<00:03, 31.89it/s] 13%|█▎        | 15/112 [00:00<00:02, 32.77it/s] 18%|█▊        | 20/112 [00:00<00:02, 31.50it/s] 22%|██▏       | 25/112 [00:00<00:02, 34.10it/s] 26%|██▌       | 29/112 [00:00<00:02, 30.74it/s] 29%|██▉       | 33/112 [00:01<00:02, 30.75it/s] 33%|███▎      | 37/112 [00:01<00:02, 31.11it/s] 43%|████▎     | 48/112 [00:01<00:01, 48.47it/s] 48%|████▊     | 54/112 [00:01<00:01, 42.21it/s] 54%|█████▎    | 60/112 [00:01<00:01, 45.89it/s] 62%|██████▏   | 69/112 [00:01<00:00, 55.09it/s] 67%|██████▋   | 75/112 [00:01<00:00, 46.12it/s] 76%|███████▌  | 85/112 [00:02<00:00, 52.83it/s] 82%|████████▏ | 92/112 [00:02<00:00, 55.62it/s] 88%|████████▊ | 99/112 [00:02<00:00, 56.24it/s] 94%|█████████▍| 105/112 [00:02<00:00, 50.75it/s] 99%|█████████▉| 111/112 [00:02<00:00, 47.33it/s]100%|██████████| 112/112 [00:02<00:00, 43.13it/s]
+PyTorch: setting up devices
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:33<00:33, 33.52s/ba]100%|██████████| 2/2 [00:33<00:00, 13.95s/ba]100%|██████████| 2/2 [00:33<00:00, 16.89s/ba]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:04<00:00,  4.19s/ba]100%|██████████| 1/1 [00:04<00:00,  4.19s/ba]
+loading configuration file ../../input/markussagen-xlm-roberta-longformer-base-4096/config.json
+Model config XLMRobertaConfig {
+  "_name_or_path": "markussagen/xlm-roberta-longformer-base-4096",
+  "architectures": [
+    "XLMRobertaForQuestionAnswering"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "attention_window": [
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512
+  ],
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 4098,
+  "model_type": "xlm-roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.9.2",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 250002
+}
+
+loading weights file ../../input/markussagen-xlm-roberta-longformer-base-4096/pytorch_model.bin
+All model checkpoint weights were used when initializing XLMRobertaForQuestionAnswering.
+
+All the weights of XLMRobertaForQuestionAnswering were initialized from the model checkpoint at ../../input/markussagen-xlm-roberta-longformer-base-4096.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use XLMRobertaForQuestionAnswering for predictions without further training.
+Using amp fp16 backend
+***** Running training *****
+  Num examples = 2359
+  Num Epochs = 5
+  Instantaneous batch size per device = 1
+  Total train batch size (w. parallel, distributed & accumulation) = 8
+  Gradient Accumulation steps = 8
+  Total optimization steps = 1470
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-100/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-200/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-300/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-200] due to args.save_total_limit
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-400/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-300] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-500
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-500/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-500/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-500/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-500/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-400] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-600
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-600/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-600/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-600/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-600/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-500] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-700
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-700/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-700/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-700/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-700/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-800
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-800/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-800/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-800/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-800/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-600] due to args.save_total_limit
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-700] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-900
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-900/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-900/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-900/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-900/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-800] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1000
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1000/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1000/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1000/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1000/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1100/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1000] due to args.save_total_limit
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1200/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-900] due to args.save_total_limit
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1300/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 274
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1400/special_tokens_map.json
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+Loading best model from ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold3/checkpoint-1300 (score: 3.1875126361846924).
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:05<00:00,  5.82s/ba]100%|██████████| 1/1 [00:05<00:00,  5.82s/ba]
+  0%|          | 0/274 [00:00<?, ?ex/s]  8%|▊         | 21/274 [00:00<00:01, 209.00ex/s] 15%|█▌        | 42/274 [00:00<00:01, 207.50ex/s] 24%|██▎       | 65/274 [00:00<00:00, 213.77ex/s] 32%|███▏      | 88/274 [00:00<00:00, 216.43ex/s] 40%|████      | 110/274 [00:00<00:00, 217.05ex/s] 48%|████▊     | 132/274 [00:00<00:00, 212.95ex/s] 56%|█████▌    | 154/274 [00:00<00:00, 215.05ex/s] 65%|██████▍   | 177/274 [00:00<00:00, 218.77ex/s] 73%|███████▎  | 199/274 [00:00<00:00, 217.70ex/s] 81%|████████▏ | 223/274 [00:01<00:00, 221.49ex/s] 90%|█████████ | 247/274 [00:01<00:00, 224.87ex/s] 99%|█████████▊| 270/274 [00:01<00:00, 221.10ex/s]100%|██████████| 274/274 [00:01<00:00, 217.94ex/s]
+***** Running Prediction *****
+  Num examples = 274
+  Batch size = 1
+  0%|          | 0/112 [00:00<?, ?it/s]  3%|▎         | 3/112 [00:00<00:04, 26.63it/s]  7%|▋         | 8/112 [00:00<00:02, 35.96it/s] 11%|█         | 12/112 [00:00<00:03, 25.09it/s] 15%|█▌        | 17/112 [00:00<00:03, 30.42it/s] 21%|██▏       | 24/112 [00:00<00:02, 39.33it/s] 26%|██▌       | 29/112 [00:00<00:02, 38.17it/s] 30%|███       | 34/112 [00:00<00:02, 38.18it/s] 38%|███▊      | 42/112 [00:01<00:01, 44.00it/s] 42%|████▏     | 47/112 [00:01<00:01, 35.31it/s] 46%|████▌     | 51/112 [00:01<00:01, 31.34it/s] 52%|█████▏    | 58/112 [00:01<00:01, 36.66it/s] 57%|█████▋    | 64/112 [00:01<00:01, 39.00it/s] 62%|██████▎   | 70/112 [00:01<00:01, 40.30it/s] 67%|██████▋   | 75/112 [00:02<00:00, 40.70it/s] 71%|███████▏  | 80/112 [00:02<00:00, 41.08it/s] 77%|███████▋  | 86/112 [00:02<00:00, 44.86it/s] 82%|████████▏ | 92/112 [00:02<00:00, 48.12it/s] 90%|█████████ | 101/112 [00:02<00:00, 53.71it/s] 96%|█████████▌| 107/112 [00:02<00:00, 47.16it/s]100%|██████████| 112/112 [00:02<00:00, 40.09it/s]100%|██████████| 112/112 [00:02<00:00, 39.45it/s]
+PyTorch: setting up devices
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:34<00:34, 34.55s/ba]100%|██████████| 2/2 [00:34<00:00, 14.40s/ba]100%|██████████| 2/2 [00:34<00:00, 17.42s/ba]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:03<00:00,  3.35s/ba]100%|██████████| 1/1 [00:03<00:00,  3.35s/ba]
+loading configuration file ../../input/markussagen-xlm-roberta-longformer-base-4096/config.json
+Model config XLMRobertaConfig {
+  "_name_or_path": "markussagen/xlm-roberta-longformer-base-4096",
+  "architectures": [
+    "XLMRobertaForQuestionAnswering"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "attention_window": [
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512
+  ],
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 4098,
+  "model_type": "xlm-roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.9.2",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 250002
+}
+
+loading weights file ../../input/markussagen-xlm-roberta-longformer-base-4096/pytorch_model.bin
+All model checkpoint weights were used when initializing XLMRobertaForQuestionAnswering.
+
+All the weights of XLMRobertaForQuestionAnswering were initialized from the model checkpoint at ../../input/markussagen-xlm-roberta-longformer-base-4096.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use XLMRobertaForQuestionAnswering for predictions without further training.
+Using amp fp16 backend
+***** Running training *****
+  Num examples = 2393
+  Num Epochs = 5
+  Instantaneous batch size per device = 1
+  Total train batch size (w. parallel, distributed & accumulation) = 8
+  Gradient Accumulation steps = 8
+  Total optimization steps = 1495
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 240
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-100
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-100/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-100/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-100/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-100/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 240
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-200
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-200/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-200/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-200/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-200/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 240
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-300
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-300/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-300/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-300/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-300/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 240
+  Batch size = 1
+Saving model checkpoint to ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-400
+Configuration saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-400/config.json
+Model weights saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-400/pytorch_model.bin
+tokenizer config file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-400/tokenizer_config.json
+Special tokens file saved in ../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-400/special_tokens_map.json
+Deleting older checkpoint [../model/mark-xlm-roberta-long-base-maxlen4096-stride2048/fold4/checkpoint-300] due to args.save_total_limit
+slurmstepd: error: *** JOB 2292054 ON agpu7 CANCELLED AT 2021-08-16T20:18:42 ***

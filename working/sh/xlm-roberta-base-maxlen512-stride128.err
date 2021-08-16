@@ -1,103 +1,0 @@
-DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
-  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:34<00:34, 34.55s/ba]100%|██████████| 2/2 [00:34<00:00, 14.38s/ba]100%|██████████| 2/2 [00:34<00:00, 17.41s/ba]
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:04<00:00,  4.34s/ba]100%|██████████| 1/1 [00:04<00:00,  4.34s/ba]
-Using amp fp16 backend
-***** Running training *****
-  Num examples = 8855
-  Num Epochs = 3
-  Instantaneous batch size per device = 16
-  Total train batch size (w. parallel, distributed & accumulation) = 32
-  Gradient Accumulation steps = 2
-  Total optimization steps = 831
-/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
-  nn.utils.clip_grad_norm_(
-***** Running Evaluation *****
-  Num examples = 978
-  Batch size = 16
-Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-100
-Configuration saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-100/config.json
-Model weights saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-100/pytorch_model.bin
-tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-100/tokenizer_config.json
-Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-100/special_tokens_map.json
-***** Running Evaluation *****
-  Num examples = 978
-  Batch size = 16
-Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-200
-Configuration saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-200/config.json
-Model weights saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-200/pytorch_model.bin
-tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-200/tokenizer_config.json
-Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-200/special_tokens_map.json
-***** Running Evaluation *****
-  Num examples = 978
-  Batch size = 16
-Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-300
-Configuration saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-300/config.json
-Model weights saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-300/pytorch_model.bin
-tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-300/tokenizer_config.json
-Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-300/special_tokens_map.json
-Deleting older checkpoint [../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-100] due to args.save_total_limit
-Deleting older checkpoint [../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-200] due to args.save_total_limit
-***** Running Evaluation *****
-  Num examples = 978
-  Batch size = 16
-Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-400
-Configuration saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-400/config.json
-Model weights saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-400/pytorch_model.bin
-tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-400/tokenizer_config.json
-Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-400/special_tokens_map.json
-Deleting older checkpoint [../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-300] due to args.save_total_limit
-***** Running Evaluation *****
-  Num examples = 978
-  Batch size = 16
-Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-500
-Configuration saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-500/config.json
-Model weights saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-500/pytorch_model.bin
-tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-500/tokenizer_config.json
-Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-500/special_tokens_map.json
-Deleting older checkpoint [../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-400] due to args.save_total_limit
-***** Running Evaluation *****
-  Num examples = 978
-  Batch size = 16
-Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-600
-Configuration saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-600/config.json
-Model weights saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-600/pytorch_model.bin
-tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-600/tokenizer_config.json
-Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-600/special_tokens_map.json
-***** Running Evaluation *****
-  Num examples = 978
-  Batch size = 16
-Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-700
-Configuration saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-700/config.json
-Model weights saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-700/pytorch_model.bin
-tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-700/tokenizer_config.json
-Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-700/special_tokens_map.json
-Deleting older checkpoint [../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-600] due to args.save_total_limit
-***** Running Evaluation *****
-  Num examples = 978
-  Batch size = 16
-Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-800
-Configuration saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-800/config.json
-Model weights saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-800/pytorch_model.bin
-tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-800/tokenizer_config.json
-Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-800/special_tokens_map.json
-Deleting older checkpoint [../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-700] due to args.save_total_limit
-
-
-Training completed. Do not forget to share your model on huggingface.co/models =)
-
-
-Loading best model from ../model/deepset-xlm-roberta-base-squad2-maxlen512-stride128/fold0/checkpoint-500 (score: 0.2750698924064636).
-  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:05<00:00,  5.87s/ba]100%|██████████| 1/1 [00:05<00:00,  5.87s/ba]
-  0%|          | 0/978 [00:00<?, ?ex/s]  8%|▊         | 79/978 [00:00<00:01, 783.02ex/s] 16%|█▌        | 158/978 [00:00<00:01, 781.51ex/s] 24%|██▍       | 237/978 [00:00<00:00, 778.94ex/s] 32%|███▏      | 315/978 [00:00<00:00, 777.07ex/s] 40%|████      | 395/978 [00:00<00:00, 781.96ex/s] 48%|████▊     | 474/978 [00:00<00:00, 781.52ex/s] 57%|█████▋    | 553/978 [00:00<00:00, 784.09ex/s] 65%|██████▍   | 632/978 [00:00<00:00, 782.15ex/s] 73%|███████▎  | 712/978 [00:00<00:00, 785.02ex/s] 81%|████████  | 791/978 [00:01<00:00, 783.24ex/s] 89%|████████▉ | 871/978 [00:01<00:00, 786.72ex/s] 97%|█████████▋| 950/978 [00:01<00:00, 786.30ex/s]100%|██████████| 978/978 [00:01<00:00, 783.76ex/s]
-***** Running Prediction *****
-  Num examples = 978
-  Batch size = 16
-  0%|          | 0/112 [00:00<?, ?it/s]  4%|▍         | 5/112 [00:00<00:02, 47.23it/s]  9%|▉         | 10/112 [00:00<00:02, 41.89it/s] 13%|█▎        | 15/112 [00:00<00:02, 34.37it/s] 20%|█▉        | 22/112 [00:00<00:02, 44.35it/s] 24%|██▍       | 27/112 [00:00<00:01, 42.73it/s] 29%|██▊       | 32/112 [00:00<00:02, 26.85it/s] 37%|███▋      | 41/112 [00:01<00:01, 36.75it/s] 42%|████▏     | 47/112 [00:01<00:01, 39.75it/s] 46%|████▋     | 52/112 [00:01<00:01, 39.86it/s] 51%|█████     | 57/112 [00:01<00:01, 38.69it/s] 59%|█████▉    | 66/112 [00:01<00:00, 50.15it/s] 64%|██████▍   | 72/112 [00:01<00:00, 46.86it/s] 70%|██████▉   | 78/112 [00:01<00:00, 45.60it/s] 75%|███████▌  | 84/112 [00:02<00:00, 45.91it/s] 79%|███████▉  | 89/112 [00:02<00:00, 40.32it/s] 84%|████████▍ | 94/112 [00:02<00:00, 42.09it/s] 91%|█████████ | 102/112 [00:02<00:00, 43.21it/s] 96%|█████████▌| 107/112 [00:02<00:00, 44.51it/s]100%|██████████| 112/112 [00:02<00:00, 41.37it/s]100%|██████████| 112/112 [00:02<00:00, 41.21it/s]
-Traceback (most recent call last):
-  File "train.py", line 102, in <module>
-    shutil.rmtree("os.path.join(out_dir, f'fold{fold}')") 
-  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/shutil.py", line 709, in rmtree
-    onerror(os.lstat, path, sys.exc_info())
-  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/shutil.py", line 707, in rmtree
-    orig_st = os.lstat(path)
-FileNotFoundError: [Errno 2] No such file or directory: "os.path.join(out_dir, f'fold{fold}')"

@@ -16,8 +16,8 @@ hyp = {
     'learning_rate': 1e-5,
     'warmup_ratio': 0.2,
     'gradient_accumulation_steps': 8,
-    'per_device_train_batch_size': 2,
-    'per_device_eval_batch_size': 2,
+    'per_device_train_batch_size': 1,
+    'per_device_eval_batch_size': 1,
     'num_train_epochs': 5,
     'weight_decay': 0.01,
     'fp16': True,
@@ -39,8 +39,8 @@ name = 'mark-xlm-roberta-long-base-maxlen4096-stride2048'
 out_dir = os.path.join('../model', name)
 
 tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
-max_length = 4096 # The maximum length of a feature (question and context) default 384
-doc_stride = 2048 # The authorized overlap between two part of the context when splitting it is needed. default 128
+max_length = 2048 # The maximum length of a feature (question and context) default 384
+doc_stride = 512 # The authorized overlap between two part of the context when splitting it is needed. default 128
 pad_on_right = tokenizer.padding_side == "right"
 print(max_length, doc_stride)
 
