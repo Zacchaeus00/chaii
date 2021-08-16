@@ -9,9 +9,11 @@ def log_hyp(out_dir, hyp):
     with open(os.path.join(out_dir, 'hyp.txt'), 'w') as f:
         json.dump(hyp, f, indent=4)
 
-def log_score(out_dir, score):
-    with open(os.path.join(out_dir, 'score.txt'), 'w') as f:
-        f.write(str(score))
+def log_scores(out_dir, scores):
+    with open(os.path.join(out_dir, 'scores.txt'), 'w') as f:
+        for i, s in enumerate(scores):
+            f.write(f"{i}, {s}\n")
+        f.write(np.mean(scores))
 
 def jaccard(row): 
     str1 = row[0]

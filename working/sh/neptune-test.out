@@ -1,0 +1,40 @@
+Tue Aug 17 02:21:56 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:3D:00.0 Off |                  N/A |
+| 43%   29C    P0    35W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+offline/a5dff6d6-4975-4acf-ad34-7bd72da24f3f
+512 128
+running fold 0
+train/val samples: 1002/112
+{'eval_loss': 0.5710489749908447, 'eval_runtime': 6.667, 'eval_samples_per_second': 146.693, 'eval_steps_per_second': 6.15, 'epoch': 0.27}
+{'eval_loss': 0.31761953234672546, 'eval_runtime': 6.7497, 'eval_samples_per_second': 144.896, 'eval_steps_per_second': 6.074, 'epoch': 0.54}
+{'eval_loss': 0.68584805727005, 'eval_runtime': 6.7543, 'eval_samples_per_second': 144.797, 'eval_steps_per_second': 6.07, 'epoch': 0.81}
+{'train_runtime': 176.1901, 'train_samples_per_second': 50.258, 'train_steps_per_second': 2.094, 'train_loss': 0.7139545223577236, 'epoch': 1.0}
+Post-processing 112 example predictions split into 978 features.
+fold 0 jaccard: 0.6259619472789115
+cv jaccard: 0.6259619472789115
+Shutting down background jobs, please wait a moment...
+Done!
+FINISH

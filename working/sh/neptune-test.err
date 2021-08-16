@@ -1,0 +1,54 @@
+DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:34<00:34, 34.63s/ba]100%|██████████| 2/2 [00:34<00:00, 14.42s/ba]100%|██████████| 2/2 [00:34<00:00, 17.45s/ba]
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:04<00:00,  4.31s/ba]100%|██████████| 1/1 [00:04<00:00,  4.31s/ba]
+Using amp fp16 backend
+***** Running training *****
+  Num examples = 8855
+  Num Epochs = 1
+  Instantaneous batch size per device = 24
+  Total train batch size (w. parallel, distributed & accumulation) = 24
+  Gradient Accumulation steps = 1
+  Total optimization steps = 369
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 978
+  Batch size = 24
+Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-100
+Configuration saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-100/config.json
+Model weights saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-100/pytorch_model.bin
+tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-100/tokenizer_config.json
+Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-100/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+***** Running Evaluation *****
+  Num examples = 978
+  Batch size = 24
+Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-200
+Configuration saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-200/config.json
+Model weights saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-200/pytorch_model.bin
+tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-200/tokenizer_config.json
+Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-200/special_tokens_map.json
+Deleting older checkpoint [../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 978
+  Batch size = 24
+Saving model checkpoint to ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-300
+Configuration saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-300/config.json
+Model weights saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-300/pytorch_model.bin
+tokenizer config file saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-300/tokenizer_config.json
+Special tokens file saved in ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-300/special_tokens_map.json
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/trainer.py:1314: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  nn.utils.clip_grad_norm_(
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+Loading best model from ../model/deepset-xlm-roberta-base-squad2-neptune-test/fold0/checkpoint-200 (score: 0.31761953234672546).
+  0%|          | 0/1 [00:00<?, ?ba/s]100%|██████████| 1/1 [00:05<00:00,  5.90s/ba]100%|██████████| 1/1 [00:05<00:00,  5.90s/ba]
+  0%|          | 0/978 [00:00<?, ?ex/s]  8%|▊         | 77/978 [00:00<00:01, 761.20ex/s] 16%|█▌        | 154/978 [00:00<00:01, 757.54ex/s] 24%|██▎       | 232/978 [00:00<00:00, 767.31ex/s] 32%|███▏      | 309/978 [00:00<00:00, 760.22ex/s] 40%|███▉      | 387/978 [00:00<00:00, 765.53ex/s] 47%|████▋     | 464/978 [00:00<00:00, 764.01ex/s] 55%|█████▌    | 542/978 [00:00<00:00, 766.41ex/s] 63%|██████▎   | 620/978 [00:00<00:00, 768.49ex/s] 71%|███████▏  | 698/978 [00:00<00:00, 771.85ex/s] 79%|███████▉  | 776/978 [00:01<00:00, 769.90ex/s] 87%|████████▋ | 854/978 [00:01<00:00, 771.17ex/s] 95%|█████████▌| 932/978 [00:01<00:00, 771.43ex/s]100%|██████████| 978/978 [00:01<00:00, 767.83ex/s]
+***** Running Prediction *****
+  Num examples = 978
+  Batch size = 24
+  0%|          | 0/112 [00:00<?, ?it/s]  4%|▍         | 5/112 [00:00<00:02, 46.99it/s]  9%|▉         | 10/112 [00:00<00:02, 41.56it/s] 13%|█▎        | 15/112 [00:00<00:02, 34.10it/s] 20%|█▉        | 22/112 [00:00<00:02, 44.05it/s] 24%|██▍       | 27/112 [00:00<00:02, 42.46it/s] 29%|██▊       | 32/112 [00:00<00:03, 26.64it/s] 37%|███▋      | 41/112 [00:01<00:01, 36.29it/s] 42%|████▏     | 47/112 [00:01<00:01, 39.32it/s] 46%|████▋     | 52/112 [00:01<00:01, 39.43it/s] 51%|█████     | 57/112 [00:01<00:01, 38.29it/s] 59%|█████▉    | 66/112 [00:01<00:00, 49.61it/s] 64%|██████▍   | 72/112 [00:01<00:00, 46.42it/s] 70%|██████▉   | 78/112 [00:01<00:00, 45.18it/s] 75%|███████▌  | 84/112 [00:02<00:00, 45.48it/s] 79%|███████▉  | 89/112 [00:02<00:00, 39.98it/s] 84%|████████▍ | 94/112 [00:02<00:00, 41.68it/s] 91%|█████████ | 102/112 [00:02<00:00, 42.79it/s] 96%|█████████▌| 107/112 [00:02<00:00, 44.10it/s]100%|██████████| 112/112 [00:02<00:00, 41.05it/s]100%|██████████| 112/112 [00:02<00:00, 40.83it/s]
