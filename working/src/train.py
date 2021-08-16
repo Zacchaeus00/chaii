@@ -6,50 +6,54 @@ from datasets import Dataset
 import collections
 from tqdm.auto import tqdm
 import os
-from utils import jaccard, convert_answers, prepare_train_features, prepare_validation_features, postprocess_qa_predictions, log_score
+from utils import jaccard, convert_answers, prepare_train_features, prepare_validation_features, postprocess_qa_predictions, log_score, log_hyp
 import torch
 import shutil
+import sys
+print(sys.version)
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+hyp = {
+    'learning_rate': 1e-5,
+    'warmup_ratio': 0.2,
+    'gradient_accumulation_steps': 8,
+    'per_device_train_batch_size': 2,
+    'per_device_eval_batch_size': 2,
+    'num_train_epochs': 5,
+    'weight_decay': 0.01,
+    'fp16': True,
+    'report_to': 'tensorboard',
+    'load_best_model_at_end': True,
+    'evaluation_strategy': "steps",
+    'eval_steps': 100,
+    'dataloader_num_workers': 8,
+    'save_total_limit': 1,
+    'save_strategy': 'steps',
+    'save_steps': 100,
+    'disable_tqdm': True,
+    'dataloader_pin_memory': False,
+    'log_level': 'info'
+}
 
-print(f"is cuda available: {torch.cuda.is_available()}")
-model_checkpoint = '../../input/deepset-xlm-roberta-large-squad2'
-name = 'deepset-xlm-roberta-large-squad2-maxlen512-stride128'
+model_checkpoint = '../../input/markussagen-xlm-roberta-longformer-base-4096'
+name = 'mark-xlm-roberta-long-base-maxlen4096-stride2048'
 out_dir = os.path.join('../model', name)
-folds = 10
 
 tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
-max_length = 512 # The maximum length of a feature (question and context) default 384
-doc_stride = 128 # The authorized overlap between two part of the context when splitting it is needed. default 128
+max_length = 4096 # The maximum length of a feature (question and context) default 384
+doc_stride = 2048 # The authorized overlap between two part of the context when splitting it is needed. default 128
 pad_on_right = tokenizer.padding_side == "right"
 print(max_length, doc_stride)
 
 train = pd.read_csv('../../input/chaii-hindi-and-tamil-question-answering/train_folds.csv')
 train['answers'] = train[['answer_start', 'answer_text']].apply(convert_answers, axis=1)
 
+folds = 10
 oof_scores = np.zeros(folds)
 for fold in range(folds):
     fold_out_dir = os.path.join(out_dir, f'fold{fold}')
-    args = TrainingArguments(output_dir=fold_out_dir,
-                        learning_rate=1e-5,
-                        warmup_ratio=0.2,
-                        gradient_accumulation_steps=4,
-                        per_device_train_batch_size=8,
-                        per_device_eval_batch_size=8,
-                        num_train_epochs=3,
-                        weight_decay=0.01,
-                        fp16=True,
-                        report_to='tensorboard',
-                        load_best_model_at_end=True,
-                        evaluation_strategy="steps",
-                        eval_steps=100,
-                        dataloader_num_workers=8,
-                        save_total_limit=1,
-                        save_strategy='steps',
-                        save_steps=100,
-                        disable_tqdm=True,
+    args = TrainingArguments(**hyp,
+                        output_dir=fold_out_dir,
                         logging_dir=f'../runs/{name}_fold{fold}',
-                        dataloader_pin_memory=False,
-                        log_level='info'
                         )
 
     print(f'running fold {fold}')
@@ -100,3 +104,4 @@ for fold in range(folds):
 
 print(f'cv jaccard: {oof_scores.mean()}')
 log_score(out_dir, oof_scores.mean())
+log_hyp(out_dir, hyp)

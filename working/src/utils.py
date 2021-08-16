@@ -3,6 +3,11 @@ import pandas as pd
 from tqdm.auto import tqdm
 import collections
 import os
+import json
+
+def log_hyp(out_dir, hyp):
+    with open(os.path.join(out_dir, 'hyp.txt'), 'w') as f:
+        json.dump(hyp, f, indent=4)
 
 def log_score(out_dir, score):
     with open(os.path.join(out_dir, 'score.txt'), 'w') as f:

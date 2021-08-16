@@ -1,0 +1,137 @@
+Mon Aug 16 14:26:53 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:3D:00.0 Off |                  N/A |
+| 43%   30C    P0    36W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+3.8.11 (default, Aug  3 2021, 15:09:35) 
+[GCC 7.5.0]
+512 128
+running fold 0
+train/val samples: 1002/112
+{'eval_loss': 0.31632858514785767, 'eval_runtime': 6.7537, 'eval_samples_per_second': 144.81, 'eval_steps_per_second': 6.663, 'epoch': 0.99}
+{'eval_loss': 0.26969727873802185, 'eval_runtime': 6.6955, 'eval_samples_per_second': 146.068, 'eval_steps_per_second': 6.721, 'epoch': 1.99}
+{'eval_loss': 0.26137298345565796, 'eval_runtime': 6.5794, 'eval_samples_per_second': 148.646, 'eval_steps_per_second': 6.84, 'epoch': 2.99}
+{'eval_loss': 0.2747911214828491, 'eval_runtime': 6.8052, 'eval_samples_per_second': 143.714, 'eval_steps_per_second': 6.613, 'epoch': 3.99}
+{'loss': 0.3327, 'learning_rate': 3.5000000000000004e-07, 'epoch': 4.99}
+{'eval_loss': 0.2913598120212555, 'eval_runtime': 6.6985, 'eval_samples_per_second': 146.003, 'eval_steps_per_second': 6.718, 'epoch': 4.99}
+{'train_runtime': 671.1835, 'train_samples_per_second': 65.966, 'train_steps_per_second': 0.745, 'train_loss': 0.3326700134277344, 'epoch': 4.99}
+Post-processing 112 example predictions split into 978 features.
+fold 0 jaccard: 0.6562127976190476
+running fold 1
+train/val samples: 1002/112
+{'eval_loss': 0.4675953984260559, 'eval_runtime': 6.678, 'eval_samples_per_second': 142.409, 'eval_steps_per_second': 6.589, 'epoch': 0.99}
+{'eval_loss': 0.3854941725730896, 'eval_runtime': 6.6462, 'eval_samples_per_second': 143.09, 'eval_steps_per_second': 6.62, 'epoch': 1.98}
+{'eval_loss': 0.3876800239086151, 'eval_runtime': 6.6311, 'eval_samples_per_second': 143.416, 'eval_steps_per_second': 6.635, 'epoch': 2.97}
+{'eval_loss': 0.4235355854034424, 'eval_runtime': 6.6708, 'eval_samples_per_second': 142.562, 'eval_steps_per_second': 6.596, 'epoch': 3.96}
+{'loss': 0.3484, 'learning_rate': 6.435643564356436e-07, 'epoch': 4.95}
+{'eval_loss': 0.45398810505867004, 'eval_runtime': 6.4934, 'eval_samples_per_second': 146.456, 'eval_steps_per_second': 6.776, 'epoch': 4.95}
+{'train_runtime': 673.6605, 'train_samples_per_second': 65.923, 'train_steps_per_second': 0.75, 'train_loss': 0.34723253675026466, 'epoch': 5.0}
+Post-processing 112 example predictions split into 951 features.
+fold 1 jaccard: 0.5611111111111111
+running fold 2
+train/val samples: 1002/112
+{'eval_loss': 0.45451486110687256, 'eval_runtime': 6.5172, 'eval_samples_per_second': 144.695, 'eval_steps_per_second': 6.598, 'epoch': 0.99}
+{'eval_loss': 0.4058088958263397, 'eval_runtime': 6.4685, 'eval_samples_per_second': 145.783, 'eval_steps_per_second': 6.648, 'epoch': 1.98}
+{'eval_loss': 0.4455668330192566, 'eval_runtime': 6.525, 'eval_samples_per_second': 144.52, 'eval_steps_per_second': 6.59, 'epoch': 2.97}
+{'eval_loss': 0.44458580017089844, 'eval_runtime': 6.4145, 'eval_samples_per_second': 147.01, 'eval_steps_per_second': 6.704, 'epoch': 3.96}
+{'loss': 0.2891, 'learning_rate': 4.950495049504951e-07, 'epoch': 4.95}
+{'eval_loss': 0.46164682507514954, 'eval_runtime': 6.5015, 'eval_samples_per_second': 145.042, 'eval_steps_per_second': 6.614, 'epoch': 4.95}
+{'train_runtime': 675.0852, 'train_samples_per_second': 65.844, 'train_steps_per_second': 0.748, 'train_loss': 0.28723779963974905, 'epoch': 5.0}
+Post-processing 112 example predictions split into 943 features.
+fold 2 jaccard: 0.5393462688105546
+running fold 3
+train/val samples: 1002/112
+{'eval_loss': 0.322073757648468, 'eval_runtime': 7.1649, 'eval_samples_per_second': 146.827, 'eval_steps_per_second': 6.699, 'epoch': 1.0}
+{'eval_loss': 0.32152095437049866, 'eval_runtime': 7.1317, 'eval_samples_per_second': 147.51, 'eval_steps_per_second': 6.731, 'epoch': 2.0}
+{'eval_loss': 0.31546083092689514, 'eval_runtime': 7.1326, 'eval_samples_per_second': 147.492, 'eval_steps_per_second': 6.73, 'epoch': 3.0}
+{'eval_loss': 0.33102744817733765, 'eval_runtime': 7.1757, 'eval_samples_per_second': 146.606, 'eval_steps_per_second': 6.689, 'epoch': 4.0}
+{'loss': 0.3075, 'learning_rate': 2.5000000000000004e-07, 'epoch': 5.0}
+{'eval_loss': 0.35930323600769043, 'eval_runtime': 7.1376, 'eval_samples_per_second': 147.388, 'eval_steps_per_second': 6.725, 'epoch': 5.0}
+{'train_runtime': 670.2683, 'train_samples_per_second': 65.504, 'train_steps_per_second': 0.746, 'train_loss': 0.30752410888671877, 'epoch': 5.0}
+Post-processing 112 example predictions split into 1052 features.
+fold 3 jaccard: 0.5990142210730446
+running fold 4
+train/val samples: 1003/111
+{'eval_loss': 0.36417296528816223, 'eval_runtime': 6.2737, 'eval_samples_per_second': 141.703, 'eval_steps_per_second': 6.535, 'epoch': 0.98}
+{'eval_loss': 0.34596776962280273, 'eval_runtime': 6.3024, 'eval_samples_per_second': 141.058, 'eval_steps_per_second': 6.505, 'epoch': 1.97}
+{'eval_loss': 0.38282719254493713, 'eval_runtime': 6.2883, 'eval_samples_per_second': 141.373, 'eval_steps_per_second': 6.52, 'epoch': 2.96}
+{'eval_loss': 0.36455896496772766, 'eval_runtime': 6.2221, 'eval_samples_per_second': 142.879, 'eval_steps_per_second': 6.589, 'epoch': 3.95}
+{'loss': 0.3051, 'learning_rate': 5.940594059405941e-07, 'epoch': 4.94}
+{'eval_loss': 0.38172581791877747, 'eval_runtime': 6.2277, 'eval_samples_per_second': 142.749, 'eval_steps_per_second': 6.583, 'epoch': 4.94}
+{'train_runtime': 676.6646, 'train_samples_per_second': 66.089, 'train_steps_per_second': 0.746, 'train_loss': 0.303951363870413, 'epoch': 4.99}
+Post-processing 111 example predictions split into 889 features.
+fold 4 jaccard: 0.6305214305214305
+running fold 5
+train/val samples: 1003/111
+{'eval_loss': 0.3627466857433319, 'eval_runtime': 6.757, 'eval_samples_per_second': 145.182, 'eval_steps_per_second': 6.66, 'epoch': 0.99}
+{'eval_loss': 0.3390171527862549, 'eval_runtime': 6.7048, 'eval_samples_per_second': 146.313, 'eval_steps_per_second': 6.712, 'epoch': 1.99}
+{'eval_loss': 0.34846651554107666, 'eval_runtime': 6.7595, 'eval_samples_per_second': 145.13, 'eval_steps_per_second': 6.657, 'epoch': 2.99}
+{'eval_loss': 0.35415327548980713, 'eval_runtime': 6.7384, 'eval_samples_per_second': 145.583, 'eval_steps_per_second': 6.678, 'epoch': 3.99}
+{'loss': 0.3171, 'learning_rate': 3.0000000000000004e-07, 'epoch': 4.99}
+{'eval_loss': 0.38081368803977966, 'eval_runtime': 6.6584, 'eval_samples_per_second': 147.333, 'eval_steps_per_second': 6.758, 'epoch': 4.99}
+{'train_runtime': 673.5889, 'train_samples_per_second': 65.708, 'train_steps_per_second': 0.742, 'train_loss': 0.31714202880859377, 'epoch': 4.99}
+Post-processing 111 example predictions split into 981 features.
+fold 5 jaccard: 0.599045474045474
+running fold 6
+train/val samples: 1003/111
+{'eval_loss': 0.42654871940612793, 'eval_runtime': 7.544, 'eval_samples_per_second': 146.871, 'eval_steps_per_second': 6.76, 'epoch': 1.01}
+{'eval_loss': 0.3442051112651825, 'eval_runtime': 7.4663, 'eval_samples_per_second': 148.401, 'eval_steps_per_second': 6.831, 'epoch': 2.02}
+{'eval_loss': 0.345557302236557, 'eval_runtime': 7.4136, 'eval_samples_per_second': 149.455, 'eval_steps_per_second': 6.879, 'epoch': 3.03}
+{'eval_loss': 0.3711351454257965, 'eval_runtime': 7.4827, 'eval_samples_per_second': 148.076, 'eval_steps_per_second': 6.816, 'epoch': 4.04}
+{'train_runtime': 654.4704, 'train_samples_per_second': 66.657, 'train_steps_per_second': 0.756, 'train_loss': 0.3145154548413826, 'epoch': 5.0}
+Post-processing 111 example predictions split into 1108 features.
+fold 6 jaccard: 0.5895323895323894
+running fold 7
+train/val samples: 1003/111
+{'eval_loss': 0.3991195261478424, 'eval_runtime': 7.027, 'eval_samples_per_second': 148.57, 'eval_steps_per_second': 6.831, 'epoch': 1.0}
+{'eval_loss': 0.3902890682220459, 'eval_runtime': 7.1345, 'eval_samples_per_second': 146.331, 'eval_steps_per_second': 6.728, 'epoch': 2.0}
+{'eval_loss': 0.40335118770599365, 'eval_runtime': 7.024, 'eval_samples_per_second': 148.634, 'eval_steps_per_second': 6.834, 'epoch': 3.0}
+{'eval_loss': 0.4508877992630005, 'eval_runtime': 7.0735, 'eval_samples_per_second': 147.593, 'eval_steps_per_second': 6.786, 'epoch': 4.0}
+{'loss': 0.3168, 'learning_rate': 3.5000000000000004e-07, 'epoch': 5.0}
+{'eval_loss': 0.4692055583000183, 'eval_runtime': 7.1007, 'eval_samples_per_second': 147.027, 'eval_steps_per_second': 6.76, 'epoch': 5.0}
+{'train_runtime': 671.6157, 'train_samples_per_second': 65.432, 'train_steps_per_second': 0.744, 'train_loss': 0.3168013000488281, 'epoch': 5.0}
+Post-processing 111 example predictions split into 1044 features.
+fold 7 jaccard: 0.5712569712569712
+running fold 8
+train/val samples: 1003/111
+{'eval_loss': 0.3998106122016907, 'eval_runtime': 7.3115, 'eval_samples_per_second': 148.532, 'eval_steps_per_second': 6.838, 'epoch': 1.01}
+{'eval_loss': 0.34718796610832214, 'eval_runtime': 7.3016, 'eval_samples_per_second': 148.735, 'eval_steps_per_second': 6.848, 'epoch': 2.02}
+{'eval_loss': 0.35658320784568787, 'eval_runtime': 7.2966, 'eval_samples_per_second': 148.837, 'eval_steps_per_second': 6.853, 'epoch': 3.03}
+{'eval_loss': 0.3757554292678833, 'eval_runtime': 7.3337, 'eval_samples_per_second': 148.083, 'eval_steps_per_second': 6.818, 'epoch': 4.04}
+{'train_runtime': 655.7744, 'train_samples_per_second': 66.692, 'train_steps_per_second': 0.755, 'train_loss': 0.3159961122455019, 'epoch': 4.99}
+Post-processing 111 example predictions split into 1086 features.
+fold 8 jaccard: 0.6404976404976406
+running fold 9
+train/val samples: 1003/111
+{'eval_loss': 0.46880990266799927, 'eval_runtime': 5.6298, 'eval_samples_per_second': 142.279, 'eval_steps_per_second': 6.572, 'epoch': 0.97}
+{'eval_loss': 0.4245348274707794, 'eval_runtime': 5.7504, 'eval_samples_per_second': 139.295, 'eval_steps_per_second': 6.434, 'epoch': 1.95}
+{'eval_loss': 0.48185473680496216, 'eval_runtime': 5.75, 'eval_samples_per_second': 139.305, 'eval_steps_per_second': 6.435, 'epoch': 2.93}
+{'eval_loss': 0.5065337419509888, 'eval_runtime': 5.7588, 'eval_samples_per_second': 139.092, 'eval_steps_per_second': 6.425, 'epoch': 3.91}
+{'loss': 0.3257, 'learning_rate': 7.843137254901962e-07, 'epoch': 4.9}
+{'eval_loss': 0.5175371766090393, 'eval_runtime': 5.7175, 'eval_samples_per_second': 140.097, 'eval_steps_per_second': 6.471, 'epoch': 4.9}
+{'train_runtime': 678.7405, 'train_samples_per_second': 66.535, 'train_steps_per_second': 0.751, 'train_loss': 0.32287200291951496, 'epoch': 4.99}
+Post-processing 111 example predictions split into 801 features.
+fold 9 jaccard: 0.5521274521274521
+cv jaccard: 0.5938665756595116
+FINISH
