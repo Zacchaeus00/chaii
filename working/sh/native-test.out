@@ -1,0 +1,101 @@
+Tue Aug 17 22:23:04 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:3E:00.0 Off |                  N/A |
+| 43%   40C    P0    34W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+fold 0
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+initial vloss 1.3424706707398097, score 0.5254512367744111
+language
+hindi    0.532960
+tamil    0.376091
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 0, tloss 1.295754740825929, vloss 1.252477567161097, score 0.4834293343933066
+language
+hindi    0.486341
+tamil    0.425518
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 1, tloss 1.1576763891488417, vloss 1.0830963253586863, score 0.49919170952928216
+language
+hindi    0.503355
+tamil    0.416381
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 2, tloss 0.8294186158306923, vloss 0.985537249646667, score 0.5558155992481543
+language
+hindi    0.563169
+tamil    0.409537
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 3, tloss 0.5227129828016102, vloss 1.020896523906332, score 0.5697942362350873
+language
+hindi    0.575500
+tamil    0.456289
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 4, tloss 1.002831366549178, vloss 1.184427084039069, score 0.4923500119893522
+language
+hindi    0.498892
+tamil    0.362208
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 5, tloss 0.9701651355530743, vloss 1.181624012067914, score 0.5315336248451379
+language
+hindi    0.555537
+tamil    0.054054
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 6, tloss 0.5821419071263345, vloss 1.2624148168704576, score 0.5425427792690781
+language
+hindi    0.567100
+tamil    0.054054
+Name: jaccard, dtype: float64
+early stopping.
+fold 1
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+initial vloss 1.3315376294314438, score 0.5503142167568003
+language
+hindi    0.562082
+tamil    0.316222
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 0, tloss 1.236483721786903, vloss 1.129495308490087, score 0.5213519676130356
+language
+hindi    0.528062
+tamil    0.387870
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 1, tloss 1.1104029744165018, vloss 1.0351141448139298, score 0.5340400609601937
+language
+hindi    0.538287
+tamil    0.449566
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 2, tloss 0.7971228585423281, vloss 0.9786980458475808, score 0.5752494789420747
+language
+hindi    0.582728
+tamil    0.426480
+Name: jaccard, dtype: float64

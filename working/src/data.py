@@ -8,7 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 import transformers
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 from datasets import Dataset
-from utils import prepare_train_features, prepare_validation_features, convert_answers
+from utils import prepare_train_features, prepare_validation_features, convert_answers, jaccard, postprocess_qa_predictions
 
 class ChaiiDataRetriever:
     def __init__(self, model_name, train_path, max_length, doc_stride, batch_size):
@@ -37,15 +37,32 @@ class ChaiiDataRetriever:
                                                         batched=True,
                                                         remove_columns=self.valid_dataset.column_names
                                                         )
-        self.valid_feats_small = self.validation_features.map(lambda example: example, remove_columns=['example_id', 'offset_mapping'])
         self.tokenized_train_ds.set_format(type='torch')
         self.tokenized_valid_ds.set_format(type='torch')
-        self.valid_feats_small.set_format(type='torch')
     def train_dataloader(self):
-        return DataLoader(self.tokenized_train_ds, batch_size=self.batch_size, shuffle=True)
+        return DataLoader(self.tokenized_train_ds, batch_size=self.batch_size, shuffle=True, num_workers=8)
 
     def val_dataloader(self):
-        return DataLoader(self.tokenized_valid_ds, batch_size=self.batch_size)
+        return DataLoader(self.tokenized_valid_ds, batch_size=self.batch_size, num_workers=8)
 
     def predict_dataloader(self):
-        return DataLoader(self.valid_feats_small, batch_size=self.batch_size)
+        valid_feats_small = self.validation_features.map(lambda example: example, remove_columns=['example_id', 'offset_mapping'])
+        valid_feats_small.set_format(type='torch')
+        return DataLoader(valid_feats_small, batch_size=self.batch_size, num_workers=8)
+
+    def evaluate_jaccard(self, raw_predictions, n_best_size=20, max_answer_length=30):
+        '''
+        raw_predictions: [start_logits, end_logits]
+        shape: (N, L)
+        '''
+        final_predictions = postprocess_qa_predictions(self.valid_dataset, 
+                                                        self.validation_features, 
+                                                        raw_predictions,
+                                                        self.tokenizer,
+                                                        n_best_size,
+                                                        max_answer_length)
+        df = pd.DataFrame({'id': final_predictions.keys(), 'PredictionString': final_predictions.values()})
+        df = df.merge(self.train, on=['id'], how='left')
+        df['jaccard'] = df[['answer_text', 'PredictionString']].apply(jaccard, axis=1)
+        return df.jaccard.mean(), df.groupby('language')['jaccard'].mean()
+

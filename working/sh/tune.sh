@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=native-test         # 任务名
+#SBATCH --job-name=tune         # 任务名
 #SBATCH --nodes=1                   # 这里不用动 多节点脚本请查官方文档
 #SBATCH --ntasks=1                  # 这里不用动 多任务脚本请查官方文档
 #SBATCH --cpus-per-task=8           # 要几块CPU (一般4块就够用了)

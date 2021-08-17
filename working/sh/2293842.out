@@ -1,0 +1,216 @@
+Tue Aug 17 23:16:39 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:46:00.0 Off |                  N/A |
+| 42%   28C    P0    44W / 350W |      0MiB / 24268MiB |      3%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+----------------------------------------
+xrob-base-bs24-lr2e-5-madgrad-nosched
+----------------------------------------
+fold 0
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+initial vloss 1.3424706707398097, score 0.5254512367744111
+language
+hindi    0.532960
+tamil    0.376091
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 0, tloss 1.4609029955045687, vloss 1.1742074665509992, score 0.4814648361487924
+language
+hindi    0.489121
+tamil    0.329164
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 1, tloss 1.2191702701436933, vloss 1.2437361890657082, score 0.49818463592973045
+language
+hindi    0.504556
+tamil    0.371440
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 2, tloss 1.0568089819016773, vloss 1.1849552240390848, score 0.5038512498544077
+language
+hindi    0.507591
+tamil    0.429470
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 3, tloss 0.9247736975239129, vloss 1.151636947531693, score 0.4938299823200068
+language
+hindi    0.496218
+tamil    0.446332
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 4, tloss 0.8885618246287004, vloss 1.2294804959027614, score 0.4986297766234594
+language
+hindi    0.502812
+tamil    0.415442
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3444 features.
+epoch 5, tloss 0.7533207499918622, vloss 1.3029560904898163, score 0.4894651946514828
+language
+hindi    0.491094
+tamil    0.457060
+Name: jaccard, dtype: float64
+early stopping.
+fold 1
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+initial vloss 1.3315376294314438, score 0.5503142167568003
+language
+hindi    0.562082
+tamil    0.316222
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 0, tloss 1.6658063539200358, vloss 1.7476187106882426, score 0.29819689888200324
+language
+hindi    0.310559
+tamil    0.052284
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 1, tloss 1.3381605637777183, vloss 1.2173623075933322, score 0.495541013913832
+language
+hindi    0.500780
+tamil    0.391329
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 2, tloss 1.0877294088713825, vloss 1.1891270998257695, score 0.503558493824098
+language
+hindi    0.508106
+tamil    0.413095
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 3, tloss 0.9867317666713562, vloss 1.1600359363534243, score 0.48469640375937684
+language
+hindi    0.491054
+tamil    0.358237
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 4, tloss 0.9007521615777578, vloss 1.213884721972471, score 0.5044442303644284
+language
+hindi    0.510616
+tamil    0.381676
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 5, tloss 0.8050979138351977, vloss 1.2250852286287233, score 0.5012229598299143
+language
+hindi    0.507794
+tamil    0.370512
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 6, tloss 0.6970863297271231, vloss 1.2947259538060596, score 0.5133552351006312
+language
+hindi    0.518866
+tamil    0.403732
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 7, tloss 0.6159451798820454, vloss 1.4368529665277254, score 0.4855691814872611
+language
+hindi    0.491556
+tamil    0.366474
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 8, tloss 0.6409896435345419, vloss 1.451064901236537, score 0.5033819325450445
+language
+hindi    0.511613
+tamil    0.339651
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3384 features.
+epoch 9, tloss 0.5343647512814237, vloss 1.3966416881918404, score 0.49556323724545304
+language
+hindi    0.502805
+tamil    0.351512
+Name: jaccard, dtype: float64
+early stopping.
+fold 2
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+initial vloss 1.2426805906718776, score 0.5466063806364831
+language
+hindi    0.554905
+tamil    0.381532
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+epoch 0, tloss 1.4546376021039633, vloss 1.2399079762158856, score 0.4582168524908165
+language
+hindi    0.460167
+tamil    0.419434
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+epoch 1, tloss 1.330237919547418, vloss 1.2109419786731803, score 0.42437199713354223
+language
+hindi    0.427050
+tamil    0.371107
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+epoch 2, tloss 1.1665156757852748, vloss 1.0487781892320323, score 0.48395889807695064
+language
+hindi    0.486662
+tamil    0.430180
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+epoch 3, tloss 1.0207227940669492, vloss 1.0854090520571316, score 0.4851586062018986
+language
+hindi    0.486167
+tamil    0.465090
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+epoch 4, tloss 0.904968216988799, vloss 1.1644125876167128, score 0.5070569573886025
+language
+hindi    0.511488
+tamil    0.418919
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+epoch 5, tloss 0.8027600508123689, vloss 1.154255180902058, score 0.47782448570298336
+language
+hindi    0.477389
+tamil    0.486486
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+epoch 6, tloss 0.9877466486359998, vloss 1.1412316715224615, score 0.4866980463657919
+language
+hindi    0.491906
+tamil    0.383108
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3704 features.
+epoch 7, tloss 0.7224898255474825, vloss 1.1649869243253863, score 0.47181432511732835
+language
+hindi    0.472039
+tamil    0.467342
+Name: jaccard, dtype: float64
+early stopping.
+fold 3
+post-processing qa predictions: 1546 example predictions split into 3292 features.
+initial vloss 1.3951203369575997, score 0.5438586732217987
+language
+hindi    0.552870
+tamil    0.362035
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3292 features.
+epoch 0, tloss 1.4318856388844292, vloss 1.198389657948544, score 0.4887688172700668
+language
+hindi    0.494956
+tamil    0.363927
+Name: jaccard, dtype: float64
+post-processing qa predictions: 1546 example predictions split into 3292 features.
+epoch 1, tloss 1.1996791992208053, vloss 1.1946474862237717, score 0.5055960143153816
+language
+hindi    0.509959
+tamil    0.417562
+Name: jaccard, dtype: float64

@@ -165,7 +165,7 @@ def postprocess_qa_predictions(examples, features, raw_predictions, tokenizer, n
     predictions = collections.OrderedDict()
 
     # Logging.
-    print(f"Post-processing {len(examples)} example predictions split into {len(features)} features.")
+    print(f"post-processing qa predictions: {len(examples)} example predictions split into {len(features)} features.")
 
     # Let's loop over all the examples!
     for example_index, example in enumerate(tqdm(examples)):
