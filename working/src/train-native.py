@@ -10,19 +10,24 @@ from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 from data import ChaiiDataRetriever
 from madgrad import MADGRAD
 from engine import Engine
-from utils import log_scores
+from utils import seed_everything, log_scores
+import datetime
+seed_everything(42)
 model_checkpoint = '../../input/deepset-xlm-roberta-base-squad2'
 train_path = '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds.csv'
-experiment_name = 'xrob-base-bs24-lr2e-5-adam-nosched'
-print('-'*40)
-print(experiment_name)
-print('-'*40)
+experiment_name = 'xrob-base-bs24-lr5e-6-madgrad'
 out_dir = f'../model/{experiment_name}/'
 
 max_length = 512
 doc_stride = 128
 batch_size = 24
-lr = 2e-5
+lr = 5e-6
+
+print('-'*40)
+print(datetime.datetime.now())
+print(experiment_name)
+print(f'lr {lr}, bs {batch_size}')
+print('-'*40)
 
 data_retriever = ChaiiDataRetriever(model_checkpoint, train_path, max_length, doc_stride, batch_size)
 folds = 5
@@ -62,15 +67,16 @@ for fold in range(folds):
         print(lang_scores)
         if score > best_score:
             best_score = score
-            # engine.save(out_dir+f'fold{fold}.pt')
+            engine.save(out_dir+f'fold{fold}.pt')
             es_counter = 0
         else:
             if es_counter == es_patience:
                 print('early stopping.')
                 break
+    print(f'fold {fold} best score {best_score}')
     oof_scores[fold] = best_score
 print(f'{folds}-fold cv jaccard {oof_scores.mean()}')
-# log_scores(out_dir, oof_scores)
+log_scores(out_dir, oof_scores)
 
 
     

@@ -1,0 +1,450 @@
+DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
+  0%|          | 0/7 [00:00<?, ?ba/s] 14%|█▍        | 1/7 [00:31<03:09, 31.66s/ba] 29%|██▊       | 2/7 [00:33<01:09, 13.92s/ba] 43%|████▎     | 3/7 [00:34<00:32,  8.24s/ba] 57%|█████▋    | 4/7 [00:36<00:16,  5.60s/ba] 71%|███████▏  | 5/7 [00:37<00:08,  4.05s/ba] 86%|████████▌ | 6/7 [00:38<00:03,  3.12s/ba]100%|██████████| 7/7 [00:39<00:00,  2.18s/ba]100%|██████████| 7/7 [00:39<00:00,  5.58s/ba]
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:08<00:08,  8.94s/ba]100%|██████████| 2/2 [00:09<00:00,  4.09s/ba]100%|██████████| 2/2 [00:09<00:00,  4.82s/ba]
+Using amp fp16 backend
+***** Running training *****
+  Num examples = 13756
+  Num Epochs = 5
+  Instantaneous batch size per device = 24
+  Total train batch size (w. parallel, distributed & accumulation) = 24
+  Gradient Accumulation steps = 1
+  Total optimization steps = 2870
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-100
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-100/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-100/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-100/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-100/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1100] due to args.save_total_limit
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2800] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-200
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-200/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-200/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-200/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-200/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-300
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-300/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-300/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-300/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-300/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-400
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-400/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-400/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-400/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-400/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-500
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-500/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-500/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-500/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-500/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-300] due to args.save_total_limit
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-400] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-600
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-600/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-600/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-600/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-600/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-700
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-700/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-700/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-700/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-700/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-600] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-800
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-800/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-800/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-800/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-800/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-700] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-900
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-900/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-900/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-900/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-900/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-500] due to args.save_total_limit
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-800] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1000
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1000/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1000/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1000/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1000/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1100
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1100/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1100/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1100/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1100/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-900] due to args.save_total_limit
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1000] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1200
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1200/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1200/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1200/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1200/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1300
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1300/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1300/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1300/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1300/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1400
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1400/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1400/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1400/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1400/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1300] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1500
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1500/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1500/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1500/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1500/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1400] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1600
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1600/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1600/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1600/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1600/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1500] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1700
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1700/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1700/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1700/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1700/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1600] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1800
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1800/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1800/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1800/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1800/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1700] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1900
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1900/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1900/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1900/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1900/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1800] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2000
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2000/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2000/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2000/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2000/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1900] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2100
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2100/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2100/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2100/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2100/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2000] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2200
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2200/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2200/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2200/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2200/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2300
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2300/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2300/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2300/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2300/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2400
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2400/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2400/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2400/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2400/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2300] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2500
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2500/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2500/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2500/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2500/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2400] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2600
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2600/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2600/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2600/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2600/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2500] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2700
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2700/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2700/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2700/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2700/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2600] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3444
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2800
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2800/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2800/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2800/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2800/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold0/checkpoint-2700] due to args.save_total_limit
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+Loading best model from ../model/hf-trainer-merged-xrob-base/fold0/checkpoint-1100 (score: 0.9180974364280701).
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:13<00:13, 13.40s/ba]100%|██████████| 2/2 [00:14<00:00,  6.22s/ba]100%|██████████| 2/2 [00:14<00:00,  7.30s/ba]
+  0%|          | 0/3444 [00:00<?, ?ex/s]  2%|▏         | 77/3444 [00:00<00:04, 767.78ex/s]  4%|▍         | 154/3444 [00:00<00:04, 756.62ex/s]  7%|▋         | 230/3444 [00:00<00:04, 753.03ex/s]  9%|▉         | 306/3444 [00:00<00:04, 753.56ex/s] 11%|█         | 382/3444 [00:00<00:04, 753.82ex/s] 13%|█▎        | 458/3444 [00:00<00:03, 749.86ex/s] 15%|█▌        | 533/3444 [00:00<00:03, 745.48ex/s] 18%|█▊        | 608/3444 [00:00<00:03, 746.55ex/s] 20%|█▉        | 683/3444 [00:00<00:03, 747.40ex/s] 22%|██▏       | 760/3444 [00:01<00:03, 752.36ex/s] 24%|██▍       | 836/3444 [00:01<00:03, 751.58ex/s] 26%|██▋       | 912/3444 [00:01<00:03, 752.93ex/s] 29%|██▊       | 988/3444 [00:01<00:03, 730.62ex/s] 31%|███       | 1062/3444 [00:01<00:03, 636.78ex/s] 33%|███▎      | 1137/3444 [00:01<00:03, 666.11ex/s] 35%|███▌      | 1213/3444 [00:01<00:03, 691.21ex/s] 37%|███▋      | 1289/3444 [00:01<00:03, 709.65ex/s] 40%|███▉      | 1365/3444 [00:01<00:02, 721.72ex/s] 42%|████▏     | 1441/3444 [00:01<00:02, 730.12ex/s] 44%|████▍     | 1516/3444 [00:02<00:02, 734.99ex/s] 46%|████▌     | 1592/3444 [00:02<00:02, 741.21ex/s] 48%|████▊     | 1668/3444 [00:02<00:02, 744.68ex/s] 51%|█████     | 1744/3444 [00:02<00:02, 746.27ex/s] 53%|█████▎    | 1820/3444 [00:02<00:02, 748.62ex/s] 55%|█████▌    | 1896/3444 [00:02<00:02, 749.45ex/s] 57%|█████▋    | 1972/3444 [00:02<00:01, 750.79ex/s] 59%|█████▉    | 2048/3444 [00:02<00:01, 703.00ex/s] 63%|██████▎   | 2154/3444 [00:02<00:01, 803.23ex/s] 66%|██████▌   | 2266/3444 [00:03<00:01, 891.95ex/s] 69%|██████▉   | 2379/3444 [00:03<00:01, 959.55ex/s] 72%|███████▏  | 2492/3444 [00:03<00:00, 1007.23ex/s] 76%|███████▌  | 2601/3444 [00:03<00:00, 1028.31ex/s] 79%|███████▊  | 2710/3444 [00:03<00:00, 1046.44ex/s] 82%|████████▏ | 2816/3444 [00:03<00:00, 1046.78ex/s] 85%|████████▌ | 2930/3444 [00:03<00:00, 1074.26ex/s] 88%|████████▊ | 3038/3444 [00:03<00:00, 952.17ex/s]  92%|█████████▏| 3159/3444 [00:03<00:00, 1022.52ex/s] 95%|█████████▌| 3281/3444 [00:03<00:00, 1076.77ex/s] 99%|█████████▊| 3394/3444 [00:04<00:00, 1091.00ex/s]100%|██████████| 3444/3444 [00:04<00:00, 839.46ex/s] 
+***** Running Prediction *****
+  Num examples = 3444
+  Batch size = 24
+  0%|          | 0/1546 [00:00<?, ?it/s]  0%|          | 3/1546 [00:00<01:04, 23.85it/s]  1%|          | 8/1546 [00:00<00:41, 37.22it/s]  1%|          | 14/1546 [00:00<00:35, 42.83it/s]  1%|          | 19/1546 [00:00<00:38, 39.65it/s]  2%|▏         | 24/1546 [00:00<00:55, 27.35it/s]  2%|▏         | 30/1546 [00:00<00:47, 31.77it/s]  2%|▏         | 37/1546 [00:01<00:39, 38.15it/s]  3%|▎         | 42/1546 [00:01<00:39, 38.10it/s]  3%|▎         | 47/1546 [00:01<00:47, 31.75it/s]  3%|▎         | 51/1546 [00:01<00:51, 29.05it/s]  4%|▎         | 55/1546 [00:01<00:50, 29.27it/s]  4%|▍         | 60/1546 [00:01<00:54, 27.51it/s]  4%|▍         | 65/1546 [00:02<00:47, 31.34it/s]  5%|▍         | 71/1546 [00:02<00:39, 37.19it/s]  5%|▍         | 77/1546 [00:02<00:37, 39.42it/s]  5%|▌         | 82/1546 [00:02<00:35, 41.22it/s]  6%|▌         | 87/1546 [00:02<00:36, 40.06it/s]  6%|▋         | 97/1546 [00:02<00:28, 50.80it/s]  7%|▋         | 103/1546 [00:02<00:34, 41.24it/s]  7%|▋         | 108/1546 [00:03<00:38, 37.66it/s]  7%|▋         | 113/1546 [00:03<00:39, 36.71it/s]  8%|▊         | 123/1546 [00:03<00:28, 50.13it/s]  8%|▊         | 129/1546 [00:03<00:29, 48.68it/s]  9%|▊         | 135/1546 [00:03<00:29, 48.56it/s]  9%|▉         | 141/1546 [00:03<00:31, 45.01it/s]  9%|▉         | 146/1546 [00:03<00:31, 44.59it/s] 10%|▉         | 153/1546 [00:03<00:29, 47.77it/s] 10%|█         | 158/1546 [00:04<00:31, 44.24it/s] 11%|█         | 163/1546 [00:04<00:34, 40.16it/s] 11%|█         | 169/1546 [00:04<00:32, 42.36it/s] 11%|█▏        | 174/1546 [00:04<00:32, 41.94it/s] 12%|█▏        | 180/1546 [00:04<00:31, 43.86it/s] 12%|█▏        | 185/1546 [00:04<00:30, 45.11it/s] 12%|█▏        | 190/1546 [00:04<00:31, 43.51it/s] 13%|█▎        | 197/1546 [00:04<00:31, 43.48it/s] 13%|█▎        | 203/1546 [00:05<00:29, 45.80it/s] 13%|█▎        | 208/1546 [00:05<00:31, 42.50it/s] 14%|█▍        | 213/1546 [00:05<00:32, 41.10it/s] 14%|█▍        | 218/1546 [00:05<00:33, 39.33it/s] 14%|█▍        | 223/1546 [00:05<00:31, 41.69it/s] 17%|█▋        | 265/1546 [00:05<00:09, 137.70it/s] 20%|█▉        | 306/1546 [00:05<00:05, 209.12it/s] 23%|██▎       | 348/1546 [00:05<00:04, 266.02it/s] 25%|██▍       | 382/1546 [00:06<00:04, 286.53it/s] 28%|██▊       | 429/1546 [00:06<00:03, 337.27it/s] 31%|███       | 476/1546 [00:06<00:02, 372.57it/s] 33%|███▎      | 515/1546 [00:06<00:02, 362.82it/s] 36%|███▋      | 563/1546 [00:06<00:02, 394.14it/s] 39%|███▉      | 606/1546 [00:06<00:02, 404.09it/s] 43%|████▎     | 658/1546 [00:06<00:02, 436.96it/s] 45%|████▌     | 703/1546 [00:06<00:02, 410.65it/s] 48%|████▊     | 745/1546 [00:06<00:01, 410.16it/s] 51%|█████     | 787/1546 [00:06<00:01, 393.33it/s] 54%|█████▍    | 833/1546 [00:07<00:01, 409.98it/s] 57%|█████▋    | 875/1546 [00:07<00:01, 395.07it/s] 59%|█████▉    | 919/1546 [00:07<00:01, 403.21it/s] 62%|██████▏   | 960/1546 [00:07<00:01, 394.54it/s] 65%|██████▍   | 1001/1546 [00:07<00:01, 398.09it/s] 68%|██████▊   | 1050/1546 [00:07<00:01, 423.95it/s] 71%|███████   | 1093/1546 [00:07<00:01, 420.62it/s] 74%|███████▎  | 1139/1546 [00:07<00:00, 431.48it/s] 77%|███████▋  | 1192/1546 [00:07<00:00, 458.65it/s] 80%|████████  | 1238/1546 [00:08<00:00, 454.44it/s] 84%|████████▎ | 1292/1546 [00:08<00:00, 478.64it/s] 87%|████████▋ | 1347/1546 [00:08<00:00, 497.90it/s] 90%|█████████ | 1397/1546 [00:08<00:00, 480.62it/s] 94%|█████████▎| 1446/1546 [00:08<00:00, 479.67it/s] 97%|█████████▋| 1496/1546 [00:08<00:00, 484.52it/s]100%|██████████| 1546/1546 [00:08<00:00, 488.01it/s]100%|██████████| 1546/1546 [00:08<00:00, 179.06it/s]
+PyTorch: setting up devices
+  0%|          | 0/7 [00:00<?, ?ba/s] 14%|█▍        | 1/7 [00:32<03:14, 32.37s/ba] 29%|██▊       | 2/7 [00:33<01:11, 14.21s/ba] 43%|████▎     | 3/7 [00:35<00:33,  8.38s/ba] 57%|█████▋    | 4/7 [00:36<00:17,  5.68s/ba] 71%|███████▏  | 5/7 [00:38<00:08,  4.12s/ba] 86%|████████▌ | 6/7 [00:39<00:03,  3.13s/ba]100%|██████████| 7/7 [00:39<00:00,  2.18s/ba]100%|██████████| 7/7 [00:39<00:00,  5.66s/ba]
+  0%|          | 0/2 [00:00<?, ?ba/s] 50%|█████     | 1/2 [00:08<00:08,  8.21s/ba]100%|██████████| 2/2 [00:08<00:00,  3.80s/ba]100%|██████████| 2/2 [00:08<00:00,  4.46s/ba]
+loading configuration file ../../input/deepset-xlm-roberta-base-squad2/config.json
+Model config XLMRobertaConfig {
+  "_name_or_path": "deepset/xlm-roberta-base-squad2",
+  "architectures": [
+    "XLMRobertaForQuestionAnswering"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "language": "english",
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "xlm-roberta",
+  "name": "XLMRoberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.9.2",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 250002
+}
+
+loading weights file ../../input/deepset-xlm-roberta-base-squad2/pytorch_model.bin
+All model checkpoint weights were used when initializing XLMRobertaForQuestionAnswering.
+
+All the weights of XLMRobertaForQuestionAnswering were initialized from the model checkpoint at ../../input/deepset-xlm-roberta-base-squad2.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use XLMRobertaForQuestionAnswering for predictions without further training.
+Using amp fp16 backend
+***** Running training *****
+  Num examples = 13816
+  Num Epochs = 5
+  Instantaneous batch size per device = 24
+  Total train batch size (w. parallel, distributed & accumulation) = 24
+  Gradient Accumulation steps = 1
+  Total optimization steps = 2880
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-100
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-100/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-100/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-100/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-100/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-200
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-200/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-200/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-200/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-200/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-100] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-300
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-300/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-300/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-300/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-300/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-400
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-400/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-400/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-400/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-400/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-300] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-500
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-500/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-500/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-500/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-500/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-600
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-600/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-600/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-600/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-600/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-500] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-700
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-700/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-700/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-700/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-700/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-600] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-800
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-800/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-800/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-800/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-800/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-700] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-900
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-900/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-900/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-900/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-900/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-400] due to args.save_total_limit
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-800] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1000
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1000/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1000/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1000/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1000/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1100
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1100/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1100/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1100/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1100/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-900] due to args.save_total_limit
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1000] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1200
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1200/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1200/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1200/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1200/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1300
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1300/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1300/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1300/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1300/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1200] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24
+Saving model checkpoint to ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1400
+Configuration saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1400/config.json
+Model weights saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1400/pytorch_model.bin
+tokenizer config file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1400/tokenizer_config.json
+Special tokens file saved in ../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1400/special_tokens_map.json
+Deleting older checkpoint [../model/hf-trainer-merged-xrob-base/fold1/checkpoint-1300] due to args.save_total_limit
+***** Running Evaluation *****
+  Num examples = 3384
+  Batch size = 24

@@ -10,8 +10,13 @@ from utils import seed_everything, jaccard, convert_answers, prepare_train_featu
 import torch
 import shutil
 import sys
+import neptune.new as neptune
 import datetime
 seed_everything(42)
+run = neptune.init(project='zacchaeus14/chaii',
+                   api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI4M2M1YjczMy0xNzU0LTQwZTctYWZhZC04NjZjZmE0NjdhYWEifQ==',
+                   mode='offline',
+                   source_files=['*.py', '../sh/train.sh'])
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 hyp = {
     'learning_rate': 2e-5,
@@ -54,9 +59,8 @@ print(max_length, doc_stride)
 # train = pd.read_csv('../../input/chaii-hindi-and-tamil-question-answering/train_folds.csv')
 train = pd.read_csv('../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds.csv')
 train['answers'] = train[['answer_start', 'answer_text']].apply(convert_answers, axis=1)
-train['id'] = train.index
 
-folds = 5
+folds = 1
 oof_scores = np.zeros(folds)
 for fold in range(folds):
     fold_out_dir = os.path.join(out_dir, f'fold{fold}')
@@ -66,8 +70,8 @@ for fold in range(folds):
                         )
 
     print(f'running fold {fold}')
-    df_train = train[train['fold']!=fold].reset_index(drop=True)
-    df_valid = train[train['fold']==fold].reset_index(drop=True)
+    df_train = train[train['kfold']!=fold].reset_index(drop=True)
+    df_valid = train[train['kfold']==fold].reset_index(drop=True)
     print(f'train/val samples: {len(df_train)}/{len(df_valid)}')
     train_dataset = Dataset.from_pandas(df_train)
     valid_dataset = Dataset.from_pandas(df_valid)
@@ -115,3 +119,14 @@ for fold in range(folds):
 print(f'cv jaccard: {oof_scores.mean()}')
 log_scores(out_dir, oof_scores)
 log_hyp(out_dir, hyp)
+
+run['model_checkpoint'] = model_checkpoint
+run['sys/name'] = name
+run['trainer_params'] = hyp
+run['cv jaccard'] = oof_scores.mean()
+run['max_length'] = max_length
+run['doc_stride'] = doc_stride
+for fold in range(folds):
+    run[f"model/fold{fold}"].upload(os.path.join(out_dir, f'fold{fold}.pt'))
+    run[f"jaccard/fold{fold}"] = oof_scores[fold]
+run.stop()

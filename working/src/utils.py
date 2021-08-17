@@ -4,6 +4,19 @@ from tqdm.auto import tqdm
 import collections
 import os
 import json
+import warnings
+import random
+import torch
+warnings.simplefilter('ignore')
+
+def seed_everything(seed):
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = True
 
 def log_hyp(out_dir, hyp):
     with open(os.path.join(out_dir, 'hyp.txt'), 'w') as f:
