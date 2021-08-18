@@ -1,2 +1,0 @@
-DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
-python: can't open file 'tune.py': [Errno 2] No such file or directory
