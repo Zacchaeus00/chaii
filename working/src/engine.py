@@ -14,7 +14,7 @@ class Engine:
     def train(self, data_loader, accumulation_steps=1, grad_clip=1):
         self.model.train()
         final_loss = 0
-        for batch in tqdm(data_loader, leave=False, miniters=(len(data_loader)//100)):
+        for batch in data_loader:
             batch = {k: v.to(self.device) for k, v in batch.items()}
             with torch.cuda.amp.autocast():
                 outputs = self.model(**batch)
@@ -36,7 +36,7 @@ class Engine:
         with torch.no_grad():
             self.model.eval()
             final_loss = 0
-            for batch in tqdm(data_loader, leave=False, miniters=(len(data_loader)//100)):
+            for batch in data_loader:
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 loss = outputs.loss
@@ -49,7 +49,7 @@ class Engine:
             start_logits = []
             end_logits = []
             self.model.eval()
-            for batch in tqdm(data_loader, leave=False, miniters=(len(data_loader)//100)):
+            for batch in data_loader:
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 start_logits.append(outputs.start_logits)
@@ -73,19 +73,23 @@ class CustomModelEngine:
         self.device = device
         self.scaler = torch.cuda.amp.GradScaler()
     
-    def train(self, data_loader):
+    def train(self, data_loader, accumulation_steps=1, grad_clip=1):
         self.model.train()
         final_loss = 0
-        for batch in tqdm(data_loader, leave=False, miniters=(len(data_loader)//100)):
-            self.model.zero_grad()
+        for batch in data_loader:
+            
             batch = {k: v.to(self.device) for k, v in batch.items()}
             with torch.cuda.amp.autocast():
                 outputs = self.model(**batch)
                 loss = outputs['loss']
-                nn.utils.clip_grad_norm_(self.model.parameters(), 1)
+                loss /= accumulation_steps
+                nn.utils.clip_grad_norm_(self.model.parameters(), grad_clip)
             self.scaler.scale(loss).backward()
-            self.scaler.step(self.optimizer)
-            self.scaler.update()
+
+            if (i+1) % accumulation_steps == 0:
+                self.scaler.step(self.optimizer)
+                self.scaler.update()
+                self.model.zero_grad()
             if self.scheduler is not None:
                 self.scheduler.step()
             final_loss += loss.item()        
@@ -95,7 +99,7 @@ class CustomModelEngine:
         with torch.no_grad():
             self.model.eval()
             final_loss = 0
-            for batch in tqdm(data_loader, leave=False, miniters=(len(data_loader)//100)):
+            for batch in data_loader:
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 loss = outputs['loss']
@@ -108,7 +112,7 @@ class CustomModelEngine:
             start_logits = []
             end_logits = []
             self.model.eval()
-            for batch in tqdm(data_loader, leave=False, miniters=(len(data_loader)//100)):
+            for batch in data_loader:
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 start_logits.append(outputs['start_logits'])
