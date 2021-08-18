@@ -16,7 +16,7 @@ import optuna
 seed_everything(42)
 model_checkpoint = '../../input/deepset-xlm-roberta-large-squad2'
 train_path = '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv'
-experiment_name = 'xrob-large-optuna-subspace-madgrad-wd0-cosann0.05wu-3ep-fold0'
+experiment_name = 'xrob-large-optuna-subspace-adamw-cosann0.05wu-5ep-fold0'
 out_dir = f'../model/{experiment_name}/'
 
 max_length = 512
@@ -29,18 +29,22 @@ print(experiment_name)
 print('-'*40)
 
 data_retriever = ChaiiDataRetriever(model_checkpoint, train_path, max_length, doc_stride, batch_size)
+data_retriever.prepare_data(0)
+train_dataloader = data_retriever.train_dataloader()
+val_dataloader = data_retriever.val_dataloader()
+predict_dataloader = data_retriever.predict_dataloader()
 folds = 1
-epochs = 3
+epochs = 5
 
 def objective(trial):
     print(datetime.datetime.now())
     hyp = {
         'lr': trial.suggest_loguniform('lr', 1e-6, 1e-4),
-        'accumulation_steps': trial.suggest_categorical('accumulation_steps', [1, 2, 4, 8]),
+        'accumulation_steps': trial.suggest_categorical('accumulation_steps', [1, 2, 4, 6, 8]),
         # 'optimizer': trial.suggest_categorical('optimizer', ['adamw', 'madgrad']),
-        'optimizer': 'madgrad',
-        # 'weight_decay': trial.suggest_loguniform('weight_decay', 1e-8, 0.1),
-        'weight_decay': 0,
+        'optimizer': 'adamw',
+        'weight_decay': trial.suggest_loguniform('weight_decay', 1e-6, 1e-1),
+        # 'weight_decay': 0.0,
         # 'scheduler': trial.suggest_categorical('scheduler', ['cosann', 'linann']),
         'scheduler': 'cosann',
         # 'warmup_ratio': trial.suggest_uniform('warmup_ratio', 0, 0.5),
@@ -48,18 +52,23 @@ def objective(trial):
         # 'grad_clip': trial.suggest_uniform('grad_clip', 0.5, 5),
         'grad_clip': 1,
     }
-
-
-    data_retriever.prepare_data(0)
-    train_dataloader = data_retriever.train_dataloader()
-    val_dataloader = data_retriever.val_dataloader()
-    predict_dataloader = data_retriever.predict_dataloader()
     model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint)
 
     num_training_steps = epochs * len(train_dataloader)
     num_warmup_steps = int(hyp['warmup_ratio'] * num_training_steps)
     if hyp['optimizer'] == 'adamw':
-        optimizer = torch.optim.AdamW(model.parameters(), lr=hyp['lr'], weight_decay=hyp['weight_decay'])
+        no_decay = ["bias", "LayerNorm.weight"]
+        optimizer_grouped_parameters = [
+            {
+                "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
+                "weight_decay": hyp['weight_decay'],
+            },
+            {
+                "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
+                "weight_decay": 0.0,
+            },
+        ]
+        optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=hyp['lr'])
     elif hyp['optimizer'] == 'madgrad':
         optimizer = MADGRAD(model.parameters(), lr=hyp['lr'], weight_decay=hyp['weight_decay'])
     
@@ -70,10 +79,12 @@ def objective(trial):
         
     engine = Engine(model, optimizer, scheduler, 'cuda')
 
-    vloss = engine.evaluate(val_dataloader)
-    raw_predictions = engine.predict(predict_dataloader)
-    init_score, _ = data_retriever.evaluate_jaccard(raw_predictions)
-    print(f'initial vloss {vloss}, score {init_score}')
+    # vloss = engine.evaluate(val_dataloader)
+    # raw_predictions = engine.predict(predict_dataloader)
+    # init_score, _ = data_retriever.evaluate_jaccard(raw_predictions)
+    # print(f'initial vloss {vloss}, score {init_score}')
+    print('initial vloss 1.513, score 0.632')
+    init_score = 0.632
     best_score = 0
     for epoch in range(epochs):
         tloss = engine.train(train_dataloader, accumulation_steps=hyp['accumulation_steps'], grad_clip=hyp['grad_clip'])
