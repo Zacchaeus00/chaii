@@ -23,5 +23,5 @@ cd /gpfsnyu/scratch/yw3642/chaii/working/src     # 切到程序目录
 echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
-python -u tune.py                     # 用python跑代码
+python -u tune_subspace.py                     # 用python跑代码
 echo "FINISH"                       # 输出起始信息

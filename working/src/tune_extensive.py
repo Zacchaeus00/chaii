@@ -16,7 +16,7 @@ import optuna
 seed_everything(42)
 model_checkpoint = '../../input/deepset-xlm-roberta-large-squad2'
 train_path = '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds.csv'
-experiment_name = 'xrob-large-optuna'
+experiment_name = 'xrob-large-optuna-subspace'
 out_dir = f'../model/{experiment_name}/'
 
 max_length = 512
@@ -38,10 +38,14 @@ def objective(trial):
         'lr': trial.suggest_loguniform('lr', 1e-6, 1e-4),
         'accumulation_steps': trial.suggest_categorical('accumulation_steps', [1, 2, 4, 8]),
         'optimizer': trial.suggest_categorical('optimizer', ['adamw', 'madgrad']),
-        'weight_decay': trial.suggest_loguniform('weight_decay', 0, 0.1),
-        'scheduler': trial.suggest_categorical('scheduler', ['cosann', 'linann']),
-        'warmup_ratio': trial.suggest_uniform('warmup_ratio', 0, 0.5),
-        'grad_clip': trial.suggest_uniform('grad_clip', 0.5, 5),
+        # 'weight_decay': trial.suggest_loguniform('weight_decay', 1e-8, 0.1),
+        'weight_decay': 0,
+        # 'scheduler': trial.suggest_categorical('scheduler', ['cosann', 'linann']),
+        'scheduler': 'cosann',
+        # 'warmup_ratio': trial.suggest_uniform('warmup_ratio', 0, 0.5),
+        'warmup_ratio': 0.05,
+        # 'grad_clip': trial.suggest_uniform('grad_clip', 0.5, 5),
+        'grad_clip': 1,
     }
 
     oof_scores = np.zeros(folds)

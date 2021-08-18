@@ -14,7 +14,8 @@ from utils import seed_everything, log_scores
 import datetime
 seed_everything(42)
 model_checkpoint = '../../input/deepset-xlm-roberta-base-squad2'
-train_path = '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds.csv'
+# train_path = '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds.csv'
+train_path = '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv'
 experiment_name = 'xrob-base-bs24-lr5e-6-madgrad'
 out_dir = f'../model/{experiment_name}/'
 
@@ -31,7 +32,7 @@ print('-'*40)
 
 data_retriever = ChaiiDataRetriever(model_checkpoint, train_path, max_length, doc_stride, batch_size)
 folds = 5
-epochs = 10
+epochs = 3
 oof_scores = np.zeros(folds)
 for fold in range(folds):
     print("fold", fold)

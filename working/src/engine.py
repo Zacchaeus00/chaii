@@ -14,7 +14,7 @@ class Engine:
     def train(self, data_loader, accumulation_steps=1, grad_clip=1):
         self.model.train()
         final_loss = 0
-        for batch in data_loader:
+        for i, batch in enumerate(tqdm(data_loader)):
             batch = {k: v.to(self.device) for k, v in batch.items()}
             with torch.cuda.amp.autocast():
                 outputs = self.model(**batch)
@@ -36,7 +36,7 @@ class Engine:
         with torch.no_grad():
             self.model.eval()
             final_loss = 0
-            for batch in data_loader:
+            for batch in tqdm(data_loader):
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 loss = outputs.loss
@@ -49,7 +49,7 @@ class Engine:
             start_logits = []
             end_logits = []
             self.model.eval()
-            for batch in data_loader:
+            for batch in tqdm(data_loader):
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 start_logits.append(outputs.start_logits)
@@ -76,8 +76,7 @@ class CustomModelEngine:
     def train(self, data_loader, accumulation_steps=1, grad_clip=1):
         self.model.train()
         final_loss = 0
-        for batch in data_loader:
-            
+        for i, batch in enumerate(tqdm(data_loader)):
             batch = {k: v.to(self.device) for k, v in batch.items()}
             with torch.cuda.amp.autocast():
                 outputs = self.model(**batch)
@@ -99,7 +98,7 @@ class CustomModelEngine:
         with torch.no_grad():
             self.model.eval()
             final_loss = 0
-            for batch in data_loader:
+            for batch in tqdm(data_loader):
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 loss = outputs['loss']
@@ -112,7 +111,7 @@ class CustomModelEngine:
             start_logits = []
             end_logits = []
             self.model.eval()
-            for batch in data_loader:
+            for batch in tqdm(data_loader):
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 start_logits.append(outputs['start_logits'])
