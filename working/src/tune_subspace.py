@@ -16,7 +16,7 @@ import optuna
 seed_everything(42)
 model_checkpoint = '../../input/deepset-xlm-roberta-large-squad2'
 train_path = '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv'
-experiment_name = 'xrob-large-optuna-subspace-adamw-cosann0.05wu-5ep-fold0'
+experiment_name = 'xrob-large-optuna-subspace-madgrad-bs32-cosann0.05wu-5ep-fold0'
 out_dir = f'../model/{experiment_name}/'
 
 max_length = 512
@@ -39,12 +39,13 @@ epochs = 5
 def objective(trial):
     print(datetime.datetime.now())
     hyp = {
-        'lr': trial.suggest_loguniform('lr', 1e-6, 1e-4),
-        'accumulation_steps': trial.suggest_categorical('accumulation_steps', [1, 2, 4, 6, 8]),
+        'lr': trial.suggest_loguniform('lr', 1e-8, 1e-5),
+        # 'accumulation_steps': trial.suggest_categorical('accumulation_steps', [1, 2, 4, 6, 8]),
+        'accumulation_steps': 8,
         # 'optimizer': trial.suggest_categorical('optimizer', ['adamw', 'madgrad']),
-        'optimizer': 'adamw',
-        'weight_decay': trial.suggest_loguniform('weight_decay', 1e-6, 1e-1),
-        # 'weight_decay': 0.0,
+        'optimizer': 'madgrad',
+        # 'weight_decay': trial.suggest_loguniform('weight_decay', 1e-6, 1e-1),
+        'weight_decay': 0.0,
         # 'scheduler': trial.suggest_categorical('scheduler', ['cosann', 'linann']),
         'scheduler': 'cosann',
         # 'warmup_ratio': trial.suggest_uniform('warmup_ratio', 0, 0.5),
