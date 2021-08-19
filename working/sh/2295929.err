@@ -1,5 +1,0 @@
-DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
-  File "train-native.py", line 33
-    out_dir = f'../model/{hyp['experiment_name']}/'
-                               ^
-SyntaxError: invalid syntax

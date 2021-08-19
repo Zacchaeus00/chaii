@@ -24,8 +24,9 @@ class ChaiiDataRetriever:
         
     def prepare_data(self, fold):
         # only use original source as validation data
-        df_train = self.train[(self.train['fold']!=fold) | (self.train['src']!='src')].reset_index(drop=True)
-        df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='src')].reset_index(drop=True)
+        df_train = self.train[(self.train['fold']!=fold) | (self.train['src']!='chaii')].reset_index(drop=True)
+        df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii')].reset_index(drop=True)
+        print(f"fold{fold} t/v: {len(df_train)}/{len(df_valid)}")
         self.train_dataset = Dataset.from_pandas(df_train)
         self.valid_dataset = Dataset.from_pandas(df_valid)
         self.tokenized_train_ds = self.train_dataset.map(lambda x: prepare_train_features(x, self.tokenizer, self.max_length, self.doc_stride, self.pad_on_right),

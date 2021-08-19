@@ -10,7 +10,7 @@ from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 from data import ChaiiDataRetriever
 from madgrad import MADGRAD
 from engine import Engine
-from utils import seed_everything, log_scores
+from utils import seed_everything, log_scores, log_hyp
 import datetime
 from pprint import pprint
 seed_everything(42)
@@ -30,7 +30,8 @@ hyp = {
     'scheduler': 'cosann',
     'warmup_ratio': 0.05,
 }
-out_dir = f'../model/{hyp['experiment_name']}/'
+experiment_name = hyp['experiment_name']
+out_dir = f'../model/{experiment_name}/'
 
 print('-'*40)
 print(datetime.datetime.now())
@@ -46,9 +47,9 @@ for fold in range(folds):
     train_dataloader = data_retriever.train_dataloader()
     val_dataloader = data_retriever.val_dataloader()
     predict_dataloader = data_retriever.predict_dataloader()
-    model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint)
+    model = AutoModelForQuestionAnswering.from_pretrained(hyp['model_checkpoint'])
 
-    num_training_steps = epochs * len(train_dataloader)
+    num_training_steps = hyp['epochs'] * len(train_dataloader)
     num_warmup_steps = int(hyp['warmup_ratio'] * num_training_steps)
     if hyp['optimizer'] == 'madgrad':
         optimizer = MADGRAD(model.parameters(), lr=hyp['lr'], weight_decay=hyp['weight_decay'])
@@ -92,6 +93,7 @@ for fold in range(folds):
     print(f'fold {fold} best score {best_score}')
     oof_scores[fold] = best_score
 print(f'{folds} fold cv jaccard {oof_scores.mean()}')
+log_hyp(out_dir, hyp)
 log_scores(out_dir, oof_scores)
 
 
