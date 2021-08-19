@@ -26,7 +26,7 @@ def log_scores(out_dir, scores):
     with open(os.path.join(out_dir, 'scores.txt'), 'w') as f:
         for i, s in enumerate(scores):
             f.write(f"{i}, {s}\n")
-        f.write(np.mean(scores))
+        f.write(str(np.mean(scores)))
 
 def jaccard(row): 
     str1 = row[0]

@@ -6,7 +6,7 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 import transformers
-from transformers import AutoTokenizer, AutoModelForQuestionAnswering
+from transformers import AutoTokenizer, AutoModelForQuestionAnswering, AutoConfig
 from data import ChaiiDataRetriever
 from madgrad import MADGRAD
 from engine import Engine
@@ -18,17 +18,18 @@ seed_everything(42)
 hyp = {
     'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
-    'experiment_name': 'xrobl-ep3-bs8-lr4e-6-adamw-wd1e-2-cosann-wu5e-2',
+    'experiment_name': 'xrobl-ep3-bs4-lr2.71e-6-adamw-wd1e-2-cosann-wu5e-2-nodropout',
     'max_length': 512,
     'doc_stride': 128,
     'epochs': 3,
     'batch_size': 4,
-    'accumulation_steps': 2,
-    'lr': 4e-6,
+    'accumulation_steps': 1,
+    'lr': 2.71e-6,
     'optimizer': 'adamw',
     'weight_decay': 0.01,
     'scheduler': 'cosann',
     'warmup_ratio': 0.05,
+    'dropout': False
 }
 experiment_name = hyp['experiment_name']
 out_dir = f'../model/{experiment_name}/'
@@ -47,7 +48,11 @@ for fold in range(folds):
     train_dataloader = data_retriever.train_dataloader()
     val_dataloader = data_retriever.val_dataloader()
     predict_dataloader = data_retriever.predict_dataloader()
-    model = AutoModelForQuestionAnswering.from_pretrained(hyp['model_checkpoint'])
+    cfg = AutoConfig.from_pretrained(hyp['model_checkpoint'])
+    if not hyp['dropout']:
+        cfg.hidden_dropout_prob = 0
+        cfg.attention_probs_dropout_prob = 0
+    model = AutoModelForQuestionAnswering.from_pretrained(hyp['model_checkpoint'], config=cfg)
 
     num_training_steps = hyp['epochs'] * len(train_dataloader)
     num_warmup_steps = int(hyp['warmup_ratio'] * num_training_steps)

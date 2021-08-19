@@ -11,10 +11,10 @@ class Engine:
         self.device = device
         self.scaler = torch.cuda.amp.GradScaler()
     
-    def train(self, data_loader, accumulation_steps=1, grad_clip=1):
+    def train(self, dataloader, accumulation_steps=1, grad_clip=1):
         self.model.train()
         final_loss = 0
-        for i, batch in enumerate(tqdm(data_loader)):
+        for i, batch in enumerate(tqdm(dataloader)):
             batch = {k: v.to(self.device) for k, v in batch.items()}
             with torch.cuda.amp.autocast():
                 outputs = self.model(**batch)
@@ -30,26 +30,26 @@ class Engine:
             if self.scheduler is not None:
                 self.scheduler.step()
             final_loss += loss.item()        
-        return final_loss / len(data_loader)
+        return final_loss / len(dataloader)
     
-    def evaluate(self, data_loader):
+    def evaluate(self, dataloader):
         with torch.no_grad():
             self.model.eval()
             final_loss = 0
-            for batch in tqdm(data_loader):
+            for batch in tqdm(dataloader):
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 loss = outputs.loss
                 final_loss += loss.item()
             
-            return final_loss / len(data_loader)
+            return final_loss / len(dataloader)
 
-    def predict(self, data_loader):
+    def predict(self, dataloader):
         with torch.no_grad():
             start_logits = []
             end_logits = []
             self.model.eval()
-            for batch in tqdm(data_loader):
+            for batch in tqdm(dataloader):
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 start_logits.append(outputs.start_logits)
@@ -59,6 +59,38 @@ class Engine:
             start_logits = start_logits.cpu().numpy()
             end_logits = end_logits.cpu().numpy()
             return [start_logits, end_logits]
+
+    def train_evaluate(self, train_dataloader, predict_dataloader, data_retriever, eval_steps, best_score, save_path, accumulation_steps=1, grad_clip=1):
+        eval_steps //= data_retriever.batch_size
+        self.model.train()
+        tloss = 0
+        for i, batch in enumerate(tqdm(train_dataloader)):
+            batch = {k: v.to(self.device) for k, v in batch.items()}
+            with torch.cuda.amp.autocast():
+                outputs = self.model(**batch)
+                loss = outputs.loss
+                loss /= accumulation_steps
+                nn.utils.clip_grad_norm_(self.model.parameters(), grad_clip)
+            self.scaler.scale(loss).backward()
+
+            if (i+1) % accumulation_steps == 0:
+                self.scaler.step(self.optimizer)
+                self.scaler.update()
+                self.model.zero_grad()
+            if self.scheduler is not None:
+                self.scheduler.step()
+            tloss += loss.item()
+            if (i+1) % eval_steps == 0:
+                raw_predictions = self.predict(predict_dataloader)
+                score, lang_scores = data_retriever.evaluate_jaccard(raw_predictions)
+                print(f'batch {i}, tloss {tloss / eval_steps}, vscore {score}, best score {best_score}')
+                if score > best_score:
+                    best_score = score
+                    if save_path is not None:
+                        self.save(save_path)
+                tloss = 0
+
+        return best_score
 
     def save(self, path):
         path = Path(path)
@@ -73,10 +105,10 @@ class CustomModelEngine:
         self.device = device
         self.scaler = torch.cuda.amp.GradScaler()
     
-    def train(self, data_loader, accumulation_steps=1, grad_clip=1):
+    def train(self, dataloader, accumulation_steps=1, grad_clip=1):
         self.model.train()
         final_loss = 0
-        for i, batch in enumerate(tqdm(data_loader)):
+        for i, batch in enumerate(tqdm(dataloader)):
             batch = {k: v.to(self.device) for k, v in batch.items()}
             with torch.cuda.amp.autocast():
                 outputs = self.model(**batch)
@@ -92,26 +124,26 @@ class CustomModelEngine:
             if self.scheduler is not None:
                 self.scheduler.step()
             final_loss += loss.item()        
-        return final_loss / len(data_loader)
+        return final_loss / len(dataloader)
     
-    def evaluate(self, data_loader):
+    def evaluate(self, dataloader):
         with torch.no_grad():
             self.model.eval()
             final_loss = 0
-            for batch in tqdm(data_loader):
+            for batch in tqdm(dataloader):
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 loss = outputs['loss']
                 final_loss += loss.item()
             
-            return final_loss / len(data_loader)
+            return final_loss / len(dataloader)
 
-    def predict(self, data_loader):
+    def predict(self, dataloader):
         with torch.no_grad():
             start_logits = []
             end_logits = []
             self.model.eval()
-            for batch in tqdm(data_loader):
+            for batch in tqdm(dataloader):
                 batch = {k: v.to(self.device) for k, v in batch.items()}
                 outputs = self.model(**batch)
                 start_logits.append(outputs['start_logits'])

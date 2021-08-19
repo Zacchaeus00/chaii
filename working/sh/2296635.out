@@ -1,0 +1,83 @@
+Thu Aug 19 21:03:02 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:42:00.0 Off |                  N/A |
+| 43%   36C    P0    35W / 350W |      0MiB / 24268MiB |      2%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+----------------------------------------
+2021-08-19 21:03:42.192618
+{'accumulation_steps': 1,
+ 'batch_size': 4,
+ 'doc_stride': 128,
+ 'epochs': 3,
+ 'experiment_name': 'xrobl-ep3-bs4-lr2.71e-6-adamw-wd1e-2-cosann-wu5e-2',
+ 'lr': 2.71e-06,
+ 'max_length': 512,
+ 'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
+ 'optimizer': 'adamw',
+ 'scheduler': 'cosann',
+ 'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
+ 'warmup_ratio': 0.05,
+ 'weight_decay': 0.01}
+----------------------------------------
+fold 0
+fold0 t/v: 7455/212
+initial vloss 0.6717096331853356, score 0.6155510631925726
+language
+hindi    0.658780
+tamil    0.527857
+Name: jaccard, dtype: float64
+epoch 0, tloss 0.9342454091494472, vloss 0.3424982209445613, score 0.6476714585205151
+epoch 1, tloss 0.6669256978640234, vloss 0.33578741440445825, score 0.6655061395627434
+epoch 2, tloss 0.5294847260339169, vloss 0.33816653866815966, score 0.6721099131476489
+fold 0 best score 0.6721099131476489
+fold 1
+fold1 t/v: 7455/212
+initial vloss 0.6204369516197664, score 0.6062547515377705
+language
+hindi    0.654544
+tamil    0.508297
+Name: jaccard, dtype: float64
+epoch 0, tloss 0.9459202756437839, vloss 0.3179689201919464, score 0.6556819752574469
+epoch 1, tloss 0.6765640647622778, vloss 0.32791152130263984, score 0.6788513373419034
+epoch 2, tloss 0.5364454257745974, vloss 0.3468945739878732, score 0.6761390731909599
+fold 1 best score 0.6788513373419034
+fold 2
+fold2 t/v: 7456/211
+initial vloss 0.5103556747430921, score 0.6111675317836456
+language
+hindi    0.698049
+tamil    0.432367
+Name: jaccard, dtype: float64
+epoch 0, tloss 0.9657694414816022, vloss 0.2494625914421896, score 0.6656924697209057
+epoch 1, tloss 0.6858908258140831, vloss 0.23475437627904633, score 0.6886577351032328
+epoch 2, tloss 0.5513310473314106, vloss 0.24277638246245423, score 0.695651846836681
+fold 2 best score 0.695651846836681
+fold 3
+fold3 t/v: 7456/211
+initial vloss 0.5944553924966306, score 0.6482631836304822
+language
+hindi    0.704087
+tamil    0.533379
+Name: jaccard, dtype: float64
+epoch 0, tloss 0.9456104448858784, vloss 0.2930026908504834, score 0.714092943654555
