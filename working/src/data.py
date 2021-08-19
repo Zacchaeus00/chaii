@@ -23,8 +23,9 @@ class ChaiiDataRetriever:
         self.pad_on_right = self.tokenizer.padding_side == "right"
         
     def prepare_data(self, fold):
-        df_train = self.train[self.train['fold']!=fold].reset_index(drop=True)
-        df_valid = self.train[self.train['fold']==fold].reset_index(drop=True)
+        # only use original source as validation data
+        df_train = self.train[(self.train['fold']!=fold) | (self.train['src']!='src')].reset_index(drop=True)
+        df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='src')].reset_index(drop=True)
         self.train_dataset = Dataset.from_pandas(df_train)
         self.valid_dataset = Dataset.from_pandas(df_valid)
         self.tokenized_train_ds = self.train_dataset.map(lambda x: prepare_train_features(x, self.tokenizer, self.max_length, self.doc_stride, self.pad_on_right),
