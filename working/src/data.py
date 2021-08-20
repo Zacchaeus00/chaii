@@ -22,10 +22,14 @@ class ChaiiDataRetriever:
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.pad_on_right = self.tokenizer.padding_side == "right"
         
-    def prepare_data(self, fold):
+    def prepare_data(self, fold, only_chaii=False):
         # only use original source as validation data
-        df_train = self.train[(self.train['fold']!=fold) | (self.train['src']!='chaii')].reset_index(drop=True)
-        df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii')].reset_index(drop=True)
+        if only_chaii:
+            df_train = self.train[(self.train['fold']!=fold) & (self.train['src']=='chaii')].reset_index(drop=True)
+            df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii')].reset_index(drop=True)
+        else:
+            df_train = self.train[(self.train['fold']!=fold) | (self.train['src']!='chaii')].reset_index(drop=True)
+            df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii')].reset_index(drop=True)
         print(f"fold{fold} t/v: {len(df_train)}/{len(df_valid)}")
         self.train_dataset = Dataset.from_pandas(df_train)
         self.valid_dataset = Dataset.from_pandas(df_valid)
