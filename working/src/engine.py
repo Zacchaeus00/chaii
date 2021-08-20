@@ -83,11 +83,11 @@ class Engine:
             if (i+1) % eval_steps == 0:
                 raw_predictions = self.predict(predict_dataloader)
                 score, lang_scores = data_retriever.evaluate_jaccard(raw_predictions)
-                print(f'batch {i}, tloss {tloss / eval_steps}, vscore {score}, best score {best_score}')
                 if score > best_score:
                     best_score = score
                     if save_path is not None:
                         self.save(save_path)
+                print(f'batch {i+1}, tloss {tloss / eval_steps}, vscore {score}, best score {best_score}')
                 tloss = 0
 
         return best_score

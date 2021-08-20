@@ -16,18 +16,18 @@ seed_everything(42)
 hyp = {
     'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
-    'experiment_name': 'xrobl-ep3-bs4-lr3.5e-6-adamw-wd1e-2-cosann-wu5e-2-nodropout-stepeval',
+    'experiment_name': 'xrobl-ep3-bs4-lr3.5e-6-adamw-wd1e-2-cosann-wu5e-2-usedropout-stepeval',
     'max_length': 512,
     'doc_stride': 128,
     'epochs': 3,
-    'batch_size': 1,
-    'accumulation_steps': 4,
+    'batch_size': 4,
+    'accumulation_steps': 1,
     'lr': 3.5e-6,
     'optimizer': 'adamw',
     'weight_decay': 0.01,
     'scheduler': 'cosann',
     'warmup_ratio': 0.05,
-    'dropout': False,
+    'dropout': True,
     'eval_steps': 1000
 }
 experiment_name = hyp['experiment_name']
