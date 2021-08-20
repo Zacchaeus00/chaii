@@ -7,7 +7,7 @@
 #SBATCH --time=120:00:00             # 运行时间上限
 #SBATCH --mail-type=END             # ALL / END
 #SBATCH --mail-user=yw3642@nyu.edu  # 结束之后给哪里发邮件
-#SBATCH --output=%A.out         # 正常输出写入的文件
+#SBATCH --output=tune_stepeval%A.out         # 正常输出写入的文件
 #SBATCH --error=%A.err          # 报错信息写入的文件
 #SBATCH --gres=gpu:1                # 需要几块GPU (同时最多8块)
 #SBATCH -p aquila                   # 有GPU的partition
