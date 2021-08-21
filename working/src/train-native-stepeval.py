@@ -18,14 +18,14 @@ hyp = {
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
     'max_length': 512,
     'doc_stride': 128,
-    'epochs': 3,
+    'epochs': 4,
     'batch_size': 4,
     'accumulation_steps': 1,
-    'lr': 3e-6,
-    'optimizer': 'madgrad',
-    'weight_decay': 0.0,
+    'lr': 7.4e-6,
+    'optimizer': 'adamw',
+    'weight_decay': 0.01,
     'scheduler': 'cosann',
-    'warmup_ratio': 0.1,
+    'warmup_ratio': 0.05,
     'dropout': True,
     'eval_steps': 1000
 }
@@ -81,6 +81,8 @@ for fold in range(folds):
             },
         ]
         optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=hyp['lr'])
+    elif hyp['optimizer'] == 'adam':
+        optimizer = torch.optim.Adam(model.parameters(), lr=hyp['lr'])
     if hyp['scheduler'] == 'cosann':
         scheduler = transformers.get_cosine_schedule_with_warmup(optimizer, num_training_steps=num_training_steps, num_warmup_steps=num_warmup_steps)
     elif hyp['scheduler'] == 'linann':
