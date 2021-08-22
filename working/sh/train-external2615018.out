@@ -1,4 +1,4 @@
-Sun Aug 22 22:44:19 2021       
+Sun Aug 22 23:27:16 2021       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
 |-------------------------------+----------------------+----------------------+
@@ -6,8 +6,8 @@ Sun Aug 22 22:44:19 2021
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  GeForce RTX 3090    Off  | 00000000:44:00.0 Off |                  N/A |
-| 35%   35C    P0    31W / 350W |      0MiB / 24268MiB |      0%      Default |
+|   0  GeForce RTX 3090    Off  | 00000000:3E:00.0 Off |                  N/A |
+| 43%   43C    P0    35W / 350W |      0MiB / 24268MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -25,15 +25,15 @@ Cuda compilation tools, release 11.1, V11.1.105
 Build cuda_11.1.TC455_06.29190527_0
 START
 ----------------------------------------
-2021-08-22 22:44:46.867248
-squad1.2tamil-xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0.01-cosann-wu0.1-dropoutTrue-evalsteps1000
+2021-08-22 23:28:05.023001
+squad1.2tamil-xrobl-ep2-bs4-ga1-lr5e-06-adamw-wd0.01-cosann-wu0.1-dropoutTrue-evalsteps1000
 {'accumulation_steps': 1,
  'batch_size': 4,
  'doc_stride': 128,
  'dropout': True,
- 'epochs': 3,
+ 'epochs': 2,
  'eval_steps': 1000,
- 'lr': 1e-05,
+ 'lr': 5e-06,
  'max_length': 512,
  'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
  'optimizer': 'adamw',
