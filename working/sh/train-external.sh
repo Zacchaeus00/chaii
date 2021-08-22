@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=evaluate         # 任务名
+#SBATCH --job-name=train-external         # 任务名
 #SBATCH --nodes=1                   # 这里不用动 多节点脚本请查官方文档
 #SBATCH --ntasks=1                  # 这里不用动 多任务脚本请查官方文档
 #SBATCH --cpus-per-task=8           # 要几块CPU (一般4块就够用了)
@@ -23,5 +23,5 @@ cd /gpfsnyu/scratch/yw3642/chaii/working/src     # 切到程序目录
 echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
-python -u evaluate.py                     # 用python跑代码
+python -u train-external.py                     # 用python跑代码
 echo "FINISH"                       # 输出起始信息
