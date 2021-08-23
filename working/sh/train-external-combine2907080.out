@@ -1,0 +1,151 @@
+Mon Aug 23 16:09:38 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:44:00.0 Off |                  N/A |
+| 35%   33C    P0    31W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+----------------------------------------
+2021-08-23 16:11:27.049478
+squad1.2tamil-comb-xrobl-ep1-bs4-ga1-lr5e-06-adamw-wd0.01-cosann-wu0.1-dropoutTrue-evalsteps1000-upsample2x-chaii
+{'accumulation_steps': 1,
+ 'batch_size': 4,
+ 'chaii_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
+ 'doc_stride': 128,
+ 'dropout': True,
+ 'epochs': 1,
+ 'eval_steps': 1000,
+ 'ext_path': '../../input/squad1/squad1.2_ta_formatted.csv',
+ 'lr': 5e-06,
+ 'max_length': 512,
+ 'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
+ 'optimizer': 'adamw',
+ 'scheduler': 'cosann',
+ 'warmup_ratio': 0.1,
+ 'weight_decay': 0.01}
+----------------------------------------
+----------------------------------------
+0
+----------------------------------------
+t/v: 8172/140
+initial score 0.5278571428571429
+language
+tamil    0.527857
+Name: jaccard, dtype: float64
+batch 250, tloss 1.1602247276306152, vscore 0.602891156462585, best score 0.602891156462585
+batch 500, tloss 0.7309219434261321, vscore 0.5802721088435374, best score 0.602891156462585
+batch 750, tloss 0.6380684689283371, vscore 0.5688002473716759, best score 0.602891156462585
+batch 1000, tloss 0.6132148804664612, vscore 0.5223716759431046, best score 0.602891156462585
+batch 1250, tloss 0.5825764652490616, vscore 0.5285621521335807, best score 0.602891156462585
+batch 1500, tloss 0.5607864443063736, vscore 0.5602721088435374, best score 0.602891156462585
+batch 1750, tloss 0.5594882576465606, vscore 0.6159863945578231, best score 0.6159863945578231
+batch 2000, tloss 0.5144701858758927, vscore 0.6164625850340136, best score 0.6164625850340136
+batch 2250, tloss 0.5418440450429917, vscore 0.5884353741496599, best score 0.6164625850340136
+batch 2500, tloss 0.49671754193305967, vscore 0.5778911564625849, best score 0.6164625850340136
+batch 2750, tloss 0.542041005730629, vscore 0.564904143475572, best score 0.6164625850340136
+batch 3000, tloss 0.5053785155415536, vscore 0.5759431045145331, best score 0.6164625850340136
+batch 3250, tloss 0.5461303827762604, vscore 0.5772418058132344, best score 0.6164625850340136
+----------------------------------------
+1
+----------------------------------------
+t/v: 8172/140
+initial score 0.5082967032967033
+language
+tamil    0.508297
+Name: jaccard, dtype: float64
+batch 250, tloss 1.1455996708869933, vscore 0.5425824175824175, best score 0.5425824175824175
+batch 500, tloss 0.621876808643341, vscore 0.5654395604395605, best score 0.5654395604395605
+batch 750, tloss 0.6244163382053375, vscore 0.5259157509157509, best score 0.5654395604395605
+batch 1000, tloss 0.664994475364685, vscore 0.5299973835688121, best score 0.5654395604395605
+batch 1250, tloss 0.5578436295986176, vscore 0.5544871794871794, best score 0.5654395604395605
+batch 1500, tloss 0.5984224469661713, vscore 0.5640109890109889, best score 0.5654395604395605
+batch 1750, tloss 0.5326927852630615, vscore 0.5543681318681318, best score 0.5654395604395605
+batch 2000, tloss 0.5154923157691955, vscore 0.5711538461538461, best score 0.5711538461538461
+batch 2250, tloss 0.5686773564815522, vscore 0.5497252747252747, best score 0.5711538461538461
+batch 2500, tloss 0.5301809961795807, vscore 0.5568681318681318, best score 0.5711538461538461
+batch 2750, tloss 0.528455819606781, vscore 0.5461538461538461, best score 0.5711538461538461
+batch 3000, tloss 0.5260695960521699, vscore 0.5497252747252747, best score 0.5711538461538461
+batch 3250, tloss 0.4917588474750519, vscore 0.5497252747252747, best score 0.5711538461538461
+----------------------------------------
+2
+----------------------------------------
+t/v: 8173/138
+initial score 0.43236714975845414
+language
+tamil    0.432367
+Name: jaccard, dtype: float64
+batch 250, tloss 1.1084156243801118, vscore 0.45859213250517594, best score 0.45859213250517594
+batch 500, tloss 0.7155052891969681, vscore 0.49482401656314695, best score 0.49482401656314695
+batch 750, tloss 0.6361014685630798, vscore 0.5141476880607315, best score 0.5141476880607315
+batch 1000, tloss 0.6002022933959961, vscore 0.4718771566597654, best score 0.5141476880607315
+batch 1250, tloss 0.6493779770135879, vscore 0.4879227053140097, best score 0.5141476880607315
+batch 1500, tloss 0.6242084661722184, vscore 0.5772946859903381, best score 0.5772946859903381
+batch 1750, tloss 0.5369855226278305, vscore 0.5845410628019323, best score 0.5845410628019323
+batch 2000, tloss 0.5021412940025329, vscore 0.572463768115942, best score 0.5845410628019323
+batch 2250, tloss 0.5916702146530152, vscore 0.5555555555555555, best score 0.5845410628019323
+batch 2500, tloss 0.4793477578163147, vscore 0.5990338164251207, best score 0.5990338164251207
+batch 2750, tloss 0.5344143781661987, vscore 0.5893719806763286, best score 0.5990338164251207
+batch 3000, tloss 0.5198723890781403, vscore 0.5990338164251207, best score 0.5990338164251207
+batch 3250, tloss 0.5519828720092773, vscore 0.5990338164251207, best score 0.5990338164251207
+----------------------------------------
+3
+----------------------------------------
+t/v: 8173/138
+initial score 0.5333793420749943
+language
+tamil    0.533379
+Name: jaccard, dtype: float64
+batch 250, tloss 1.0576632175445557, vscore 0.6570508396595353, best score 0.6570508396595353
+batch 500, tloss 0.6791738493442535, vscore 0.6258224062571889, best score 0.6570508396595353
+batch 750, tloss 0.5679025021791458, vscore 0.6337934207499424, best score 0.6570508396595353
+batch 1000, tloss 0.6220841970443726, vscore 0.633068783068783, best score 0.6570508396595353
+batch 1250, tloss 0.5030880584716797, vscore 0.6558431101909362, best score 0.6570508396595353
+batch 1500, tloss 0.6458080114126206, vscore 0.6463538072233724, best score 0.6570508396595353
+batch 1750, tloss 0.5795769317150116, vscore 0.6744536461927766, best score 0.6744536461927766
+batch 2000, tloss 0.4964694598913193, vscore 0.6599608925695882, best score 0.6744536461927766
+batch 2250, tloss 0.5043055621385575, vscore 0.652714515757994, best score 0.6744536461927766
+batch 2500, tloss 0.5352580816745758, vscore 0.652714515757994, best score 0.6744536461927766
+batch 2750, tloss 0.5375046192407608, vscore 0.6599608925695882, best score 0.6744536461927766
+batch 3000, tloss 0.5448489546775818, vscore 0.6599608925695882, best score 0.6744536461927766
+batch 3250, tloss 0.4828802773952484, vscore 0.6599608925695882, best score 0.6744536461927766
+----------------------------------------
+4
+----------------------------------------
+t/v: 8173/138
+initial score 0.5608178053830227
+language
+tamil    0.560818
+Name: jaccard, dtype: float64
+batch 250, tloss 1.0158763098716737, vscore 0.551207729468599, best score 0.5608178053830227
+batch 500, tloss 0.6700527586936951, vscore 0.5298999309868876, best score 0.5608178053830227
+batch 750, tloss 0.6789824821949005, vscore 0.508160800552105, best score 0.5608178053830227
+batch 1000, tloss 0.6390367101430893, vscore 0.5295548654244306, best score 0.5608178053830227
+batch 1250, tloss 0.626073839187622, vscore 0.5588854382332644, best score 0.5608178053830227
+batch 1500, tloss 0.6085586519241333, vscore 0.5975327812284333, best score 0.5975327812284333
+batch 1750, tloss 0.6029324971437454, vscore 0.580624568668047, best score 0.5975327812284333
+batch 2000, tloss 0.5654034892320633, vscore 0.5685472739820565, best score 0.5975327812284333
+batch 2250, tloss 0.5029161759614944, vscore 0.5661318150448585, best score 0.5975327812284333
+batch 2500, tloss 0.5125563079118729, vscore 0.5419772256728779, best score 0.5975327812284333
+batch 2750, tloss 0.49030801057815554, vscore 0.5613008971704623, best score 0.5975327812284333
+batch 3000, tloss 0.5053267536163331, vscore 0.5613008971704623, best score 0.5975327812284333
+batch 3250, tloss 0.47982046532630923, vscore 0.5613008971704623, best score 0.5975327812284333
+FINISH

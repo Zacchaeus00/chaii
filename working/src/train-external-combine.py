@@ -30,7 +30,7 @@ hyp = {
     'dropout': True,
     'eval_steps': 1000
 }
-experiment_name = 'squad1.2tamil-comb-xrobl-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
+experiment_name = 'squad1.2tamil-comb-xrobl-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-upsample2x-chaii'.format(
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],
@@ -58,6 +58,7 @@ for fold in range(5):
     ext_df = pd.read_csv(hyp['ext_path'])
     chaii_df = pd.read_csv(hyp['chaii_path'])
     chaii_df = chaii_df[chaii_df['language']=='tamil'].reset_index(drop=True)
+    chaii_df = pd.concat([chaii_df, chaii_df], axis=0).reset_index(drop=True)
     train_df = pd.concat([chaii_df[chaii_df['fold']!=fold], ext_df[ext_df['fold']==fold]], axis=0).reset_index(drop=True)
     valid_df = chaii_df[chaii_df['fold']==fold].reset_index(drop=True)
 

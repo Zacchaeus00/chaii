@@ -17,17 +17,17 @@ seed_everything(42)
 hyp = {
     'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
-    'stage1_checkpoint': '../model/squad1.2tamil-xrobl-ep1-bs4-ga1-lr5e-06-adamw-wd0.01-cosann-wu0.1-dropoutTrue-evalsteps1000/best_jaccard.pt',
+    'stage1_checkpoint': '../model/xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0.0-cosann-wu0.1-dropoutTrue-evalsteps1000/',
     'max_length': 512,
     'doc_stride': 128,
-    'epochs': 2,
+    'epochs': 1,
     'batch_size': 4,
     'accumulation_steps': 1,
     'lr': 1e-6,
     'optimizer': 'adamw',
-    'weight_decay': 0.01,
+    'weight_decay': 0.0,
     'scheduler': 'cosann',
-    'warmup_ratio': 0.05,
+    'warmup_ratio': 0.1,
     'dropout': True,
     'eval_steps': 100
 }

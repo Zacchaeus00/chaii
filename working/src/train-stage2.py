@@ -17,8 +17,7 @@ seed_everything(42)
 hyp = {
     'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
-    'experiment_name': 'xrobl-ep3-bs4-lr2.71e-6-adamw-wd1e-2-cosann-wu5e-2-stage2-ep1-lr1e-7',
-    'stage1_checkpoint': '../model/xrobl-ep3-bs4-lr2.71e-6-adamw-wd1e-2-cosann-wu5e-2',
+    'stage1_checkpoint': '../model/xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0.0-cosann-wu0.1-dropoutTrue-evalsteps1000',
     'max_length': 512,
     'doc_stride': 128,
     'epochs': 1,
@@ -26,17 +25,30 @@ hyp = {
     'accumulation_steps': 1,
     'lr': 1e-6,
     'optimizer': 'adamw',
-    'weight_decay': 0.01,
+    'weight_decay': 0.0,
     'scheduler': 'cosann',
-    'warmup_ratio': 0.05,
+    'warmup_ratio': 0.1,
     'dropout': True,
     'eval_steps': 100
 }
-experiment_name = hyp['experiment_name']
+experiment_name = '{}-stg2-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
+    hyp['stage1_checkpoint'].split('/')[-1],
+    hyp['epochs'],
+    hyp['batch_size'],
+    hyp['accumulation_steps'],
+    hyp['lr'],
+    hyp['optimizer'],
+    hyp['weight_decay'],
+    hyp['scheduler'],
+    hyp['warmup_ratio'],
+    hyp['dropout'],
+    hyp['eval_steps'],
+)
 out_dir = f'../model/{experiment_name}/'
 
 print('-'*40)
 print(datetime.datetime.now())
+print(experiment_name)
 pprint(hyp)
 print('-'*40)
 
