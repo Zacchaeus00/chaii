@@ -7,29 +7,35 @@ import transformers
 from transformers import AutoModelForQuestionAnswering, AutoConfig
 from data import ChaiiDataRetriever
 from madgrad import MADGRAD
-from engine import Engine
+from engine import SWAEngine
 from utils import seed_everything, log_scores, log_hyp
 import datetime
 from pprint import pprint
+from torch.optim.swa_utils import SWALR
+from tqdm import tqdm
+import torch.nn as nn
 seed_everything(42)
 
 hyp = {
+    'script_name': 'train-stage2-swa.py',
     'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
+    'stage1_checkpoint': '../model/xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0.0-cosann-wu0.1-dropoutTrue-evalsteps1000',
     'max_length': 512,
     'doc_stride': 128,
-    'epochs': 3,
+    'epochs': 1,
     'batch_size': 4,
     'accumulation_steps': 1,
     'lr': 1e-5,
     'optimizer': 'adamw',
-    'weight_decay': 0,
-    'scheduler': 'cosann',
+    'weight_decay': 0.0,
+    'scheduler': 'const',
     'warmup_ratio': 0.1,
-    'dropout': 0.5,
-    'eval_steps': 1000
+    'dropout': True,
+    'eval_steps': 100
 }
-experiment_name = 'xrobl-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
+experiment_name = '{}-stg2swa-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
+    hyp['stage1_checkpoint'].split('/')[-1],
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],
@@ -54,14 +60,16 @@ folds = 5
 oof_scores = np.zeros(folds)
 for fold in range(folds):
     print("fold", fold)
-    data_retriever.prepare_data(fold)
+    data_retriever.prepare_data(fold, only_chaii=True)
     train_dataloader = data_retriever.train_dataloader()
     val_dataloader = data_retriever.val_dataloader()
     predict_dataloader = data_retriever.predict_dataloader()
     cfg = AutoConfig.from_pretrained(hyp['model_checkpoint'])
-    cfg.hidden_dropout_prob = hyp['dropout']
-    cfg.attention_probs_dropout_prob = hyp['dropout']
+    if not hyp['dropout']:
+        cfg.hidden_dropout_prob = 0
+        cfg.attention_probs_dropout_prob = 0
     model = AutoModelForQuestionAnswering.from_pretrained(hyp['model_checkpoint'], config=cfg)
+    model.load_state_dict(torch.load(os.path.join(hyp['stage1_checkpoint'], f'fold{fold}.pt')))
 
     num_training_steps = hyp['epochs'] * len(train_dataloader)
     num_warmup_steps = int(hyp['warmup_ratio'] * num_training_steps)
@@ -80,16 +88,13 @@ for fold in range(folds):
             },
         ]
         optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=hyp['lr'])
-    elif hyp['optimizer'] == 'adam':
-        optimizer = torch.optim.Adam(model.parameters(), lr=hyp['lr'])
-    if hyp['scheduler'] == 'cosann':
-        scheduler = transformers.get_cosine_schedule_with_warmup(optimizer, num_training_steps=num_training_steps, num_warmup_steps=num_warmup_steps)
-    elif hyp['scheduler'] == 'linann':
-        scheduler = transformers.get_linear_schedule_with_warmup(optimizer, num_training_steps=num_training_steps, num_warmup_steps=num_warmup_steps)
+    if hyp['scheduler'] == 'swalr':
+        scheduler = SWALR(swa_lr=hyp['lr'])
+    elif hyp['scheduler'] == 'const':
+        scheduler = transformers.get_constant_schedule_with_warmup(optimizer, num_warmup_steps=num_warmup_steps)
     else:
         scheduler = None
-
-    engine = Engine(model, optimizer, scheduler, 'cuda')
+    engine = SWAEngine(model, optimizer, scheduler, 'cuda')
     raw_predictions = engine.predict(predict_dataloader)
     best_score, lang_scores = data_retriever.evaluate_jaccard(raw_predictions)
     print(f'initial score {best_score}')
@@ -104,7 +109,6 @@ for fold in range(folds):
 
     print(f'fold {fold} best score {best_score}')
     oof_scores[fold] = best_score
-    torch.save(model.state_dict(), out_dir+f'fold{fold}_last.pt')
 print(f'{folds} fold cv jaccard {oof_scores.mean()}')
 log_hyp(out_dir, hyp)
 log_scores(out_dir, oof_scores)
