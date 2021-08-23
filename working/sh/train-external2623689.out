@@ -1,0 +1,90 @@
+Mon Aug 23 02:40:15 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:44:00.0 Off |                  N/A |
+| 35%   34C    P0    31W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+----------------------------------------
+2021-08-23 02:40:52.004940
+squad1.2tamil-xrobl-ep1-bs4-ga1-lr5e-06-adamw-wd0.01-cosann-wu0.1-dropoutTrue-evalsteps1000
+{'accumulation_steps': 1,
+ 'batch_size': 4,
+ 'doc_stride': 128,
+ 'dropout': True,
+ 'epochs': 1,
+ 'eval_steps': 1000,
+ 'lr': 5e-06,
+ 'max_length': 512,
+ 'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
+ 'optimizer': 'adamw',
+ 'scheduler': 'cosann',
+ 'train_path': '../../input/squad1/squad1.2_ta_formatted.csv',
+ 'valid_path': '../../input/chaii-hindi-and-tamil-question-answering/train.csv',
+ 'warmup_ratio': 0.1,
+ 'weight_decay': 0.01}
+----------------------------------------
+['tamil'] ['tamil']
+t/v: 38087/368
+initial score 0.5046115192174975
+language
+tamil    0.504612
+Name: jaccard, dtype: float64
+batch 250, tloss 1.4185194880962373, vscore 0.5356512448903753, best score 0.5356512448903753
+batch 500, tloss 0.8986660116910934, vscore 0.5629157376439985, best score 0.5629157376439985
+batch 750, tloss 0.8118603844642639, vscore 0.5644911776025906, best score 0.5644911776025906
+batch 1000, tloss 0.8097898654937744, vscore 0.5600074819504167, best score 0.5644911776025906
+batch 1250, tloss 0.8006745452880859, vscore 0.527515245925572, best score 0.5644911776025906
+batch 1500, tloss 0.744645388841629, vscore 0.5536216123851994, best score 0.5644911776025906
+batch 1750, tloss 0.8473755970001221, vscore 0.5251435008228487, best score 0.5644911776025906
+batch 2000, tloss 0.7455499068498611, vscore 0.5150767107288846, best score 0.5644911776025906
+batch 2250, tloss 0.6909296996593476, vscore 0.5151764977172586, best score 0.5644911776025906
+batch 2500, tloss 0.7683192501068116, vscore 0.5271593970642884, best score 0.5644911776025906
+batch 2750, tloss 0.8227080316543579, vscore 0.5025945446461751, best score 0.5644911776025906
+batch 3000, tloss 0.7942069021463394, vscore 0.5252437855019376, best score 0.5644911776025906
+batch 3250, tloss 0.7635903698205948, vscore 0.5233480815681902, best score 0.5644911776025906
+batch 3500, tloss 0.71008094227314, vscore 0.526925980118915, best score 0.5644911776025906
+batch 3750, tloss 0.7456761100292206, vscore 0.5150423022026283, best score 0.5644911776025906
+batch 4000, tloss 0.6941960397958755, vscore 0.5128628994797474, best score 0.5644911776025906
+batch 4250, tloss 0.6465419325232505, vscore 0.5248754943727769, best score 0.5644911776025906
+batch 4500, tloss 0.7467342529296875, vscore 0.5293716322928279, best score 0.5644911776025906
+batch 4750, tloss 0.7519888007640838, vscore 0.5205298249455858, best score 0.5644911776025906
+batch 5000, tloss 0.751963459968567, vscore 0.5184320736630519, best score 0.5644911776025906
+batch 5250, tloss 0.6948198779821396, vscore 0.5241072258055953, best score 0.5644911776025906
+batch 5500, tloss 0.7278127007484436, vscore 0.5186832264957265, best score 0.5644911776025906
+batch 5750, tloss 0.7009450941085815, vscore 0.5350069842597016, best score 0.5644911776025906
+batch 6000, tloss 0.6998517661094665, vscore 0.5195916779476563, best score 0.5644911776025906
+batch 6250, tloss 0.6504766232967377, vscore 0.534353516350799, best score 0.5644911776025906
+batch 6500, tloss 0.6967954125404358, vscore 0.5365042038275734, best score 0.5644911776025906
+batch 6750, tloss 0.6413006588816643, vscore 0.5323111595530073, best score 0.5644911776025906
+batch 7000, tloss 0.6671821525096894, vscore 0.523091439056113, best score 0.5644911776025906
+batch 7250, tloss 0.6318459995985031, vscore 0.5312436129691565, best score 0.5644911776025906
+batch 7500, tloss 0.649131516456604, vscore 0.5294320187662579, best score 0.5644911776025906
+batch 7750, tloss 0.5732624959945679, vscore 0.5324281168710516, best score 0.5644911776025906
+batch 8000, tloss 0.5931166167259216, vscore 0.5327904357116313, best score 0.5644911776025906
+batch 8250, tloss 0.6099218700528145, vscore 0.5399009429580082, best score 0.5644911776025906
+batch 8500, tloss 0.5968697642087937, vscore 0.536277754552211, best score 0.5644911776025906
+batch 8750, tloss 0.5945118216276168, vscore 0.5328810154217762, best score 0.5644911776025906
+batch 9000, tloss 0.6854178640246391, vscore 0.5301636241174285, best score 0.5644911776025906
+batch 9250, tloss 0.6039669419527054, vscore 0.5301636241174285, best score 0.5644911776025906
+batch 9500, tloss 0.6740135716795921, vscore 0.5301636241174285, best score 0.5644911776025906
+FINISH

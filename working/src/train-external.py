@@ -19,7 +19,7 @@ hyp = {
     'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
     'max_length': 512,
     'doc_stride': 128,
-    'epochs': 2,
+    'epochs': 1,
     'batch_size': 4,
     'accumulation_steps': 1,
     'lr': 5e-6,
@@ -106,6 +106,7 @@ for epoch in range(hyp['epochs']):
                                         best_score, 
                                         out_dir+'best_jaccard.pt',
                                         accumulation_steps=hyp['accumulation_steps'])
+torch.save(model.state_dict(), out_dir+'last.pt')
 log_hyp(out_dir, hyp)
 log_scores(out_dir, [best_score])
 

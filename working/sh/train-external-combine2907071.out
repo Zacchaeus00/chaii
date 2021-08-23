@@ -1,0 +1,59 @@
+Mon Aug 23 15:53:43 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:3E:00.0 Off |                  N/A |
+| 43%   33C    P0    34W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+----------------------------------------
+2021-08-23 15:56:14.410924
+squad1.2tamil-comb-xrobl-ep1-bs4-ga1-lr5e-06-adamw-wd0.01-cosann-wu0.1-dropoutTrue-evalsteps1000
+{'accumulation_steps': 1,
+ 'batch_size': 4,
+ 'chaii_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
+ 'doc_stride': 128,
+ 'dropout': True,
+ 'epochs': 1,
+ 'eval_steps': 1000,
+ 'ext_path': '../../input/squad1/squad1.2_ta_formatted.csv',
+ 'lr': 5e-06,
+ 'max_length': 512,
+ 'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
+ 'optimizer': 'adamw',
+ 'scheduler': 'cosann',
+ 'warmup_ratio': 0.1,
+ 'weight_decay': 0.01}
+----------------------------------------
+----------------------------------------
+0
+----------------------------------------
+t/v: 7895/70
+initial score 0.5278571428571429
+language
+tamil    0.527857
+Name: jaccard, dtype: float64
+batch 250, tloss 1.1316698861122132, vscore 0.5626530612244898, best score 0.5626530612244898
+batch 500, tloss 0.7395129184722901, vscore 0.5290816326530612, best score 0.5626530612244898
+batch 750, tloss 0.6936941454410553, vscore 0.5947959183673469, best score 0.5947959183673469
+batch 1000, tloss 0.6618719186782837, vscore 0.5921768707482993, best score 0.5947959183673469
+batch 1250, tloss 0.7236087048053741, vscore 0.6112244897959185, best score 0.6112244897959185
+batch 1500, tloss 0.6980641431808472, vscore 0.5659863945578232, best score 0.6112244897959185
