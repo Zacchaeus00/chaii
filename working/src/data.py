@@ -64,7 +64,7 @@ class ChaiiDataRetriever:
         valid_feats_small.set_format(type='torch')
         return DataLoader(valid_feats_small, batch_size=self.batch_size, num_workers=8)
 
-    def evaluate_jaccard(self, raw_predictions, n_best_size=20, max_answer_length=30):
+    def evaluate_jaccard(self, raw_predictions, n_best_size=20, max_answer_length=30, return_predictions=False):
         '''
         raw_predictions: [start_logits, end_logits]
         shape: (N, L)
@@ -78,6 +78,8 @@ class ChaiiDataRetriever:
         df = pd.DataFrame({'id': final_predictions.keys(), 'PredictionString': final_predictions.values()})
         df = df.merge(self.train, on=['id'], how='left')
         df['jaccard'] = df[['answer_text', 'PredictionString']].apply(jaccard, axis=1)
+        if return_predictions:
+            return df.jaccard.mean(), df.groupby('language')['jaccard'].mean(), df
         return df.jaccard.mean(), df.groupby('language')['jaccard'].mean()
 
 class ChaiiDataRetrieverCustom:

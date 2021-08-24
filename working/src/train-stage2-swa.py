@@ -20,7 +20,8 @@ hyp = {
     'script_name': 'train-stage2-swa.py',
     'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
-    'stage1_checkpoint': '../model/xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0.0-cosann-wu0.1-dropoutTrue-evalsteps1000',
+    # 'stage1_checkpoint': '../model/xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0.0-cosann-wu0.1-dropoutTrue-evalsteps1000',
+    'stage1_checkpoint': '../model/xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0-cosann-wu0.1-dropout0.3-evalsteps1000',
     'max_length': 512,
     'doc_stride': 128,
     'epochs': 1,
@@ -32,9 +33,10 @@ hyp = {
     'scheduler': 'const',
     'warmup_ratio': 0.1,
     'dropout': True,
-    'eval_steps': 100
+    'eval_steps': 100,
+    'onlychaii': False
 }
-experiment_name = '{}-stg2swa-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
+experiment_name = '{}-stg2swa-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-onlychaii{}'.format(
     hyp['stage1_checkpoint'].split('/')[-1],
     hyp['epochs'],
     hyp['batch_size'],
@@ -46,6 +48,7 @@ experiment_name = '{}-stg2swa-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-eval
     hyp['warmup_ratio'],
     hyp['dropout'],
     hyp['eval_steps'],
+    hyp['onlychaii']
 )
 out_dir = f'../model/{experiment_name}/'
 
@@ -60,7 +63,7 @@ folds = 5
 oof_scores = np.zeros(folds)
 for fold in range(folds):
     print("fold", fold)
-    data_retriever.prepare_data(fold, only_chaii=True)
+    data_retriever.prepare_data(fold, only_chaii=hyp['onlychaii'])
     train_dataloader = data_retriever.train_dataloader()
     val_dataloader = data_retriever.val_dataloader()
     predict_dataloader = data_retriever.predict_dataloader()

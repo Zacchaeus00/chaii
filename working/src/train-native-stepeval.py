@@ -26,7 +26,7 @@ hyp = {
     'weight_decay': 0,
     'scheduler': 'cosann',
     'warmup_ratio': 0.1,
-    'dropout': 0.5,
+    'dropout': 0.2,
     'eval_steps': 1000
 }
 experiment_name = 'xrobl-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
