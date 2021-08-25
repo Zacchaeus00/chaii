@@ -3,6 +3,7 @@ from pathlib import Path
 from datasets import Dataset
 import transformers
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering, AutoConfig, TrainingArguments, Trainer, default_data_collator
+from transformers import XLMRobertaTokenizerFast, XLMRobertaForQuestionAnswering
 import os
 from utils import seed_everything
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -119,19 +120,22 @@ def prepare_train_features(examples):
 if __name__ == '__main__':
     train = read_squad('../../input/squad2/train-v2.0.json')
     train_dataset = Dataset.from_dict(train)
-    model_checkpoint = '../../input/google-rembert'
-    tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
+    # model_checkpoint = '../../input/google-rembert'
+    model_checkpoint = '../../input/microsoft-infoxlm-large'
+    # tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
+    tokenizer = XLMRobertaTokenizerFast.from_pretrained(model_checkpoint)
     pad_on_right = tokenizer.padding_side == "right"
     max_length = 384 # The maximum length of a feature (question and context)
     doc_stride = 128 # The authorized overlap between two part of the context when splitting it is needed.
     tokenized_train_ds = train_dataset.map(prepare_train_features, batched=True, remove_columns=train_dataset.column_names)
-    config = AutoConfig.from_pretrained(model_checkpoint)
-    config.hidden_dropout_prob = 0.1
-    config.attention_probs_dropout_prob = 0.1
-    model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
+    # config = AutoConfig.from_pretrained(model_checkpoint)
+    # config.hidden_dropout_prob = 0.1
+    # config.attention_probs_dropout_prob = 0.1
+    # model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
+    model = XLMRobertaForQuestionAnswering.from_pretrained(model_checkpoint)
 
     args = TrainingArguments(
-        f"model/rembert-squad2",
+        f"../model/infoxlm-squad2",
         evaluation_strategy = "no",
         save_strategy = "epoch",
         learning_rate=1e-5,
@@ -142,7 +146,8 @@ if __name__ == '__main__':
         num_train_epochs=3,
         weight_decay=0.01,
         fp16=True,
-        report_to='none'
+        report_to='none',
+        dataloader_num_workers=8
     )
 
     data_collator = default_data_collator
