@@ -18,10 +18,11 @@ seed_everything(42)
 hyp = {
     'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
-    'experiment_name': 'xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0.0-cosann-wu0.1-dropoutTrue-evalsteps1000',
+    'experiment_name': 'xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0-cosann-wu0.1-dropout0.2-evalsteps1000',
     'max_length': 512,
     'doc_stride': 128,
     'batch_size': 32,
+    'swa': False
 }
 experiment_name = hyp['experiment_name']
 out_dir = f'../model/{experiment_name}/'
@@ -42,6 +43,8 @@ for fold in range(folds):
     data_retriever.prepare_data(fold, only_chaii=True)
     predict_dataloader = data_retriever.predict_dataloader()
     model = AutoModelForQuestionAnswering.from_pretrained(hyp['model_checkpoint'])
+    if hyp['swa']:
+        model = AveragedModel(model)
     model.load_state_dict(torch.load(os.path.join(out_dir, f'fold{fold}.pt')))
 
     engine = Engine(model, None, None, 'cuda')
@@ -53,7 +56,7 @@ for fold in range(folds):
     scores.append(score)
     print(score)
     print(lang_scores)
-logging.basicConfig(filename=os.path.join(out_dir, 'evaluate.log'), encoding='utf-8', level=logging.DEBUG)
+logging.basicConfig(filename=os.path.join(out_dir, 'evaluate.log'), level=logging.DEBUG)
 logging.info('hindi mean: {}'.format(np.mean(hindi_scores)))
 logging.info('tamil mean: {}'.format(np.mean(tamil_scores)))
 logging.info('macro mean: {}'.format((np.mean(hindi_scores)+np.mean(tamil_scores))/2))
