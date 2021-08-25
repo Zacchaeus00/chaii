@@ -14,7 +14,7 @@ from pprint import pprint
 seed_everything(42)
 
 hyp = {
-    'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
+    'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
     'max_length': 512,
     'doc_stride': 128,
@@ -26,10 +26,10 @@ hyp = {
     'weight_decay': 0,
     'scheduler': 'cosann',
     'warmup_ratio': 0.1,
-    'dropout': 0.2,
+    'dropout': 0.1,
     'eval_steps': 1000
 }
-experiment_name = 'xrobl-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
+experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],
@@ -104,7 +104,7 @@ for fold in range(folds):
 
     print(f'fold {fold} best score {best_score}')
     oof_scores[fold] = best_score
-    torch.save(model.state_dict(), out_dir+f'fold{fold}_last.pt')
+    # torch.save(model.state_dict(), out_dir+f'fold{fold}_last.pt')
 print(f'{folds} fold cv jaccard {oof_scores.mean()}')
 log_hyp(out_dir, hyp)
 log_scores(out_dir, oof_scores)

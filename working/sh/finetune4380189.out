@@ -48,3 +48,6 @@ imp 43498, p 86821
 {'loss': 0.5293, 'learning_rate': 2.007401480296059e-06, 'epoch': 2.52}
 {'loss': 0.5426, 'learning_rate': 1.5073014602920586e-06, 'epoch': 2.64}
 {'loss': 0.5423, 'learning_rate': 1.0072014402880577e-06, 'epoch': 2.76}
+{'loss': 0.519, 'learning_rate': 5.071014202840569e-07, 'epoch': 2.88}
+{'train_runtime': 13857.9138, 'train_samples_per_second': 28.861, 'train_steps_per_second': 0.902, 'train_loss': 0.9339601025617223, 'epoch': 3.0}
+FINISH
