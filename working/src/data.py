@@ -9,6 +9,7 @@ import transformers
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 from datasets import Dataset
 from utils import prepare_train_features, prepare_validation_features, convert_answers, jaccard, postprocess_qa_predictions
+from transformers import XLMRobertaTokenizerFast, XLMRobertaForQuestionAnswering
 
 class ChaiiDataRetriever:
     def __init__(self, model_name, train_path, max_length, doc_stride, batch_size):
@@ -19,7 +20,10 @@ class ChaiiDataRetriever:
         self.max_length = max_length
         self.doc_stride = doc_stride
         self.batch_size = batch_size
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        if 'infoxlm' in model_name:
+            self.tokenizer = XLMRobertaTokenizerFast.from_pretrained(self.model_name)
+        else:
+            self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.pad_on_right = self.tokenizer.padding_side == "right"
         
     def prepare_data(self, fold, only_chaii=False, lang=None):
