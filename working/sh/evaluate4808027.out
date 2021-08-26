@@ -1,0 +1,72 @@
+Thu Aug 26 14:00:51 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:41:00.0 Off |                  N/A |
+| 43%   30C    P0    27W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+----------------------------------------
+2021-08-26 14:01:35.911612
+{'batch_size': 32,
+ 'doc_stride': 128,
+ 'experiment_name': 'rembert-ep3-bs4-ga1-lr1e-05-adamw-wd0-cosann-wu0.1-dropout0-evalsteps1000',
+ 'max_length': 512,
+ 'model_checkpoint': '../../input/google-rembert',
+ 'swa': False,
+ 'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv'}
+----------------------------------------
+fold 0
+fold0 t/v: 845/212
+0.6587226714585205
+language
+hindi    0.672513
+tamil    0.630748
+Name: jaccard, dtype: float64
+fold 1
+fold1 t/v: 845/212
+0.6836244730112653
+language
+hindi    0.752565
+tamil    0.543773
+Name: jaccard, dtype: float64
+fold 2
+fold2 t/v: 846/211
+0.6934439178515007
+language
+hindi    0.725117
+tamil    0.628261
+Name: jaccard, dtype: float64
+fold 3
+fold3 t/v: 846/211
+0.710664447453547
+language
+hindi    0.751069
+tamil    0.627513
+Name: jaccard, dtype: float64
+fold 4
+fold4 t/v: 846/211
+0.705155823639236
+language
+hindi    0.756781
+tamil    0.598913
+Name: jaccard, dtype: float64
+FINISH

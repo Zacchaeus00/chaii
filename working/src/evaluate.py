@@ -16,9 +16,9 @@ import logging
 seed_everything(42)
 
 hyp = {
-    'model_checkpoint': '../../input/deepset-xlm-roberta-large-squad2',
+    'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
-    'experiment_name': 'xrobl-ep3-bs4-ga1-lr1e-05-adamw-wd0-cosann-wu0.1-dropout0.2-evalsteps1000',
+    'experiment_name': 'infoxlm-ep3-bs4-ga1-lr1e-05-adamw-wd0-cosann-wu0.1-dropout0.1-evalsteps1000',
     'max_length': 512,
     'doc_stride': 128,
     'batch_size': 32,
