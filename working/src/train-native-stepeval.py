@@ -27,9 +27,10 @@ hyp = {
     'scheduler': 'cosann',
     'warmup_ratio': 0.1,
     'dropout': 0.1,
-    'eval_steps': 1000
+    'eval_steps': 1000,
+    'metric': 'nonzero_jaccard_per'
 }
-experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}'.format(
+experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}'.format(
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],
@@ -40,6 +41,7 @@ experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalste
     hyp['warmup_ratio'],
     hyp['dropout'],
     hyp['eval_steps'],
+    hyp["metric"]
 )
 out_dir = f'../model/{experiment_name}/'
 
@@ -91,21 +93,26 @@ for fold in range(folds):
 
     engine = Engine(model, optimizer, scheduler, 'cuda')
     raw_predictions = engine.predict(predict_dataloader)
-    best_score, lang_scores = data_retriever.evaluate_jaccard(raw_predictions)
-    print(f'initial score {best_score}')
+    best_score, lang_scores, df = data_retriever.evaluate_jaccard(raw_predictions, return_predictions=True)
+    nonzero_jaccard_per = len(df[df['jaccard']!=0]) / len(df)
+    print(f'initial mean jaccard {best_score}')
+    print(f'initial nonzero jaccard percentage {nonzero_jaccard_per}')
+    best_metric = best_score if hyp["metric"] == 'mean_jaccard' else nonzero_jaccard_per
+    print(f'using metric: {hyp["metric"]}')
     for epoch in range(hyp['epochs']):
-        best_score = engine.train_evaluate(train_dataloader, 
+        best_metric = engine.train_evaluate(train_dataloader, 
                                             predict_dataloader, 
                                             data_retriever, 
                                             hyp['eval_steps'], 
-                                            best_score, 
+                                            best_metric, 
                                             out_dir+f'fold{fold}.pt', 
+                                            hyp["metric"],
                                             accumulation_steps=hyp['accumulation_steps'])
 
-    print(f'fold {fold} best score {best_score}')
-    oof_scores[fold] = best_score
+    print(f'fold {fold} best {hyp["metric"]} {best_metric}')
+    oof_scores[fold] = best_metric
     # torch.save(model.state_dict(), out_dir+f'fold{fold}_last.pt')
-print(f'{folds} fold cv jaccard {oof_scores.mean()}')
+print(f'{folds} fold cv {hyp["metric"]}: {oof_scores.mean()}')
 log_hyp(out_dir, hyp)
 log_scores(out_dir, oof_scores)
 

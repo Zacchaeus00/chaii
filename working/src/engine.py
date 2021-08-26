@@ -62,7 +62,7 @@ class Engine:
             end_logits = end_logits.cpu().numpy()
             return [start_logits, end_logits]
 
-    def train_evaluate(self, train_dataloader, predict_dataloader, data_retriever, eval_steps, best_score, save_path, accumulation_steps=1, grad_clip=1):
+    def train_evaluate(self, train_dataloader, predict_dataloader, data_retriever, eval_steps, best_metric, save_path, metric='mean_jaccard', accumulation_steps=1, grad_clip=1):
         eval_steps //= data_retriever.batch_size
         self.model.train()
         tloss = 0
@@ -84,15 +84,16 @@ class Engine:
             tloss += loss.item()
             if (i+1) % eval_steps == 0:
                 raw_predictions = self.predict(predict_dataloader)
-                score, lang_scores = data_retriever.evaluate_jaccard(raw_predictions)
-                if score > best_score:
-                    best_score = score
+                score, lang_scores, df = data_retriever.evaluate_jaccard(raw_predictions, return_predictions=True)
+                nonzero_jaccard_per = len(df[df['jaccard']!=0]) / len(df)
+                cur_metric = score if metric == 'mean_jaccard' else nonzero_jaccard_per
+                if cur_metric > best_metric:
+                    best_metric = cur_metric
                     if save_path is not None:
                         self.save(save_path)
-                print(f'batch {i+1}, tloss {tloss / eval_steps}, vscore {score}, best score {best_score}')
+                print(f'batch {i+1}, tloss {tloss / eval_steps}, vscore {score}, best {metric} {best_metric}')
                 tloss = 0
-
-        return best_score
+        return best_metric
 
     def save(self, path):
         path = Path(path)
