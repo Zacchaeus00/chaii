@@ -55,8 +55,9 @@ def prepare_train_features(examples):
         stride=doc_stride,
         return_overflowing_tokens=True,
         return_offsets_mapping=True,
-        padding="max_length",
-#         padding="longest",
+        padding = False
+        # padding="max_length",
+        #  padding="longest",
     )
 
     # Since one example might give us several features if it has a long context, we need a map from a feature to
@@ -122,20 +123,20 @@ if __name__ == '__main__':
     train_dataset = Dataset.from_dict(train)
     # model_checkpoint = '../../input/google-rembert'
     model_checkpoint = '../../input/microsoft-infoxlm-large'
-    # tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
-    tokenizer = XLMRobertaTokenizerFast.from_pretrained(model_checkpoint)
+    tokenizer = XLMRobertaTokenizerFast.from_pretrained(model_checkpoint) if 'info' in model_checkpoint else AutoTokenizer.from_pretrained(model_checkpoint)
+    config = AutoConfig.from_pretrained(model_checkpoint)
     pad_on_right = tokenizer.padding_side == "right"
-    max_length = 384 # The maximum length of a feature (question and context)
+    # max_length = config.max_position_embeddings 
+    max_length = 512
+    print('max length:', max_length)
     doc_stride = 128 # The authorized overlap between two part of the context when splitting it is needed.
     tokenized_train_ds = train_dataset.map(prepare_train_features, batched=True, remove_columns=train_dataset.column_names)
-    # config = AutoConfig.from_pretrained(model_checkpoint)
-    # config.hidden_dropout_prob = 0.1
-    # config.attention_probs_dropout_prob = 0.1
-    # model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
-    model = XLMRobertaForQuestionAnswering.from_pretrained(model_checkpoint)
+    config.hidden_dropout_prob = 0.1
+    config.attention_probs_dropout_prob = 0.1
+    model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
 
     args = TrainingArguments(
-        f"../model/infoxlm-squad2",
+        f"../model/infoxlm-squad2-512",
         evaluation_strategy = "no",
         save_strategy = "epoch",
         learning_rate=1e-5,
@@ -149,14 +150,12 @@ if __name__ == '__main__':
         report_to='none',
         dataloader_num_workers=8
     )
-
-    data_collator = default_data_collator
     trainer = Trainer(
         model,
         args,
         train_dataset=tokenized_train_ds,
-    #     eval_dataset=tokenized_valid_ds,
-        data_collator=data_collator,
+        # eval_dataset=tokenized_valid_ds,
+        # data_collator=data_collator,
         tokenizer=tokenizer,
     )
     trainer.train()

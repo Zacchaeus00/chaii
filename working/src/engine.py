@@ -66,6 +66,7 @@ class Engine:
         eval_steps //= data_retriever.batch_size
         self.model.train()
         tloss = 0
+        last_aux = None
         for i, batch in enumerate(tqdm(train_dataloader)):
             batch = {k: v.to(self.device) for k, v in batch.items()}
             with torch.cuda.amp.autocast():
@@ -87,11 +88,17 @@ class Engine:
                 score, lang_scores, df = data_retriever.evaluate_jaccard(raw_predictions, return_predictions=True)
                 nonzero_jaccard_per = len(df[df['jaccard']!=0]) / len(df)
                 cur_metric = score if metric == 'mean_jaccard' else nonzero_jaccard_per
+                cur_aux = nonzero_jaccard_per if metric == 'mean_jaccard' else score
                 if cur_metric > best_metric:
                     best_metric = cur_metric
+                    last_aux = cur_aux
                     if save_path is not None:
                         self.save(save_path)
-                print(f'batch {i+1}, tloss {tloss / eval_steps}, vscore {score}, best {metric} {best_metric}')
+                elif cur_metric == best_metric and last_aux is not None:
+                    if cur_aux > last_aux:
+                        if save_path is not None:
+                            self.save(save_path)
+                print(f'batch {i+1}, tloss {tloss / eval_steps}, vscore {score}, nonzero_jaccard_per {nonzero_jaccard_per} best {metric} {best_metric}')
                 tloss = 0
         return best_metric
 
