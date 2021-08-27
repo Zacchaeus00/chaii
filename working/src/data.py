@@ -10,6 +10,7 @@ from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 from datasets import Dataset
 from utils import prepare_train_features, prepare_validation_features, convert_answers, jaccard, postprocess_qa_predictions
 from transformers import XLMRobertaTokenizerFast, XLMRobertaForQuestionAnswering
+import re
 
 class ChaiiDataRetriever:
     def __init__(self, model_name, train_path, max_length, doc_stride, batch_size):
@@ -26,7 +27,16 @@ class ChaiiDataRetriever:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.pad_on_right = self.tokenizer.padding_side == "right"
         
-    def prepare_data(self, fold, only_chaii=False, lang=None):
+    def prepare_data(self, fold, only_chaii=False, lang=None, removecite=False, splitjoin=False):
+        print(f'fold {fold}, only_chaii {only_chaii}, lang {lang}, removecite {removecite}, splitjoin {splitjoin}')
+
+        def remove_cite(s):
+            pattern = r'\[[0-9]*?\]'
+            return re.sub(pattern, '', s)
+
+        def spilt_join(s):
+            return ' '.join(s.split())
+
         # only use original source as validation data
         if only_chaii:
             if lang is not None:
@@ -42,6 +52,12 @@ class ChaiiDataRetriever:
             else:
                 df_train = self.train[(self.train['fold']!=fold) | (self.train['src']!='chaii')].reset_index(drop=True)
                 df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii')].reset_index(drop=True)
+        if removecite:
+            df_train['context'] = df_train['context'].apply(remove_cite)
+            df_valid['context'] = df_valid['context'].apply(remove_cite)
+        if splitjoin:
+            df_train['context'] = df_train['context'].apply(spilt_join)
+            df_valid['context'] = df_valid['context'].apply(spilt_join)
         print(f"fold{fold} t/v: {len(df_train)}/{len(df_valid)}")
         self.train_dataset = Dataset.from_pandas(df_train)
         self.valid_dataset = Dataset.from_pandas(df_valid)

@@ -242,3 +242,7 @@ def postprocess_qa_predictions(examples, features, raw_predictions, tokenizer, n
         predictions[example["id"]] = best_answer["text"]
 
     return predictions
+
+# TODO
+def get_token_logits():
+    raise NotImplementedError

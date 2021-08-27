@@ -28,9 +28,11 @@ hyp = {
     'warmup_ratio': 0.1,
     'dropout': 0.1,
     'eval_steps': 1000,
-    'metric': 'nonzero_jaccard_per'
+    'metric': 'nonzero_jaccard_per',
+    'removecite': True,
+    'splitjoin': True
 }
-experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}'.format(
+experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-removecite{}-splitjoin{}'.format(
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],
@@ -41,7 +43,9 @@ experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalste
     hyp['warmup_ratio'],
     hyp['dropout'],
     hyp['eval_steps'],
-    hyp["metric"]
+    hyp["metric"],
+    hyp['removecite'],
+    hyp['splitjoin']
 )
 out_dir = f'../model/{experiment_name}/'
 
@@ -56,7 +60,7 @@ folds = 5
 oof_scores = np.zeros(folds)
 for fold in range(folds):
     print("fold", fold)
-    data_retriever.prepare_data(fold)
+    data_retriever.prepare_data(fold, removecite=hyp['removecite'], splitjoin=hyp['splitjoin'])
     train_dataloader = data_retriever.train_dataloader()
     val_dataloader = data_retriever.val_dataloader()
     predict_dataloader = data_retriever.predict_dataloader()
