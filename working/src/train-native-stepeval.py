@@ -11,6 +11,7 @@ from engine import Engine
 from utils import seed_everything, log_scores, log_hyp
 import datetime
 from pprint import pprint
+from mymodel import ChaiiModel, ChaiiModelLoadHead
 seed_everything(42)
 
 hyp = {
@@ -29,10 +30,9 @@ hyp = {
     'dropout': 0.1,
     'eval_steps': 1000,
     'metric': 'nonzero_jaccard_per',
-    'removecite': True,
-    'splitjoin': True
+    'geoloss': True
 }
-experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-removecite{}-splitjoin{}'.format(
+experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}'.format(
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],
@@ -44,8 +44,7 @@ experiment_name = 'infoxlm-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalste
     hyp['dropout'],
     hyp['eval_steps'],
     hyp["metric"],
-    hyp['removecite'],
-    hyp['splitjoin']
+    hyp['geoloss']
 )
 out_dir = f'../model/{experiment_name}/'
 
@@ -60,14 +59,17 @@ folds = 5
 oof_scores = np.zeros(folds)
 for fold in range(folds):
     print("fold", fold)
-    data_retriever.prepare_data(fold, removecite=hyp['removecite'], splitjoin=hyp['splitjoin'])
+    data_retriever.prepare_data(fold)
     train_dataloader = data_retriever.train_dataloader()
     val_dataloader = data_retriever.val_dataloader()
     predict_dataloader = data_retriever.predict_dataloader()
     cfg = AutoConfig.from_pretrained(hyp['model_checkpoint'])
     cfg.hidden_dropout_prob = hyp['dropout']
     cfg.attention_probs_dropout_prob = hyp['dropout']
-    model = AutoModelForQuestionAnswering.from_pretrained(hyp['model_checkpoint'], config=cfg)
+    if hyp['geoloss']:
+        model = ChaiiModelLoadHead(model_name=hyp['model_checkpoint'], config=cfg)
+    else:
+        model = AutoModelForQuestionAnswering.from_pretrained(hyp['model_checkpoint'], config=cfg)
 
     num_training_steps = hyp['epochs'] * len(train_dataloader)
     num_warmup_steps = int(hyp['warmup_ratio'] * num_training_steps)
