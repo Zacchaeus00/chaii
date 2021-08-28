@@ -39,8 +39,10 @@ class ChaiiModelLoadHead(nn.Module):
     def __init__(self, model_name, config):
         super(ChaiiModelLoadHead, self).__init__()
         self.transformer = AutoModelForQuestionAnswering.from_pretrained(model_name, config=config)
-    def forward(self, input_ids, attention_mask, start_positions=None, end_positions=None):
-        output = self.transformer(input_ids, attention_mask)
+    def forward(self, **inputs):
+        output = self.transformer(**inputs)
+        start_positions = inputs.get('start_positions', None)
+        end_positions = inputs.get('end_positions', None)
         if start_positions is not None and end_positions is not None:
             loss_fct = nn.CrossEntropyLoss()
             start_loss = loss_fct(output.start_logits, start_positions)

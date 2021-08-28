@@ -122,7 +122,8 @@ if __name__ == '__main__':
     train = read_squad('../../input/squad2/train-v2.0.json')
     train_dataset = Dataset.from_dict(train)
     # model_checkpoint = '../../input/google-rembert'
-    model_checkpoint = '../../input/microsoft-infoxlm-large'
+    # model_checkpoint = '../../input/microsoft-infoxlm-large'
+    model_checkpoint = '../../input/xlm-roberta-large'
     tokenizer = XLMRobertaTokenizerFast.from_pretrained(model_checkpoint) if 'info' in model_checkpoint else AutoTokenizer.from_pretrained(model_checkpoint)
     config = AutoConfig.from_pretrained(model_checkpoint)
     pad_on_right = tokenizer.padding_side == "right"
@@ -136,7 +137,7 @@ if __name__ == '__main__':
     model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
 
     args = TrainingArguments(
-        f"../model/infoxlm-squad2-512",
+        f"../../input/xlm-roberta-large-squad2-512",
         evaluation_strategy = "no",
         save_strategy = "epoch",
         learning_rate=1e-5,
