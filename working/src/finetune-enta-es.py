@@ -96,8 +96,10 @@ def prepare_train_features(examples):
 
 
 if __name__ == '__main__':
-    train = read_squad_enta('../../input/squad2/squad2_enta.json')
+    train = read_squad_enta('../../input/squad2/squad2_enta_train.json')
+    valid = read_squad_enta('../../input/squad2/squad2_enta_valid.json')
     train_dataset = Dataset.from_dict(train)
+    valid_dataset = Dataset.from_dict(valid)
     # model_checkpoint = '../../input/google-rembert'
     model_checkpoint = '../../input/microsoft-infoxlm-large'
     # model_checkpoint = '../../input/xlm-roberta-large'
@@ -109,31 +111,34 @@ if __name__ == '__main__':
     print('max length:', max_length)
     doc_stride = 128 # The authorized overlap between two part of the context when splitting it is needed.
     tokenized_train_ds = train_dataset.map(prepare_train_features, batched=True, remove_columns=train_dataset.column_names)
+    tokenized_valid_ds = valid_dataset.map(prepare_train_features, batched=True, remove_columns=train_dataset.column_names)
     config.hidden_dropout_prob = 0.1
     config.attention_probs_dropout_prob = 0.1
     model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
 
-    experiment_name = 'squad2-enta-512'
+    experiment_name = 'squad2-enta-512-es-nowd'
+    out_dir = f"{model_checkpoint}-{experiment_name}"
+    print(out_dir)
     args = TrainingArguments(
-        f"{model_checkpoint}-{experiment_name}",
-        evaluation_strategy = "no",
-        save_strategy = "epoch",
+        out_dir,
+        evaluation_strategy = "steps",
         learning_rate=1e-5,
         warmup_ratio=0.2,
         gradient_accumulation_steps=8,
         per_device_train_batch_size=4,
         per_device_eval_batch_size=4,
         num_train_epochs=3,
-        weight_decay=0.01,
+        weight_decay=0.0,
         fp16=True,
         report_to='none',
-        dataloader_num_workers=8
+        dataloader_num_workers=8,
+        save_total_limit=1
     )
     trainer = Trainer(
         model,
         args,
         train_dataset=tokenized_train_ds,
-        # eval_dataset=tokenized_valid_ds,
+        eval_dataset=tokenized_valid_ds,
         # data_collator=data_collator,
         tokenizer=tokenizer,
     )
