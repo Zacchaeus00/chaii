@@ -113,9 +113,9 @@ if __name__ == '__main__':
     config.attention_probs_dropout_prob = 0.1
     model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
 
-    experiment_name = 'squad2-enta-512'
-    args = TrainingArguments(
-        f"{model_checkpoint}-{experiment_name}",
+    experiment_name = 'squad2-enta-512-nowd'
+    hyp = dict(
+        output_dir = f"{model_checkpoint}-{experiment_name}",
         evaluation_strategy = "no",
         save_strategy = "epoch",
         learning_rate=1e-5,
@@ -128,6 +128,9 @@ if __name__ == '__main__':
         fp16=True,
         report_to='none',
         dataloader_num_workers=8
+    )
+    args = TrainingArguments(
+        **hyp
     )
     trainer = Trainer(
         model,

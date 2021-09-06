@@ -117,10 +117,8 @@ if __name__ == '__main__':
     model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
 
     experiment_name = 'squad2-enta-512-es-nowd'
-    out_dir = f"{model_checkpoint}-{experiment_name}"
-    print(out_dir)
-    args = TrainingArguments(
-        out_dir,
+    hyp = dict(
+        output_dir = f"{model_checkpoint}-{experiment_name}",
         evaluation_strategy = "steps",
         learning_rate=1e-5,
         warmup_ratio=0.2,
@@ -133,6 +131,9 @@ if __name__ == '__main__':
         report_to='none',
         dataloader_num_workers=8,
         save_total_limit=1
+    )
+    args = TrainingArguments(
+        **hyp
     )
     trainer = Trainer(
         model,
