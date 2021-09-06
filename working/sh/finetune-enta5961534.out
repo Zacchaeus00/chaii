@@ -1,0 +1,44 @@
+Mon Sep  6 11:29:52 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:41:00.0 Off |                  N/A |
+| 39%   30C    P8    18W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+max length: 512
+----------------------------------------
+2021-09-06 11:32:48.022150
+{'dataloader_num_workers': 8,
+ 'evaluation_strategy': 'no',
+ 'fp16': True,
+ 'gradient_accumulation_steps': 8,
+ 'learning_rate': 1e-05,
+ 'num_train_epochs': 4,
+ 'output_dir': '../../input/microsoft-infoxlm-large-squad2-enta-512-nowd',
+ 'per_device_eval_batch_size': 4,
+ 'per_device_train_batch_size': 4,
+ 'report_to': 'none',
+ 'save_strategy': 'epoch',
+ 'warmup_ratio': 0.2,
+ 'weight_decay': 0.0}
+----------------------------------------
+{'loss': 4.8492, 'learning_rate': 1.4927184466019418e-06, 'epoch': 0.12}
