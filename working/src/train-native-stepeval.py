@@ -15,7 +15,7 @@ from mymodel import ChaiiModel, ChaiiModelLoadHead
 seed_everything(42)
 
 hyp = {
-    'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2-enta-512/checkpoint-12360',
+    'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2-enta-512-nowd/checkpoint-12360',
     # 'model_checkpoint': '../../input/google-rembert-squad2-512/',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
     'max_length': 512,
@@ -33,7 +33,7 @@ hyp = {
     'metric': 'nonzero_jaccard_per',
     'geoloss': False
 }
-experiment_name = 'infoxlm512enta-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}'.format(
+experiment_name = 'infoxlm512enta_nowd_ep3-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}'.format(
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],

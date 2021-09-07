@@ -6,6 +6,8 @@ from transformers import AutoTokenizer, AutoModelForQuestionAnswering, AutoConfi
 from transformers import XLMRobertaTokenizerFast, XLMRobertaForQuestionAnswering
 import os
 from utils import seed_everything
+from pprint import pprint
+import datetime
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 seed_everything(42)
 
@@ -122,8 +124,8 @@ if __name__ == '__main__':
     train = read_squad('../../input/squad2/train-v2.0.json')
     train_dataset = Dataset.from_dict(train)
     # model_checkpoint = '../../input/google-rembert'
-    # model_checkpoint = '../../input/microsoft-infoxlm-large'
-    model_checkpoint = '../../input/xlm-roberta-large'
+    model_checkpoint = '../../input/microsoft-infoxlm-large'
+    # model_checkpoint = '../../input/xlm-roberta-large'
     tokenizer = XLMRobertaTokenizerFast.from_pretrained(model_checkpoint) if 'info' in model_checkpoint else AutoTokenizer.from_pretrained(model_checkpoint)
     config = AutoConfig.from_pretrained(model_checkpoint)
     pad_on_right = tokenizer.padding_side == "right"
@@ -136,8 +138,9 @@ if __name__ == '__main__':
     config.attention_probs_dropout_prob = 0.1
     model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
 
-    args = TrainingArguments(
-        f"../../input/xlm-roberta-large-squad2-512",
+    experiment_name = 'squad2-512-nowd'
+    hyp = dict(
+        output_dir = f"{model_checkpoint}-{experiment_name}",
         evaluation_strategy = "no",
         save_strategy = "epoch",
         learning_rate=1e-5,
@@ -145,12 +148,20 @@ if __name__ == '__main__':
         gradient_accumulation_steps=8,
         per_device_train_batch_size=4,
         per_device_eval_batch_size=4,
-        num_train_epochs=3,
-        weight_decay=0.01,
+        num_train_epochs=4,
+        weight_decay=0.0,
         fp16=True,
         report_to='none',
         dataloader_num_workers=8
     )
+    print('-'*40)
+    print(datetime.datetime.now())
+    pprint(hyp)
+    print('-'*40)
+    args = TrainingArguments(
+        **hyp
+    )
+
     trainer = Trainer(
         model,
         args,
