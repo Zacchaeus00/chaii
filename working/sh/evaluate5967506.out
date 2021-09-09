@@ -1,0 +1,77 @@
+Thu Sep  9 23:57:15 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:44:00.0 Off |                  N/A |
+| 32%   26C    P8    22W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+----------------------------------------
+2021-09-09 23:57:38.952067
+{'batch_size': 32,
+ 'doc_stride': 128,
+ 'experiment_name': '../model/muril_squad2_enta_es-ep3-bs16-ga1-lr5e-05-adamw-wd0-cosann-wu0.1-dropout0.1-evalsteps1000-metricnonzero_jaccard_per-geolossFalse',
+ 'max_length': 512,
+ 'model_checkpoint': '../../input/google-muril-base-case-squad2_enta-512-es/checkpoint-39000',
+ 'swa': False,
+ 'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv'}
+----------------------------------------
+fold 0
+fold 0, only_chaii True, lang None, removecite False, splitjoin False
+fold0 t/v: 845/212
+0.6552635519616652
+language
+hindi    0.688123
+tamil    0.588605
+Name: jaccard, dtype: float64
+fold 1
+fold 1, only_chaii True, lang None, removecite False, splitjoin False
+fold1 t/v: 845/212
+0.6456864676204298
+language
+hindi    0.699329
+tamil    0.536868
+Name: jaccard, dtype: float64
+fold 2
+fold 2, only_chaii True, lang None, removecite False, splitjoin False
+fold2 t/v: 846/211
+0.6968893402542693
+language
+hindi    0.752714
+tamil    0.582005
+Name: jaccard, dtype: float64
+fold 3
+fold 3, only_chaii True, lang None, removecite False, splitjoin False
+fold3 t/v: 846/211
+0.7429093567251462
+language
+hindi    0.742736
+tamil    0.743267
+Name: jaccard, dtype: float64
+fold 4
+fold 4, only_chaii True, lang None, removecite False, splitjoin False
+fold4 t/v: 846/211
+0.6808051742885867
+language
+hindi    0.717193
+tamil    0.605919
+Name: jaccard, dtype: float64
+FINISH

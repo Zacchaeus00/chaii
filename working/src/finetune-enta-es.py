@@ -6,6 +6,8 @@ from transformers import AutoTokenizer, AutoModelForQuestionAnswering, AutoConfi
 from transformers import XLMRobertaTokenizerFast, XLMRobertaForQuestionAnswering
 import os
 from utils import seed_everything
+from pprint import pprint
+import datetime
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 seed_everything(42)
 
@@ -121,18 +123,22 @@ if __name__ == '__main__':
     hyp = dict(
         output_dir = f"{model_checkpoint}-{experiment_name}",
         evaluation_strategy = "steps",
-        learning_rate=1e-5,
+        learning_rate=3e-5,
         warmup_ratio=0.2,
-        gradient_accumulation_steps=8,
-        per_device_train_batch_size=4,
-        per_device_eval_batch_size=4,
-        num_train_epochs=3,
+        gradient_accumulation_steps=1,
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=16,
+        num_train_epochs=6,
         weight_decay=0.01,
         fp16=True,
         report_to='none',
         dataloader_num_workers=8,
         save_total_limit=1
     )
+    print('-'*40)
+    print(datetime.datetime.now())
+    pprint(hyp)
+    print('-'*40)
     args = TrainingArguments(
         **hyp
     )
@@ -145,3 +151,4 @@ if __name__ == '__main__':
         tokenizer=tokenizer,
     )
     trainer.train()
+    print(datetime.datetime.now())

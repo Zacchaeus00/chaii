@@ -12,18 +12,20 @@ from utils import seed_everything, log_scores, log_hyp
 import datetime
 from pprint import pprint
 from mymodel import ChaiiModel, ChaiiModelLoadHead
+import logging
 seed_everything(42)
 
 hyp = {
-    'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2-enta-512-nowd/checkpoint-12360',
+    # 'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2-enta-512-nowd/checkpoint-12360',
     # 'model_checkpoint': '../../input/google-rembert-squad2-512/',
+    'model_checkpoint': '../../input/google-muril-base-case-squad2_enta-512-es/checkpoint-39000',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
     'max_length': 512,
     'doc_stride': 128,
     'epochs': 3,
-    'batch_size': 4,
+    'batch_size': 16,
     'accumulation_steps': 1,
-    'lr': 1e-5,
+    'lr': 5e-5,
     'optimizer': 'adamw',
     'weight_decay': 0,
     'scheduler': 'cosann',
@@ -33,7 +35,7 @@ hyp = {
     'metric': 'nonzero_jaccard_per',
     'geoloss': False
 }
-experiment_name = 'infoxlm512enta_nowd_ep3-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}'.format(
+experiment_name = 'muril_squad2_enta_es-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}'.format(
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],
@@ -123,5 +125,32 @@ print(f'{folds} fold cv {hyp["metric"]}: {oof_scores.mean()}')
 log_hyp(out_dir, hyp)
 log_scores(out_dir, oof_scores)
 
+# evaluate
+data_retriever = ChaiiDataRetriever(hyp['model_checkpoint'], hyp['train_path'], hyp['max_length'], hyp['doc_stride'], hyp['batch_size'])
+folds = 5
+hindi_scores = []
+tamil_scores = []
+scores = []
+all_df = pd.DataFrame()
+for fold in range(folds):
+    print("fold", fold)
+    data_retriever.prepare_data(fold, only_chaii=True)
+    predict_dataloader = data_retriever.predict_dataloader()
+    model = AutoModelForQuestionAnswering.from_pretrained(hyp['model_checkpoint'])
+    model.load_state_dict(torch.load(os.path.join(out_dir, f'fold{fold}.pt')))
 
-    
+    engine = Engine(model, None, None, 'cuda')
+    raw_predictions = engine.predict(predict_dataloader)
+    score, lang_scores, df = data_retriever.evaluate_jaccard(raw_predictions, return_predictions=True)
+    all_df = pd.concat([all_df, df], axis=0)
+    hindi_scores.append(lang_scores['hindi'])
+    tamil_scores.append(lang_scores['tamil'])
+    scores.append(score)
+    print(score)
+    print(lang_scores)
+logging.basicConfig(filename=os.path.join(out_dir, 'evaluate.log'), level=logging.DEBUG)
+logging.info('hindi mean: {}'.format(np.mean(hindi_scores)))
+logging.info('tamil mean: {}'.format(np.mean(tamil_scores)))
+logging.info('macro mean: {}'.format((np.mean(hindi_scores)+np.mean(tamil_scores))/2))
+logging.info('micro mean: {}'.format(np.mean(scores)))
+all_df.to_csv(os.path.join(out_dir, 'oof_predictions.csv'), index=False)

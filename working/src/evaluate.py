@@ -16,9 +16,9 @@ import logging
 seed_everything(42)
 
 hyp = {
-    'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2',
+    'model_checkpoint': '../../input/google-muril-base-case-squad2_enta-512-es/checkpoint-39000',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
-    'experiment_name': 'infoxlm-ep3-bs4-ga1-lr1e-05-adamw-wd0-cosann-wu0.1-dropout0.1-evalsteps1000',
+    'experiment_name': '../model/muril_squad2_enta_es-ep3-bs16-ga1-lr5e-05-adamw-wd0-cosann-wu0.1-dropout0.1-evalsteps1000-metricnonzero_jaccard_per-geolossFalse',
     'max_length': 512,
     'doc_stride': 128,
     'batch_size': 32,
