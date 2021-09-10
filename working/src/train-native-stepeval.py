@@ -18,7 +18,7 @@ seed_everything(42)
 hyp = {
     # 'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2-enta-512-nowd/checkpoint-12360',
     # 'model_checkpoint': '../../input/google-rembert-squad2-512/',
-    'model_checkpoint': '../../input/google-muril-base-case-squad2_enta-512-es/checkpoint-39000',
+    'model_checkpoint': '/gpfsnyu/scratch/yw3642/chaii/input/google-muril-base-case-squad2-512/checkpoint-24474',
     'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
     'max_length': 512,
     'doc_stride': 128,
@@ -35,7 +35,7 @@ hyp = {
     'metric': 'nonzero_jaccard_per',
     'geoloss': False
 }
-experiment_name = 'muril_squad2_enta_es-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}'.format(
+experiment_name = 'muril_squad2-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}'.format(
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],

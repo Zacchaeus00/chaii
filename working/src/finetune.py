@@ -144,11 +144,11 @@ if __name__ == '__main__':
         output_dir = f"{model_checkpoint}-{experiment_name}",
         evaluation_strategy = "no",
         save_strategy = "epoch",
-        learning_rate=1e-5,
+        learning_rate=3e-5,
         warmup_ratio=0.2,
-        gradient_accumulation_steps=8,
-        per_device_train_batch_size=4,
-        per_device_eval_batch_size=4,
+        gradient_accumulation_steps=16,
+        per_device_train_batch_size=1,
+        per_device_eval_batch_size=1,
         num_train_epochs=3,
         weight_decay=0.01,
         fp16=True,
@@ -172,3 +172,4 @@ if __name__ == '__main__':
         tokenizer=tokenizer,
     )
     trainer.train()
+    print(datetime.datetime.now())
