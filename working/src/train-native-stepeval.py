@@ -16,16 +16,14 @@ import logging
 seed_everything(42)
 
 hyp = {
-    # 'model_checkpoint': '../../input/microsoft-infoxlm-large-squad2-enta-512-nowd/checkpoint-12360',
-    # 'model_checkpoint': '../../input/google-rembert-squad2-512/',
-    'model_checkpoint': '/gpfsnyu/scratch/yw3642/chaii/input/google-muril-base-case-squad2-512/checkpoint-24474',
-    'train_path': '../../input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds-count_leq15.csv',
+    'model_checkpoint': '../../input/0825-rembert-squad2',
+    'train_path': '../../input/train0917/merged0917.csv',
     'max_length': 512,
     'doc_stride': 128,
     'epochs': 3,
-    'batch_size': 16,
+    'batch_size': 4,
     'accumulation_steps': 1,
-    'lr': 5e-5,
+    'lr': 1e-5,
     'optimizer': 'adamw',
     'weight_decay': 0,
     'scheduler': 'cosann',
@@ -33,9 +31,12 @@ hyp = {
     'dropout': 0.1,
     'eval_steps': 1000,
     'metric': 'nonzero_jaccard_per',
-    'geoloss': False
+    'geoloss': False,
+    'downext': True,
+    'experiment_name': '0825_rembert_squad2_train0917',
 }
-experiment_name = 'muril_squad2-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}'.format(
+experiment_name = '{}-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}-downext{}'.format(
+    hyp['experiment_name'],
     hyp['epochs'],
     hyp['batch_size'],
     hyp['accumulation_steps'],
@@ -47,7 +48,8 @@ experiment_name = 'muril_squad2-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-ev
     hyp['dropout'],
     hyp['eval_steps'],
     hyp["metric"],
-    hyp['geoloss']
+    hyp['geoloss'],
+    hyp['downext']
 )
 out_dir = f'../model/{experiment_name}/'
 
@@ -62,7 +64,7 @@ folds = 5
 oof_scores = np.zeros(folds)
 for fold in range(folds):
     print("fold", fold)
-    data_retriever.prepare_data(fold)
+    data_retriever.prepare_data(fold, downext=hyp['downext'])
     train_dataloader = data_retriever.train_dataloader()
     val_dataloader = data_retriever.val_dataloader()
     predict_dataloader = data_retriever.predict_dataloader()

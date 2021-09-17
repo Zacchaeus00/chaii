@@ -27,7 +27,7 @@ class ChaiiDataRetriever:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.pad_on_right = self.tokenizer.padding_side == "right"
         
-    def prepare_data(self, fold, only_chaii=False, lang=None, removecite=False, splitjoin=False):
+    def prepare_data(self, fold, only_chaii=False, lang=None, removecite=False, splitjoin=False, downext=False):
         print(f'fold {fold}, only_chaii {only_chaii}, lang {lang}, removecite {removecite}, splitjoin {splitjoin}')
 
         def remove_cite(s):
@@ -45,13 +45,16 @@ class ChaiiDataRetriever:
             else:
                 df_train = self.train[(self.train['fold']!=fold) & (self.train['src']=='chaii')].reset_index(drop=True)
                 df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii')].reset_index(drop=True)
-        else:
+        elif not downext:
             if lang is not None:
                 df_train = self.train[(self.train['fold']!=fold) | (self.train['src']!='chaii') & (self.train['language']==lang)].reset_index(drop=True)
                 df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii') & (self.train['language']==lang)].reset_index(drop=True)
             else:
                 df_train = self.train[(self.train['fold']!=fold) | (self.train['src']!='chaii')].reset_index(drop=True)
                 df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii')].reset_index(drop=True)
+        else:
+            df_train = self.train[((self.train['fold']!=fold) & (self.train['src']=='chaii')) | ((self.train['fold']==fold) & (self.train['src']!='chaii'))].reset_index(drop=True)
+            df_valid = self.train[(self.train['fold']==fold) & (self.train['src']=='chaii')].reset_index(drop=True)
         if removecite:
             df_train['context'] = df_train['context'].apply(remove_cite)
             df_valid['context'] = df_valid['context'].apply(remove_cite)
