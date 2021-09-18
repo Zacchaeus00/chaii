@@ -215,3 +215,46 @@ batch 1500, tloss 0.08328990548849106, vscore 0.6728871728871727, nonzero_jaccar
 batch 1750, tloss 0.0738203963637352, vscore 0.6722865722865723, nonzero_jaccard_per 0.7927927927927928 best nonzero_jaccard_per 0.7927927927927928
 batch 2000, tloss 0.07243790060281753, vscore 0.6692835692835694, nonzero_jaccard_per 0.7927927927927928 best nonzero_jaccard_per 0.7927927927927928
 batch 2250, tloss 0.07380055493116379, vscore 0.6692835692835694, nonzero_jaccard_per 0.7927927927927928 best nonzero_jaccard_per 0.7927927927927928
+fold 4 best nonzero_jaccard_per 0.7927927927927928
+5 fold cv nonzero_jaccard_per: 0.815060800711025
+fold 0
+fold 0, only_chaii True, lang None, removecite False, splitjoin False
+fold0 t/v: 891/223
+0.6922424921864384
+language
+hindi    0.730733
+tamil    0.614742
+Name: jaccard, dtype: float64
+fold 1
+fold 1, only_chaii True, lang None, removecite False, splitjoin False
+fold1 t/v: 891/223
+0.6904135554477777
+language
+hindi    0.746271
+tamil    0.577943
+Name: jaccard, dtype: float64
+fold 2
+fold 2, only_chaii True, lang None, removecite False, splitjoin False
+fold2 t/v: 891/223
+0.7193603855038831
+language
+hindi    0.736941
+tamil    0.683961
+Name: jaccard, dtype: float64
+fold 3
+fold 3, only_chaii True, lang None, removecite False, splitjoin False
+fold3 t/v: 891/223
+0.6990604313474269
+language
+hindi    0.766143
+tamil    0.561220
+Name: jaccard, dtype: float64
+fold 4
+fold 4, only_chaii True, lang None, removecite False, splitjoin False
+fold4 t/v: 892/222
+0.6545659295659295
+language
+hindi    0.694295
+tamil    0.573474
+Name: jaccard, dtype: float64
+FINISH
