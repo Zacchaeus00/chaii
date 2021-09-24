@@ -1,0 +1,8 @@
+DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
+/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/configuration_utils.py:336: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  warnings.warn(
+Some weights of the model checkpoint at ../../input/microsoft-infoxlm-large were not used when initializing XLMRobertaForMaskedLM: ['qa_outputs.bias', 'qa_outputs.weight']
+- This IS expected if you are initializing XLMRobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of XLMRobertaForMaskedLM were not initialized from the model checkpoint at ../../input/microsoft-infoxlm-large and are newly initialized: ['lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.

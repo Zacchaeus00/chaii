@@ -1,0 +1,136 @@
+Fri Sep 24 00:22:34 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:46:00.0 Off |                  N/A |
+| 39%   25C    P8    24W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+09/24/2021 00:23:58 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: True
+09/24/2021 00:23:58 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=False,
+group_by_length=False,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=./runs/Sep24_00-23-57_agpu7,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=loss,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=3.0,
+output_dir=.,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=.,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.1,
+warmup_steps=0,
+weight_decay=0.0,
+)
+09/24/2021 00:23:58 - INFO - datasets.utils.file_utils - HEAD request to https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/csv/csv.py timed out, retrying... [1.0]
+09/24/2021 00:23:58 - WARNING - datasets.builder - Using custom data configuration default-877e4ba639f5ff5e
+09/24/2021 00:23:58 - INFO - datasets.builder - Generating dataset csv (/gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff)
+Downloading and preparing dataset csv/default (download: Unknown size, generated: Unknown size, post-processed: Unknown size, total: Unknown size) to /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff...
+09/24/2021 00:23:58 - INFO - datasets.utils.download_manager - Downloading took 0.0 min
+09/24/2021 00:24:01 - INFO - datasets.utils.download_manager - Checksum Computation took 0.0 min
+09/24/2021 00:24:02 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+09/24/2021 00:24:02 - INFO - datasets.builder - Generating split train
+09/24/2021 00:24:21 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset csv downloaded and prepared to /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff. Subsequent calls will reuse this data.
+09/24/2021 00:24:23 - INFO - datasets.utils.file_utils - HEAD request to https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/csv/csv.py timed out, retrying... [1.0]
+09/24/2021 00:24:23 - WARNING - datasets.builder - Using custom data configuration default-877e4ba639f5ff5e
+09/24/2021 00:24:23 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+09/24/2021 00:24:23 - INFO - datasets.info - Loading Dataset info from /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff
+09/24/2021 00:24:23 - WARNING - datasets.builder - Reusing dataset csv (/gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff)
+09/24/2021 00:24:23 - INFO - datasets.info - Loading Dataset info from /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff
+09/24/2021 00:24:23 - INFO - datasets.utils.file_utils - HEAD request to https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/csv/csv.py timed out, retrying... [1.0]
+09/24/2021 00:24:24 - WARNING - datasets.builder - Using custom data configuration default-877e4ba639f5ff5e
+09/24/2021 00:24:24 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+09/24/2021 00:24:24 - INFO - datasets.info - Loading Dataset info from /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff
+09/24/2021 00:24:24 - WARNING - datasets.builder - Reusing dataset csv (/gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff)
+09/24/2021 00:24:24 - INFO - datasets.info - Loading Dataset info from /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff
+09/24/2021 00:24:35 - WARNING - __main__ - The tokenizer picked seems to have a very large `model_max_length` (1000000000000000019884624838656). Picking 1024 instead. You can change that default value by passing --max_seq_length xxx.
+09/24/2021 00:24:36 - INFO - datasets.arrow_dataset - Caching processed dataset at /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff/cache-8fc49157ebba18e0.arrow
+09/24/2021 00:27:08 - INFO - datasets.arrow_dataset - Caching processed dataset at /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff/cache-aab122402a0fc2d4.arrow
+09/24/2021 00:27:19 - INFO - datasets.arrow_dataset - Caching processed dataset at /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff/cache-d4c61c5a35188f91.arrow
+09/24/2021 00:40:16 - INFO - datasets.arrow_dataset - Caching processed dataset at /gpfsnyu/home/yw3642/.cache/huggingface/datasets/csv/default-877e4ba639f5ff5e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff/cache-26b0b3e1e3e7e2de.arrow
+09/24/2021 00:41:26 - INFO - __main__ - *** Evaluate ***
+FINISH
