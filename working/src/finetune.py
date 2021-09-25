@@ -126,7 +126,8 @@ if __name__ == '__main__':
     # model_checkpoint = '../../input/google-rembert'
     # model_checkpoint = '../../input/microsoft-infoxlm-large'
     # model_checkpoint = '../../input/xlm-roberta-large'
-    model_checkpoint = '../../input/google-muril-base-case'
+    # model_checkpoint = '../../input/google-muril-base-case'
+    model_checkpoint = '/gpfsnyu/scratch/yw3642/chaii/working/model/microsoft-infoxlm-large-pretrained'
     tokenizer = XLMRobertaTokenizerFast.from_pretrained(model_checkpoint) if 'info' in model_checkpoint else AutoTokenizer.from_pretrained(model_checkpoint)
     config = AutoConfig.from_pretrained(model_checkpoint)
     pad_on_right = tokenizer.padding_side == "right"
@@ -139,16 +140,16 @@ if __name__ == '__main__':
     config.attention_probs_dropout_prob = 0.1
     model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint, config=config)
 
-    experiment_name = 'squad2-512'
+    experiment_name = 'squad2'
     hyp = dict(
         output_dir = f"{model_checkpoint}-{experiment_name}",
         evaluation_strategy = "no",
         save_strategy = "epoch",
-        learning_rate=3e-5,
+        learning_rate=1e-5,
         warmup_ratio=0.2,
-        gradient_accumulation_steps=16,
-        per_device_train_batch_size=1,
-        per_device_eval_batch_size=1,
+        gradient_accumulation_steps=8,
+        per_device_train_batch_size=4,
+        per_device_eval_batch_size=4,
         num_train_epochs=3,
         weight_decay=0.01,
         fp16=True,

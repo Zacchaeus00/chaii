@@ -101,5 +101,5 @@ trainer = Trainer(
     eval_dataset=valid_dataset)
 
 trainer.train()
-model.save_pretrained(args.output_dir)
-tokenizer.save_pretrained(args.output_dir)
+model.save_pretrained(output_dir)
+tokenizer.save_pretrained(output_dir)

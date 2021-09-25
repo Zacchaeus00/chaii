@@ -17,22 +17,23 @@ module purge                        # 清除所有已加载的模块
 module load anaconda3 cuda/11.1.1              # 加载anaconda (load virtual env for training)
 
 nvidia-smi
+nvidia-smi topo -m
 nvcc --version
 cd /gpfsnyu/scratch/yw3642/chaii/working/src     # 切到程序目录
 
 echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
-python -u pretrain.py \
---seed 42 \
---block_size 512 \
---mlm_probability 0.15 \
---model_name '../../input/microsoft-infoxlm-large' \
---output_dir '../model/microsoft-infoxlm-large-pretrained' \
---epochs 5 \
---batch_size 2 \
---gradient_accumulation_steps 4 \
---learning_rate 3e-5 \
---warmup_ratio 0.1 \
---stride 128
+# python -u pretrain.py \
+# --seed 42 \
+# --block_size 512 \
+# --mlm_probability 0.15 \
+# --model_name '../../input/microsoft-infoxlm-large' \
+# --output_dir '../model/microsoft-infoxlm-large-pretrained' \
+# --epochs 5 \
+# --batch_size 2 \
+# --gradient_accumulation_steps 4 \
+# --learning_rate 3e-5 \
+# --warmup_ratio 0.1 \
+# --stride 128
 echo "FINISH"                       # 输出起始信息
