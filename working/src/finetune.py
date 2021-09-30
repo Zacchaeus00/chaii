@@ -127,7 +127,7 @@ if __name__ == '__main__':
     # model_checkpoint = '../../input/microsoft-infoxlm-large'
     # model_checkpoint = '../../input/xlm-roberta-large'
     # model_checkpoint = '../../input/google-muril-base-case'
-    model_checkpoint = '/gpfsnyu/scratch/yw3642/chaii/working/model/microsoft-infoxlm-large-pretrained'
+    model_checkpoint = '/gpfsnyu/scratch/yw3642/chaii/working/model/infoxlm-large-pretrained-wiki2021-09-28_00:22:30'
     tokenizer = XLMRobertaTokenizerFast.from_pretrained(model_checkpoint) if 'info' in model_checkpoint else AutoTokenizer.from_pretrained(model_checkpoint)
     config = AutoConfig.from_pretrained(model_checkpoint)
     pad_on_right = tokenizer.padding_side == "right"

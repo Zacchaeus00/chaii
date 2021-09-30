@@ -16,7 +16,7 @@ import logging
 seed_everything(42)
 
 hyp = {
-    'model_checkpoint': '/gpfsnyu/scratch/yw3642/chaii/working/model/microsoft-infoxlm-large-pretrained-squad2/checkpoint-12258',
+    'model_checkpoint': '/gpfsnyu/scratch/yw3642/chaii/working/model/infoxlm-large-pretrained-wiki2021-09-28_00:22:30-squad2/checkpoint-12258',
     'train_path': '../../input/train0917/merged0917.csv',
     'max_length': 512,
     'doc_stride': 128,
@@ -33,7 +33,7 @@ hyp = {
     'metric': 'nonzero_jaccard_per',
     'geoloss': False,
     'downext': True,
-    'experiment_name': '0925_infoxlm_pretrained_squad2_train0917',
+    'experiment_name': '0930_infoxlm_pretrained_squad2_train0917',
 }
 experiment_name = '{}-ep{}-bs{}-ga{}-lr{}-{}-wd{}-{}-wu{}-dropout{}-evalsteps{}-metric{}-geoloss{}-downext{}'.format(
     hyp['experiment_name'],

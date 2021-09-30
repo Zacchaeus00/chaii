@@ -1,0 +1,71 @@
+Thu Sep 30 00:10:28 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:3D:00.0 Off |                  N/A |
+| 39%   26C    P8    26W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+imp 43498, p 86821
+max length: 512
+----------------------------------------
+2021-09-30 00:13:17.259910
+{'dataloader_num_workers': 8,
+ 'evaluation_strategy': 'no',
+ 'fp16': True,
+ 'gradient_accumulation_steps': 8,
+ 'learning_rate': 1e-05,
+ 'num_train_epochs': 3,
+ 'output_dir': '/gpfsnyu/scratch/yw3642/chaii/working/model/infoxlm-large-pretrained-wiki2021-09-28_00:22:30-squad2',
+ 'per_device_eval_batch_size': 4,
+ 'per_device_train_batch_size': 4,
+ 'report_to': 'none',
+ 'save_strategy': 'epoch',
+ 'warmup_ratio': 0.2,
+ 'weight_decay': 0.01}
+----------------------------------------
+{'loss': 4.6512, 'learning_rate': 2.010603588907015e-06, 'epoch': 0.12}
+{'loss': 2.0233, 'learning_rate': 4.049755301794454e-06, 'epoch': 0.24}
+{'loss': 1.261, 'learning_rate': 6.0889070146818925e-06, 'epoch': 0.37}
+{'loss': 1.1068, 'learning_rate': 8.128058727569332e-06, 'epoch': 0.49}
+{'loss': 0.9922, 'learning_rate': 9.958188863960841e-06, 'epoch': 0.61}
+{'loss': 0.944, 'learning_rate': 9.44829696104426e-06, 'epoch': 0.73}
+{'loss': 0.9094, 'learning_rate': 8.938405058127678e-06, 'epoch': 0.86}
+{'loss': 0.8581, 'learning_rate': 8.428513155211096e-06, 'epoch': 0.98}
+{'loss': 0.7551, 'learning_rate': 7.918621252294515e-06, 'epoch': 1.1}
+{'loss': 0.7268, 'learning_rate': 7.408729349377932e-06, 'epoch': 1.22}
+{'loss': 0.7208, 'learning_rate': 6.8988374464613505e-06, 'epoch': 1.35}
+{'loss': 0.7064, 'learning_rate': 6.388945543544769e-06, 'epoch': 1.47}
+{'loss': 0.6914, 'learning_rate': 5.879053640628187e-06, 'epoch': 1.59}
+{'loss': 0.6895, 'learning_rate': 5.370181521517439e-06, 'epoch': 1.71}
+{'loss': 0.6717, 'learning_rate': 4.8602896186008565e-06, 'epoch': 1.84}
+{'loss': 0.6764, 'learning_rate': 4.350397715684275e-06, 'epoch': 1.96}
+{'loss': 0.5894, 'learning_rate': 3.840505812767693e-06, 'epoch': 2.08}
+{'loss': 0.5396, 'learning_rate': 3.331633693656945e-06, 'epoch': 2.2}
+{'loss': 0.5347, 'learning_rate': 2.8217417907403633e-06, 'epoch': 2.32}
+{'loss': 0.5473, 'learning_rate': 2.3118498878237817e-06, 'epoch': 2.45}
+{'loss': 0.5406, 'learning_rate': 1.802977768713033e-06, 'epoch': 2.57}
+{'loss': 0.5398, 'learning_rate': 1.2930858657964511e-06, 'epoch': 2.69}
+{'loss': 0.5354, 'learning_rate': 7.831939628798696e-07, 'epoch': 2.81}
+{'loss': 0.5329, 'learning_rate': 2.7330205996328785e-07, 'epoch': 2.94}
+{'train_runtime': 11962.6681, 'train_samples_per_second': 32.794, 'train_steps_per_second': 1.025, 'train_loss': 0.9387030294190847, 'epoch': 3.0}
+2021-09-30 03:32:53.660774
+FINISH
