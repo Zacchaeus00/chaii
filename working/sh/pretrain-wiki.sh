@@ -28,15 +28,15 @@ python -u pretrain-wiki.py \
 --seed 3407 \
 --block_size 512 \
 --mlm_probability 0.15 \
---model_name '../../input/microsoft-infoxlm-large' \
---output_dir '../model/infoxlm-large-pretrained-wiki' \
---epochs 5 \
---batch_size 3 \
---gradient_accumulation_steps 4 \
---learning_rate 3e-5 \
+--model_name '/gpfsnyu/scratch/yw3642/chaii/input/google-muril-base-case' \
+--output_dir '../model/muril-base-pretrained-wiki' \
+--epochs 50 \
+--batch_size 8 \
+--gradient_accumulation_steps 8 \
+--learning_rate 1e-4 \
 --warmup_ratio 0.1 \
 --stride 128 \
---eval_steps 30000 \
---save_steps 10000 \
+--eval_steps 5000 \
+--save_steps 5000 \
 --valid_ratio 0.1
 echo "FINISH"                       # 输出起始信息

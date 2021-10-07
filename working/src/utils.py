@@ -7,7 +7,14 @@ import json
 import warnings
 import random
 import torch
+import datetime
 warnings.simplefilter('ignore')
+
+def get_time():
+    timenow = str(datetime.datetime.now()).split('.')[0]
+    timenow = '-'.join(timenow.split())
+    return timenow
+
 
 def seed_everything(seed):
     random.seed(seed)
