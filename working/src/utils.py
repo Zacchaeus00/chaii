@@ -8,6 +8,7 @@ import warnings
 import random
 import torch
 import datetime
+from pathlib import Path
 warnings.simplefilter('ignore')
 
 def get_time():
@@ -253,3 +254,33 @@ def postprocess_qa_predictions(examples, features, raw_predictions, tokenizer, n
 # TODO
 def get_token_logits():
     raise NotImplementedError
+
+def read_squad(path):
+    path = Path(path)
+    with open(path, 'rb') as f:
+        squad_dict = json.load(f)
+
+    contexts = []
+    questions = []
+    answers = []
+    imp = 0
+    p = 0
+    for group in squad_dict['data']:
+        for passage in group['paragraphs']:
+            context = passage['context']
+            for qa in passage['qas']:
+                is_impossible = qa['is_impossible']
+                question = qa['question']
+                contexts.append(context)
+                questions.append(question)
+                if is_impossible:
+                    imp += 1        
+                    answers.append({'text': [], 'answer_start': []})
+                else:
+                    p += 1
+                    text = qa['answers'][0]['text']
+                    answer_start = qa['answers'][0]['answer_start']
+                    answers.append({'text': [text], 'answer_start': [answer_start]})
+    print(f'imp {imp}, p {p}')
+    return {'id': [i for i in range(len(contexts))], 'context': contexts, 'question': questions, 'answers': answers}
+

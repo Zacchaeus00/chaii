@@ -3,6 +3,7 @@ from transformers import AutoModel, AutoConfig, AutoModelForQuestionAnswering
 import torch
 import torch.nn as nn
 import numpy as np
+from transformers.modeling_outputs import QuestionAnsweringModelOutput
 
 class Output:
     pass
@@ -138,8 +139,51 @@ class ChaiiModel1008(nn.Module):
         else:
             total_loss = None
 
-        output = {}
-        output['loss'] = total_loss
-        output['start_logits'] = start_logits
-        output['end_logits'] = end_logits
-        return output 
+        return QuestionAnsweringModelOutput(
+            loss=total_loss,
+            start_logits=start_logits,
+            end_logits=end_logits,
+        )
+
+class ChaiiRemBert(nn.Module):
+    def __init__(self, model_dir, dropout=0.2, hdropout=0.5, nlast=2):
+        super(ChaiiRemBert, self).__init__()
+        #load base model
+        self.config = AutoConfig.from_pretrained(model_dir)
+        self.config.update({
+            'hidden_dropout_prob': dropout,
+            'attention_probs_dropout_prob': dropout,
+        })
+        self.nlast = nlast
+        self.base = AutoModel.from_pretrained(model_dir, config=self.config)
+        self.high_dropout = nn.Dropout(p=hdropout)
+        self.output = nn.Linear(self.nlast * self.config.hidden_size, 2)
+        torch.nn.init.normal_(self.output.weight, std=0.02)
+
+    def forward(self, input_ids, attention_mask, token_type_ids, start_positions=None, end_positions=None):
+        out = self.base(input_ids, attention_mask, token_type_ids, output_hidden_states=True)
+        if self.nlast == 1:
+            out = out.last_hidden_state
+        else:
+            out = torch.cat(out.hidden_states[-self.nlast:], dim=-1)
+        
+        # Multisample Dropout: https://arxiv.org/abs/1905.09788
+        logits = torch.mean(torch.stack([self.output(self.high_dropout(out)) for _ in range(5)], dim=0), dim=0)
+        start_logits, end_logits = logits.split(1, dim=-1)
+        start_logits = start_logits.squeeze(-1).contiguous()
+        end_logits = end_logits.squeeze(-1).contiguous()
+
+        if start_positions is not None and end_positions is not None:
+            loss_fct = nn.CrossEntropyLoss()
+            start_loss = loss_fct(start_logits, start_positions)
+            end_loss = loss_fct(end_logits, end_positions)
+            # total_loss = (start_loss + end_loss) / 2
+            total_loss = (start_loss*end_loss) ** 0.5
+        else:
+            total_loss = None
+
+        return QuestionAnsweringModelOutput(
+            loss=total_loss,
+            start_logits=start_logits,
+            end_logits=end_logits,
+        )

@@ -24,3 +24,48 @@ Built on Mon_Oct_12_20:09:46_PDT_2020
 Cuda compilation tools, release 11.1, V11.1.105
 Build cuda_11.1.TC455_06.29190527_0
 START
+imp 43498, p 86821
+max length: 512
+----------------------------------------
+2021-10-08 02:36:53.970952
+{'dataloader_num_workers': 8,
+ 'evaluation_strategy': 'no',
+ 'fp16': True,
+ 'gradient_accumulation_steps': 8,
+ 'learning_rate': 1e-05,
+ 'num_train_epochs': 3,
+ 'output_dir': '../../input/microsoft-infoxlm-large-mymodel1008-squad2',
+ 'per_device_eval_batch_size': 4,
+ 'per_device_train_batch_size': 4,
+ 'report_to': 'none',
+ 'save_strategy': 'epoch',
+ 'warmup_ratio': 0.2,
+ 'weight_decay': 0.01}
+----------------------------------------
+{'loss': 3.9655, 'learning_rate': 2.0269168026101142e-06, 'epoch': 0.12}
+{'loss': 1.4283, 'learning_rate': 4.061990212071778e-06, 'epoch': 0.24}
+{'loss': 1.0609, 'learning_rate': 6.101141924959217e-06, 'epoch': 0.37}
+{'loss': 0.9707, 'learning_rate': 8.140293637846656e-06, 'epoch': 0.49}
+{'loss': 0.8805, 'learning_rate': 9.955129512543341e-06, 'epoch': 0.61}
+{'loss': 0.844, 'learning_rate': 9.44523760962676e-06, 'epoch': 0.73}
+{'loss': 0.8104, 'learning_rate': 8.936365490516011e-06, 'epoch': 0.86}
+{'loss': 0.7677, 'learning_rate': 8.427493371405263e-06, 'epoch': 0.98}
+{'loss': 0.6461, 'learning_rate': 7.917601468488681e-06, 'epoch': 1.1}
+{'loss': 0.6193, 'learning_rate': 7.408729349377932e-06, 'epoch': 1.22}
+{'loss': 0.6078, 'learning_rate': 6.8988374464613505e-06, 'epoch': 1.35}
+{'loss': 0.603, 'learning_rate': 6.388945543544769e-06, 'epoch': 1.47}
+{'loss': 0.5849, 'learning_rate': 5.879053640628187e-06, 'epoch': 1.59}
+{'loss': 0.5816, 'learning_rate': 5.369161737711606e-06, 'epoch': 1.71}
+{'loss': 0.5785, 'learning_rate': 4.8602896186008565e-06, 'epoch': 1.84}
+{'loss': 0.5734, 'learning_rate': 4.350397715684275e-06, 'epoch': 1.96}
+{'loss': 0.4594, 'learning_rate': 3.840505812767693e-06, 'epoch': 2.08}
+{'loss': 0.3969, 'learning_rate': 3.330613909851112e-06, 'epoch': 2.2}
+{'loss': 0.3833, 'learning_rate': 2.8207220069345305e-06, 'epoch': 2.32}
+{'loss': 0.3967, 'learning_rate': 2.3108301040179485e-06, 'epoch': 2.45}
+{'loss': 0.3949, 'learning_rate': 1.8009382011013665e-06, 'epoch': 2.57}
+{'loss': 0.3932, 'learning_rate': 1.291046298184785e-06, 'epoch': 2.69}
+{'loss': 0.3864, 'learning_rate': 7.811543952682032e-07, 'epoch': 2.81}
+{'loss': 0.3828, 'learning_rate': 2.7228227615745463e-07, 'epoch': 2.94}
+{'train_runtime': 11419.7678, 'train_samples_per_second': 34.353, 'train_steps_per_second': 1.073, 'train_loss': 0.7713462573160529, 'epoch': 3.0}
+2021-10-08 05:47:17.577864
+FINISH

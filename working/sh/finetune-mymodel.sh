@@ -23,5 +23,19 @@ cd /gpfsnyu/scratch/yw3642/chaii/working/src     # 切到程序目录
 echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
-python -u finetune-mymodel.py                     # 用python跑代码
+python -u finetune-mymodel.py \
+--model_checkpoint /gpfsnyu/scratch/yw3642/chaii/input/google-rembert \
+--train_path /gpfsnyu/scratch/yw3642/chaii/input/squad2/train-v2.0.json \
+--max_length 384 \
+--doc_stride 128 \
+--epochs 3 \
+--batch_size 4 \
+--accumulation_steps 1 \
+--lr 1e-5 \
+--weight_decay 0 \
+--warmup_ratio 0.2 \
+--dropout 0.1 \
+--hdropout 0.5 \
+--seed 3407 \
+--nlast 1
 echo "FINISH"                       # 输出起始信息
