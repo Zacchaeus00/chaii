@@ -17,7 +17,7 @@ import argparse
 from utils import get_time
 from pathlib import Path
 import json
-from mymodel import ChaiiModel1008
+from mymodel import ChaiiModel1008, ChaiiRemBert
 
 def parse_args():
     parser = argparse.ArgumentParser(description='')
@@ -41,6 +41,7 @@ def parse_args():
     arg('--metric', required=True, type=str)
     arg('--downext', dest='downext', action='store_true')
     arg('--seed', required=True, type=int)
+    arg('--nlast', required=True, type=int)
 
     parser.set_defaults(geoloss=False, downext=False)
     return parser.parse_args()
@@ -59,7 +60,7 @@ with open(f'{out_dir}/hyp.json', 'w') as f:
 data_retriever = ChaiiDataRetriever(args.model_checkpoint, args.train_path, args.max_length, args.doc_stride, args.batch_size)
 folds = 5
 oof_scores = np.zeros(folds)
-model = ChaiiModel1008(args.model_checkpoint, dropout=args.dropout, hdropout=args.hdropout)
+model = ChaiiRemBert(args.model_checkpoint, dropout=args.dropout, hdropout=args.hdropout, nlast=args.nlast)
 for fold in range(folds):
     print("fold", fold)
     data_retriever.prepare_data(fold, downext=args.downext)
@@ -129,7 +130,7 @@ for fold in range(folds):
     print("fold", fold)
     data_retriever.prepare_data(fold, only_chaii=True)
     predict_dataloader = data_retriever.predict_dataloader()
-    model = AutoModelForQuestionAnswering.from_pretrained(args.model_checkpoint)
+    model = ChaiiRemBert(args.model_checkpoint, dropout=args.dropout, hdropout=args.hdropout, nlast=args.nlast)
     model.load_state_dict(torch.load(os.path.join(out_dir, f'fold{fold}.pt')))
 
     engine = Engine(model, None, None, 'cuda')

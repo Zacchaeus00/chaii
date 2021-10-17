@@ -24,8 +24,8 @@ echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
 python -u train-native-stepeval-mymodel.py \
---model_checkpoint /gpfsnyu/scratch/yw3642/chaii/input/microsoft-infoxlm-large \
---weight_path /gpfsnyu/scratch/yw3642/chaii/input/microsoft-infoxlm-large-mymodel1008-squad2/checkpoint-12258/pytorch_model.bin \
+--model_checkpoint /gpfsnyu/scratch/yw3642/chaii/input/google-rembert \
+--weight_path /gpfsnyu/scratch/yw3642/chaii/working/model/2021-10-16-19:52:50/checkpoint-97905/pytorch_model.bin \
 --train_path /gpfsnyu/scratch/yw3642/chaii/input/train0917/merged0917.csv \
 --max_length 512 \
 --doc_stride 128 \
@@ -42,5 +42,6 @@ python -u train-native-stepeval-mymodel.py \
 --eval_steps 1000 \
 --metric nonzero_jaccard_per \
 --downext \
---seed 3407
+--seed 3407 \
+--nlast 1
 echo "FINISH"                       # 输出起始信息
