@@ -284,3 +284,8 @@ def read_squad(path):
     print(f'imp {imp}, p {p}')
     return {'id': [i for i in range(len(contexts))], 'context': contexts, 'question': questions, 'answers': answers}
 
+def read_squad_enta(path):
+    path = Path(path)
+    with open(path, 'r') as f:
+        squad_dict = json.load(f)
+    return squad_dict

@@ -24,7 +24,7 @@ echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
 python -u train-native-stepeval.py \
---model_checkpoint /gpfsnyu/scratch/yw3642/chaii/working/model/infoxlm-large-pretrained-wiki2021-09-28_00:22:30-squad2/checkpoint-12258 \
+--model_checkpoint /gpfsnyu/scratch/yw3642/chaii/working/model/2021-10-20-17:05:05/checkpoint-97887 \
 --train_path /gpfsnyu/scratch/yw3642/chaii/input/train0917/merged0917.csv \
 --max_length 512 \
 --doc_stride 128 \
