@@ -28,10 +28,10 @@ python -u finetune-v2.py \
 --train_path /gpfsnyu/scratch/yw3642/chaii/input/squad2/train-v2.0.json \
 --max_length 512 \
 --doc_stride 128 \
---epochs 3 \
+--epochs 5 \
 --batch_size 4 \
 --accumulation_steps 1 \
---lr 1e-5 \
+--lr 5e-6 \
 --weight_decay 0.01 \
 --warmup_ratio 0.2 \
 --seed 3407
