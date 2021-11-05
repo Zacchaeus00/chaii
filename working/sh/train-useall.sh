@@ -11,7 +11,7 @@
 #SBATCH --error=%x%A.err          # 报错信息写入的文件
 #SBATCH --gres=gpu:1                # 需要几块GPU (同时最多8块)
 #SBATCH -p aquila                   # 有GPU的partition
-#SBATCH --nodelist=agpu7            # 3090
+#SBATCH --nodelist=agpu8            # 3090
 
 module purge                        # 清除所有已加载的模块
 module load anaconda3 cuda/11.1.1              # 加载anaconda (load virtual env for training)
@@ -34,7 +34,7 @@ python -u train-useall.py \
 --lr 5e-6 \
 --weight_decay 0.01 \
 --warmup_ratio 0.1 \
---seed 0 \
+--seed 2 \
 --dropout 0 \
 --downsample 0.5
 echo "FINISH"                       # 输出起始信息

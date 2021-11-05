@@ -11,6 +11,9 @@ import transformers
 import json
 from pathlib import Path
 from pprint import pprint
+import hashlib
+md5 = hashlib.md5()
+md5.update('how to use md5 in python hashlib?'.encode('utf-8'))
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 def parse_args():
@@ -33,8 +36,8 @@ def parse_args():
 args = parse_args()
 seed_everything(args.seed)
 hyp = {k: v for k, v in args.__dict__.items() if k != 'seed'}
-hyp_hash = hash(json.dumps(hyp))
-out_dir = f'../model/{hyp_hash}/'
+md5.update(json.dumps(hyp).encode('utf-8'))
+out_dir = f'../model/{md5.hexdigest()}/'
 Path(out_dir).mkdir(parents=True, exist_ok=True)
 with open(f'{out_dir}/hyp.json', 'w') as f:
     json.dump(hyp, f, indent=4)
@@ -49,6 +52,7 @@ train_dataset = Dataset.from_pandas(train)
 tokenized_train_ds = train_dataset.map(lambda x: prepare_train_features_v2(x, tokenizer, args.max_length, args.doc_stride, tokenizer.padding_side == "right"),
                                                         batched=True, 
                                                         remove_columns=train_dataset.column_names)
+tokenized_train_ds.set_format(type='torch')
 sampler = BatchSampler(sampler=ChaiiRandomSampler(tokenized_train_ds, downsample=args.downsample), batch_size=args.batch_size, drop_last=False)
 dataloader = DataLoader(tokenized_train_ds, batch_sampler=sampler)
 
@@ -77,5 +81,5 @@ engine = Engine(model, optimizer, scheduler, "cuda")
 for epoch in range(args.epochs):
     tloss = engine.train(dataloader, accumulation_steps=args.accumulation_steps)
     print(f'ep {epoch}, tloss{tloss}')
-engine.save(os.path.json(out_dir, f'{args.seed}.pt'))
+engine.save(os.path.join(out_dir, f'{args.seed}.pt'))
 
