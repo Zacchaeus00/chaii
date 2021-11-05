@@ -10,6 +10,34 @@ import torch
 import datetime
 from pathlib import Path
 warnings.simplefilter('ignore')
+from torch.utils.data import Dataset, DataLoader, BatchSampler, Sampler
+
+class ChaiiRandomSampler(Sampler):
+    def __init__(self, data_source, downsample=1.0):
+        self.data_source = data_source
+        self.downsample = downsample
+        self.chaii_indices = []
+        self.ext_indices = []
+        for i, item in enumerate(self.data_source):
+            if item['src'] == 0:
+                self.chaii_indices.append(i)
+            else:
+                self.ext_indices.append(i)
+        self.chaii_indices = torch.tensor(self.chaii_indices, dtype=torch.long)
+        self.ext_indices = torch.tensor(self.ext_indices, dtype=torch.long)
+        self.n_chaii = len(self.chaii_indices)
+        self.n_ext = int(len(self.ext_indices)*self.downsample)
+
+    def __iter__(self):
+        sampled_ext_indices_indices = torch.randperm(len(self.ext_indices))[:self.n_ext].long()
+#         print(type(sampled_ext_indices_indices))
+        sampled_ext_indices = self.ext_indices[sampled_ext_indices_indices]
+        indices = torch.cat([self.chaii_indices, sampled_ext_indices])
+        indices_indices = torch.randperm(self.n_chaii+self.n_ext).long()
+        return iter(indices[indices_indices].tolist())
+
+    def __len__(self):
+        return len(self.data_source)
 
 def get_time():
     timenow = str(datetime.datetime.now()).split('.')[0]
@@ -289,3 +317,92 @@ def read_squad_enta(path):
     with open(path, 'r') as f:
         squad_dict = json.load(f)
     return squad_dict
+
+def prepare_train_features_v2(examples, tokenizer, max_length=384, doc_stride=128, pad_on_right=True):
+    # Some of the questions have lots of whitespace on the left, which is not useful and will make the
+    # truncation of the context fail (the tokenized question will take a lots of space). So we remove that
+    # left whitespace
+    examples["question"] = [q.lstrip() for q in examples["question"]]
+
+    # Tokenize our examples with truncation and padding, but keep the overflows using a stride. This results
+    # in one example possible giving several features when a context is long, each of those features having a
+    # context that overlaps a bit the context of the previous feature.
+    tokenized_examples = tokenizer(
+        examples["question" if pad_on_right else "context"],
+        examples["context" if pad_on_right else "question"],
+        truncation="only_second" if pad_on_right else "only_first",
+        max_length=max_length,
+        stride=doc_stride,
+        return_overflowing_tokens=True,
+        return_offsets_mapping=True,
+        padding="max_length",
+    )
+
+    # Since one example might give us several features if it has a long context, we need a map from a feature to
+    # its corresponding example. This key gives us just that.
+    sample_mapping = tokenized_examples.pop("overflow_to_sample_mapping")
+    # The offset mappings will give us a map from token to character position in the original context. This will
+    # help us compute the start_positions and end_positions.
+    offset_mapping = tokenized_examples.pop("offset_mapping")
+
+    # Let's label those examples!
+    tokenized_examples["start_positions"] = []
+    tokenized_examples["end_positions"] = []
+    
+    # We keep the example_id that gave us this feature and we will store the offset mappings.
+    tokenized_examples["src"] = []
+
+    for i, offsets in enumerate(offset_mapping):
+        # We will label impossible answers with the index of the CLS token.
+        input_ids = tokenized_examples["input_ids"][i]
+        cls_index = input_ids.index(tokenizer.cls_token_id)
+
+        # Grab the sequence corresponding to that example (to know what is the context and what is the question).
+        sequence_ids = tokenized_examples.sequence_ids(i)
+
+        # One example can give several spans, this is the index of the example containing this span of text.
+        sample_index = sample_mapping[i]
+        answers = examples["answers"][sample_index]
+        
+        # src
+        if examples["src"][sample_index] == 'chaii':
+            tokenized_examples["src"].append(0)
+        elif examples["src"][sample_index] == 'xquad' or examples["src"][sample_index] == 'mlqa':
+            tokenized_examples["src"].append(1)
+        else:
+            raise NameError
+        
+        # If no answers are given, set the cls_index as answer.
+        if len(answers["answer_start"]) == 0:
+            tokenized_examples["start_positions"].append(cls_index)
+            tokenized_examples["end_positions"].append(cls_index)
+        else:
+            # Start/end character index of the answer in the text.
+            start_char = answers["answer_start"][0]
+            end_char = start_char + len(answers["text"][0])
+
+            # Start token index of the current span in the text.
+            token_start_index = 0
+            while sequence_ids[token_start_index] != (1 if pad_on_right else 0):
+                token_start_index += 1
+
+            # End token index of the current span in the text.
+            token_end_index = len(input_ids) - 1
+            while sequence_ids[token_end_index] != (1 if pad_on_right else 0):
+                token_end_index -= 1
+
+            # Detect if the answer is out of the span (in which case this feature is labeled with the CLS index).
+            if not (offsets[token_start_index][0] <= start_char and offsets[token_end_index][1] >= end_char):
+                tokenized_examples["start_positions"].append(cls_index)
+                tokenized_examples["end_positions"].append(cls_index)
+            else:
+                # Otherwise move the token_start_index and token_end_index to the two ends of the answer.
+                # Note: we could go after the last offset if the answer is the last word (edge case).
+                while token_start_index < len(offsets) and offsets[token_start_index][0] <= start_char:
+                    token_start_index += 1
+                tokenized_examples["start_positions"].append(token_start_index - 1)
+                while offsets[token_end_index][1] >= end_char:
+                    token_end_index -= 1
+                tokenized_examples["end_positions"].append(token_end_index + 1)
+
+    return tokenized_examples

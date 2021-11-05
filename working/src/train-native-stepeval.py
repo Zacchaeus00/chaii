@@ -17,6 +17,7 @@ import argparse
 from utils import get_time
 from pathlib import Path
 import json
+import uuid
 
 def parse_args():
     parser = argparse.ArgumentParser(description='')
@@ -43,7 +44,7 @@ def parse_args():
     return parser.parse_args()
 
 timenow = get_time()
-out_dir = f'../model/{timenow}/'
+out_dir = f'../model/{timenow}-{uuid.uuid1()}/'
 args = parse_args()
 seed_everything(args.seed)
 Path(out_dir).mkdir(parents=True, exist_ok=True)

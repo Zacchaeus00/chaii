@@ -12,12 +12,13 @@ class Engine:
         self.scheduler = scheduler
         self.device = device
         self.scaler = torch.cuda.amp.GradScaler()
+        self.input_columns = ['attention_mask', 'end_positions', 'input_ids', 'start_positions']
     
     def train(self, dataloader, accumulation_steps=1, grad_clip=1):
         self.model.train()
         final_loss = 0
         for i, batch in enumerate(tqdm(dataloader)):
-            batch = {k: v.to(self.device) for k, v in batch.items()}
+            batch = {k: v.to(self.device) for k, v in batch.items() if k in self.input_columns}
             with torch.cuda.amp.autocast():
                 outputs = self.model(**batch)
                 loss = outputs.loss

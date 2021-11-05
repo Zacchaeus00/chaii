@@ -23,13 +23,17 @@ def parse_args():
     arg('--weight_decay', required=True, type=float)
     arg('--warmup_ratio', required=True, type=float)
     arg('--seed', required=True, type=int)
+    arg('--dropout', required=True, type=float)
     return parser.parse_args()
 args = parse_args()
 seed_everything(args.seed)
 train_dataset = Dataset.from_dict(read_squad(args.train_path))
 tokenizer = AutoTokenizer.from_pretrained(args.model_checkpoint)
 tokenized_train_ds = train_dataset.map(lambda x: prepare_train_features(x, tokenizer, args.max_length, args.doc_stride, tokenizer.padding_side == "right"), batched=True, remove_columns=train_dataset.column_names)
-model = AutoModelForQuestionAnswering.from_pretrained(args.model_checkpoint)
+cfg = AutoConfig.from_pretrained(args.model_checkpoint)
+cfg.hidden_dropout_prob = args.dropout
+cfg.attention_probs_dropout_prob = args.dropout
+model = AutoModelForQuestionAnswering.from_pretrained(args.model_checkpoint, config=cfg)
 
 timenow = get_time()
 out_dir = Path(f'../model/{timenow}/')
