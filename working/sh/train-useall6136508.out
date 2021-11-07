@@ -1,13 +1,13 @@
-Fri Nov  5 23:41:15 2021       
+Sat Nov  6 00:43:21 2021       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+| NVIDIA-SMI 460.73.01    Driver Version: 460.73.01    CUDA Version: 11.2     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  GeForce RTX 3090    Off  | 00000000:42:00.0 Off |                  N/A |
-| 39%   30C    P8    24W / 350W |      0MiB / 24268MiB |      0%      Default |
+|   0  A10                 On   | 00000000:41:00.0 Off |                    0 |
+|  0%   29C    P8    15W / 150W |      0MiB / 22731MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -36,9 +36,9 @@ START
  'train_path': '/gpfsnyu/scratch/yw3642/chaii/input/train0917/merged0917.csv',
  'warmup_ratio': 0.1,
  'weight_decay': 0.01}
-2021-11-05-23:42:24
+2021-11-06-00:44:40
 seed 0
-ep 0, tloss0.48001860453292383
-ep 1, tloss0.31440662814087644
-ep 2, tloss0.17694916577879774
+ep 0, tloss0.4801319260444752
+ep 1, tloss0.31692097402589264
+ep 2, tloss0.18152939408671023
 FINISH

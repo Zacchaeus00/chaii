@@ -31,10 +31,10 @@ python -u train-useall.py \
 --epochs 3 \
 --batch_size 4 \
 --accumulation_steps 1 \
---lr 5e-6 \
---weight_decay 0.01 \
+--lr 1e-5 \
+--weight_decay 0.0 \
 --warmup_ratio 0.1 \
 --seed 2 \
---dropout 0 \
---downsample 0.5
+--dropout 0.3 \
+--downsample 0.2
 echo "FINISH"                       # 输出起始信息
