@@ -11,7 +11,7 @@
 #SBATCH --error=%x%A.err          # 报错信息写入的文件
 #SBATCH --gres=gpu:1                # 需要几块GPU (同时最多8块)
 #SBATCH -p aquila                   # 有GPU的partition
-#SBATCH --nodelist=agpu8            # 3090
+#SBATCH --nodelist=agpu7            # 3090
 
 module purge                        # 清除所有已加载的模块
 module load anaconda3 cuda/11.1.1              # 加载anaconda (load virtual env for training)
@@ -24,17 +24,17 @@ echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
 python -u train-useall.py \
---model_checkpoint /gpfsnyu/scratch/yw3642/chaii/input/deepset-xlm-roberta-large-squad2 \
+--model_checkpoint /gpfsnyu/scratch/yw3642/chaii/input/0825-rembert-squad2 \
 --train_path /gpfsnyu/scratch/yw3642/chaii/input/train0917/merged0917.csv \
 --max_length 512 \
 --doc_stride 128 \
 --epochs 3 \
 --batch_size 4 \
---accumulation_steps 1 \
+--accumulation_steps 2 \
 --lr 1e-5 \
 --weight_decay 0.0 \
 --warmup_ratio 0.1 \
---seed 2 \
---dropout 0.3 \
+--seed 4 \
+--dropout 0.1 \
 --downsample 0.2
 echo "FINISH"                       # 输出起始信息
