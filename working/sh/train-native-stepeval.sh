@@ -24,14 +24,14 @@ echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
 python -u train-native-stepeval.py \
---model_checkpoint /gpfsnyu/scratch/yw3642/chaii/working/model/2021-10-30-20:45:59/checkpoint-65272 \
---train_path /gpfsnyu/scratch/yw3642/chaii/input/train0917/merged0917.csv \
+--model_checkpoint /gpfsnyu/scratch/yw3642/chaii/input/google-muril-base-case-squad2-512/checkpoint-4079 \
+--train_path /gpfsnyu/scratch/yw3642/chaii/input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds.csv \
 --max_length 512 \
 --doc_stride 128 \
 --epochs 3 \
---batch_size 4 \
+--batch_size 16 \
 --accumulation_steps 1 \
---lr 5e-6 \
+--lr 5e-5 \
 --optimizer adamw \
 --weight_decay 0.0 \
 --scheduler cosann \
@@ -40,5 +40,5 @@ python -u train-native-stepeval.py \
 --eval_steps 1000 \
 --metric nonzero_jaccard_per \
 --downext \
---seed 3407
+--seed 42
 echo "FINISH"                       # 输出起始信息

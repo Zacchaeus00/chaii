@@ -1,0 +1,2 @@
+DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
+slurmstepd: error: *** JOB 6161844 ON agpu7 CANCELLED AT 2021-11-12T01:35:24 ***

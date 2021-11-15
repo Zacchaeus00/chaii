@@ -26,14 +26,14 @@ source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 v
 python -u finetune-v2.py \
 --model_checkpoint /gpfsnyu/scratch/yw3642/chaii/input/google-muril-large-cased \
 --train_path /gpfsnyu/scratch/yw3642/chaii/input/squad2/train-v2.0.json \
---max_length 512 \
+--max_length 384 \
 --doc_stride 128 \
---epochs 2 \
+--epochs 3 \
 --batch_size 4 \
 --accumulation_steps 1 \
---lr 5e-6 \
+--lr 1e-5 \
 --weight_decay 0.01 \
 --warmup_ratio 0.2 \
---seed 3407 \
+--seed 42 \
 --dropout 0
 echo "FINISH"                       # 输出起始信息

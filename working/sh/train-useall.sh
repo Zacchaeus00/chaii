@@ -24,7 +24,7 @@ echo "START"               # 输出起始信息
 source deactivate
 source /gpfsnyu/packages/anaconda3/5.2.0/bin/activate kaggle          # 调用 virtual env
 python -u train-useall.py \
---model_checkpoint /gpfsnyu/scratch/yw3642/chaii/input/0825-rembert-squad2 \
+--model_checkpoint /gpfsnyu/scratch/yw3642/chaii/working/model/rembert-squad2/checkpoint-12369 \
 --train_path /gpfsnyu/scratch/yw3642/chaii/input/train0917/merged0917.csv \
 --max_length 512 \
 --doc_stride 128 \
@@ -36,5 +36,5 @@ python -u train-useall.py \
 --warmup_ratio 0.1 \
 --seed 4 \
 --dropout 0.1 \
---downsample 0.2
+--downsample 0.6
 echo "FINISH"                       # 输出起始信息

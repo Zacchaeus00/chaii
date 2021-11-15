@@ -1,0 +1,227 @@
+Fri Nov 12 17:32:11 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.80       Driver Version: 460.80       CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 3090    Off  | 00000000:42:00.0 Off |                  N/A |
+| 39%   30C    P8    24W / 350W |      0MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Mon_Oct_12_20:09:46_PDT_2020
+Cuda compilation tools, release 11.1, V11.1.105
+Build cuda_11.1.TC455_06.29190527_0
+START
+{'accumulation_steps': 1,
+ 'batch_size': 16,
+ 'doc_stride': 128,
+ 'downext': True,
+ 'dropout': 0.1,
+ 'epochs': 3,
+ 'eval_steps': 1000,
+ 'geoloss': False,
+ 'lr': 5e-05,
+ 'max_length': 512,
+ 'metric': 'nonzero_jaccard_per',
+ 'model_checkpoint': '/gpfsnyu/scratch/yw3642/chaii/input/google-muril-base-case-squad2-512/checkpoint-8158',
+ 'optimizer': 'adamw',
+ 'scheduler': 'cosann',
+ 'seed': 42,
+ 'time': '2021-11-12-17:33:39',
+ 'train_path': '/gpfsnyu/scratch/yw3642/chaii/input/chaii-hindi-and-tamil-question-answering/chaii-mlqa-xquad-5folds.csv',
+ 'warmup_ratio': 0.1,
+ 'weight_decay': 0.0}
+fold 0
+fold 0, only_chaii False, lang None, removecite False, splitjoin False
+fold0 t/v: 2214/223
+initial mean jaccard 0.5393537534595303
+initial nonzero jaccard percentage 0.6502242152466368
+using metric: nonzero_jaccard_per
+batch 62, tloss 1.196133521295363, vscore 0.5814047891204314, nonzero_jaccard_per 0.7174887892376681 best nonzero_jaccard_per 0.7174887892376681
+batch 124, tloss 0.7879805411061933, vscore 0.6115960895108877, nonzero_jaccard_per 0.7309417040358744 best nonzero_jaccard_per 0.7309417040358744
+batch 186, tloss 0.7762537002563477, vscore 0.6044354375071864, nonzero_jaccard_per 0.7040358744394619 best nonzero_jaccard_per 0.7309417040358744
+batch 248, tloss 0.6617951546945879, vscore 0.6457088377491964, nonzero_jaccard_per 0.7443946188340808 best nonzero_jaccard_per 0.7443946188340808
+batch 310, tloss 0.6326655803188201, vscore 0.5905394306739599, nonzero_jaccard_per 0.6905829596412556 best nonzero_jaccard_per 0.7443946188340808
+batch 372, tloss 0.6150561917212701, vscore 0.6004049015259778, nonzero_jaccard_per 0.7085201793721974 best nonzero_jaccard_per 0.7443946188340808
+batch 434, tloss 0.6195997345832086, vscore 0.607755958540712, nonzero_jaccard_per 0.7040358744394619 best nonzero_jaccard_per 0.7443946188340808
+batch 62, tloss 0.34390071899660174, vscore 0.6019637313359286, nonzero_jaccard_per 0.7174887892376681 best nonzero_jaccard_per 0.7443946188340808
+batch 124, tloss 0.25286641044001423, vscore 0.6215825654166461, nonzero_jaccard_per 0.726457399103139 best nonzero_jaccard_per 0.7443946188340808
+batch 186, tloss 0.25940245197665307, vscore 0.6057967443617669, nonzero_jaccard_per 0.7219730941704036 best nonzero_jaccard_per 0.7443946188340808
+batch 248, tloss 0.5928646960566121, vscore 0.6308287751112864, nonzero_jaccard_per 0.7399103139013453 best nonzero_jaccard_per 0.7443946188340808
+batch 310, tloss 0.30532297395890756, vscore 0.6343532814443836, nonzero_jaccard_per 0.7533632286995515 best nonzero_jaccard_per 0.7533632286995515
+batch 372, tloss 0.25494967737505514, vscore 0.619185597660934, nonzero_jaccard_per 0.7309417040358744 best nonzero_jaccard_per 0.7533632286995515
+batch 434, tloss 0.23725761713520174, vscore 0.6241770561277288, nonzero_jaccard_per 0.726457399103139 best nonzero_jaccard_per 0.7533632286995515
+batch 62, tloss 0.14752683139616443, vscore 0.6227463493158559, nonzero_jaccard_per 0.7399103139013453 best nonzero_jaccard_per 0.7533632286995515
+batch 124, tloss 0.11034948018289381, vscore 0.612902232296851, nonzero_jaccard_per 0.7309417040358744 best nonzero_jaccard_per 0.7533632286995515
+batch 186, tloss 0.1044927547054906, vscore 0.6339998193137207, nonzero_jaccard_per 0.7399103139013453 best nonzero_jaccard_per 0.7533632286995515
+batch 248, tloss 0.10217695274660664, vscore 0.624700225036548, nonzero_jaccard_per 0.7309417040358744 best nonzero_jaccard_per 0.7533632286995515
+batch 310, tloss 0.09841028144282679, vscore 0.6209633042592684, nonzero_jaccard_per 0.726457399103139 best nonzero_jaccard_per 0.7533632286995515
+batch 372, tloss 0.09211327375904206, vscore 0.6179737676374448, nonzero_jaccard_per 0.726457399103139 best nonzero_jaccard_per 0.7533632286995515
+batch 434, tloss 0.10100210482074369, vscore 0.6179737676374448, nonzero_jaccard_per 0.726457399103139 best nonzero_jaccard_per 0.7533632286995515
+fold 0 best nonzero_jaccard_per 0.7533632286995515
+fold 1
+fold 1, only_chaii False, lang None, removecite False, splitjoin False
+fold1 t/v: 2214/223
+initial mean jaccard 0.5090629226279451
+initial nonzero jaccard percentage 0.6367713004484304
+using metric: nonzero_jaccard_per
+batch 62, tloss 1.2794745045323526, vscore 0.592963912022208, nonzero_jaccard_per 0.7219730941704036 best nonzero_jaccard_per 0.7219730941704036
+batch 124, tloss 0.7217584271584788, vscore 0.6146914371129617, nonzero_jaccard_per 0.7399103139013453 best nonzero_jaccard_per 0.7399103139013453
+batch 186, tloss 0.727843330752465, vscore 0.6640828528720907, nonzero_jaccard_per 0.7757847533632287 best nonzero_jaccard_per 0.7757847533632287
+batch 248, tloss 0.6607019439820321, vscore 0.6455904334828102, nonzero_jaccard_per 0.7488789237668162 best nonzero_jaccard_per 0.7757847533632287
+batch 310, tloss 0.7108123302459717, vscore 0.6397719993011474, nonzero_jaccard_per 0.7488789237668162 best nonzero_jaccard_per 0.7757847533632287
+batch 372, tloss 0.662495574643535, vscore 0.6444822989666039, nonzero_jaccard_per 0.7354260089686099 best nonzero_jaccard_per 0.7757847533632287
+batch 434, tloss 0.7050392512352236, vscore 0.6473579484790247, nonzero_jaccard_per 0.7533632286995515 best nonzero_jaccard_per 0.7757847533632287
+batch 62, tloss 0.40420595292122136, vscore 0.66990177236814, nonzero_jaccard_per 0.7847533632286996 best nonzero_jaccard_per 0.7847533632286996
+batch 124, tloss 0.28688526922656643, vscore 0.6684817424727738, nonzero_jaccard_per 0.7802690582959642 best nonzero_jaccard_per 0.7847533632286996
+batch 186, tloss 0.28942423866641137, vscore 0.6512919068972881, nonzero_jaccard_per 0.757847533632287 best nonzero_jaccard_per 0.7847533632286996
+batch 248, tloss 0.30236506077551073, vscore 0.6736760623531924, nonzero_jaccard_per 0.7937219730941704 best nonzero_jaccard_per 0.7937219730941704
+batch 310, tloss 0.28953254030596826, vscore 0.6721439248345078, nonzero_jaccard_per 0.7713004484304933 best nonzero_jaccard_per 0.7937219730941704
+batch 372, tloss 0.22140883245775778, vscore 0.6704249412769592, nonzero_jaccard_per 0.7713004484304933 best nonzero_jaccard_per 0.7937219730941704
+batch 434, tloss 0.24874092494287797, vscore 0.6659406363442238, nonzero_jaccard_per 0.7757847533632287 best nonzero_jaccard_per 0.7937219730941704
+batch 62, tloss 0.13114484087113412, vscore 0.6601382175373208, nonzero_jaccard_per 0.7937219730941704 best nonzero_jaccard_per 0.7937219730941704
+batch 124, tloss 0.11981151949974798, vscore 0.6717275250907537, nonzero_jaccard_per 0.7937219730941704 best nonzero_jaccard_per 0.7937219730941704
+batch 186, tloss 0.10410979101734777, vscore 0.6564061499039078, nonzero_jaccard_per 0.7802690582959642 best nonzero_jaccard_per 0.7937219730941704
+batch 248, tloss 0.0810954128542254, vscore 0.6523702754644458, nonzero_jaccard_per 0.7802690582959642 best nonzero_jaccard_per 0.7937219730941704
+batch 310, tloss 0.08709502604699904, vscore 0.6584988255391843, nonzero_jaccard_per 0.7847533632286996 best nonzero_jaccard_per 0.7937219730941704
+batch 372, tloss 0.07772616801723357, vscore 0.6588725176169122, nonzero_jaccard_per 0.7847533632286996 best nonzero_jaccard_per 0.7937219730941704
+batch 434, tloss 0.07074585460847424, vscore 0.6618620542387359, nonzero_jaccard_per 0.7847533632286996 best nonzero_jaccard_per 0.7937219730941704
+fold 1 best nonzero_jaccard_per 0.7937219730941704
+fold 2
+fold 2, only_chaii False, lang None, removecite False, splitjoin False
+fold2 t/v: 2214/223
+initial mean jaccard 0.5624373944441209
+initial nonzero jaccard percentage 0.6995515695067265
+using metric: nonzero_jaccard_per
+batch 62, tloss 1.1749172518330235, vscore 0.6953892706695398, nonzero_jaccard_per 0.8340807174887892 best nonzero_jaccard_per 0.8340807174887892
+batch 124, tloss 0.7832538389390514, vscore 0.7118637528390892, nonzero_jaccard_per 0.8295964125560538 best nonzero_jaccard_per 0.8340807174887892
+batch 186, tloss 0.7609010973284321, vscore 0.7036704755281649, nonzero_jaccard_per 0.8295964125560538 best nonzero_jaccard_per 0.8340807174887892
+batch 248, tloss 0.7659177087968395, vscore 0.7027456661425271, nonzero_jaccard_per 0.8295964125560538 best nonzero_jaccard_per 0.8340807174887892
+batch 310, tloss 0.6750048360516948, vscore 0.7312583716731699, nonzero_jaccard_per 0.8295964125560538 best nonzero_jaccard_per 0.8340807174887892
+batch 372, tloss 0.7060722151110249, vscore 0.729570771779292, nonzero_jaccard_per 0.8295964125560538 best nonzero_jaccard_per 0.8340807174887892
+batch 434, tloss 0.6637758016586304, vscore 0.7452522502410395, nonzero_jaccard_per 0.8699551569506726 best nonzero_jaccard_per 0.8699551569506726
+batch 62, tloss 0.3429009299124441, vscore 0.7647376228654255, nonzero_jaccard_per 0.8878923766816144 best nonzero_jaccard_per 0.8878923766816144
+batch 124, tloss 0.2724415948314051, vscore 0.7289628346242696, nonzero_jaccard_per 0.8385650224215246 best nonzero_jaccard_per 0.8878923766816144
+batch 186, tloss 0.35421814072516655, vscore 0.735903954239451, nonzero_jaccard_per 0.852017937219731 best nonzero_jaccard_per 0.8878923766816144
+batch 248, tloss 0.3033243571558306, vscore 0.7376111369945452, nonzero_jaccard_per 0.8565022421524664 best nonzero_jaccard_per 0.8878923766816144
+batch 310, tloss 0.3176909146770354, vscore 0.7178232517358077, nonzero_jaccard_per 0.8475336322869955 best nonzero_jaccard_per 0.8878923766816144
+batch 372, tloss 0.22972308243474654, vscore 0.7315964740292094, nonzero_jaccard_per 0.8565022421524664 best nonzero_jaccard_per 0.8878923766816144
+batch 434, tloss 0.2542855374274715, vscore 0.7300589980522716, nonzero_jaccard_per 0.8609865470852018 best nonzero_jaccard_per 0.8878923766816144
+batch 62, tloss 0.15910857146786106, vscore 0.7290873986501789, nonzero_jaccard_per 0.8475336322869955 best nonzero_jaccard_per 0.8878923766816144
+batch 124, tloss 0.09663970431973858, vscore 0.7599792770756896, nonzero_jaccard_per 0.8789237668161435 best nonzero_jaccard_per 0.8878923766816144
+batch 186, tloss 0.08306876305610902, vscore 0.7471740952122118, nonzero_jaccard_per 0.8699551569506726 best nonzero_jaccard_per 0.8878923766816144
+batch 248, tloss 0.06354711901757025, vscore 0.7426897902794763, nonzero_jaccard_per 0.8654708520179372 best nonzero_jaccard_per 0.8878923766816144
+batch 310, tloss 0.08830220853128741, vscore 0.7359633328803732, nonzero_jaccard_per 0.8654708520179372 best nonzero_jaccard_per 0.8878923766816144
+batch 372, tloss 0.07686627103436378, vscore 0.7359633328803732, nonzero_jaccard_per 0.8654708520179372 best nonzero_jaccard_per 0.8878923766816144
+batch 434, tloss 0.0992456155438577, vscore 0.7389528695021967, nonzero_jaccard_per 0.8654708520179372 best nonzero_jaccard_per 0.8878923766816144
+fold 2 best nonzero_jaccard_per 0.8878923766816144
+fold 3
+fold 3, only_chaii False, lang None, removecite False, splitjoin False
+fold3 t/v: 2214/223
+initial mean jaccard 0.5157196990982689
+initial nonzero jaccard percentage 0.6681614349775785
+using metric: nonzero_jaccard_per
+batch 62, tloss 1.2710475613993983, vscore 0.5741107252436023, nonzero_jaccard_per 0.7130044843049327 best nonzero_jaccard_per 0.7130044843049327
+batch 124, tloss 0.7373503561942808, vscore 0.632173576692104, nonzero_jaccard_per 0.7623318385650224 best nonzero_jaccard_per 0.7623318385650224
+batch 186, tloss 0.7164129903239589, vscore 0.6069139334952411, nonzero_jaccard_per 0.7488789237668162 best nonzero_jaccard_per 0.7623318385650224
+batch 248, tloss 0.631784285268476, vscore 0.6354140208518306, nonzero_jaccard_per 0.7713004484304933 best nonzero_jaccard_per 0.7713004484304933
+batch 310, tloss 0.7149150294642295, vscore 0.6326629353653191, nonzero_jaccard_per 0.7533632286995515 best nonzero_jaccard_per 0.7713004484304933
+batch 372, tloss 0.6478126010587139, vscore 0.659803657124875, nonzero_jaccard_per 0.7802690582959642 best nonzero_jaccard_per 0.7802690582959642
+batch 434, tloss 0.619782147868987, vscore 0.693998261723067, nonzero_jaccard_per 0.820627802690583 best nonzero_jaccard_per 0.820627802690583
+batch 62, tloss 0.36923720759730183, vscore 0.6578462224320142, nonzero_jaccard_per 0.7937219730941704 best nonzero_jaccard_per 0.820627802690583
+batch 124, tloss 0.2957080256554388, vscore 0.6891153519074217, nonzero_jaccard_per 0.8161434977578476 best nonzero_jaccard_per 0.820627802690583
+batch 186, tloss 0.2947722634961528, vscore 0.670737367161724, nonzero_jaccard_per 0.8026905829596412 best nonzero_jaccard_per 0.820627802690583
+batch 248, tloss 0.295868287163396, vscore 0.6743278225459014, nonzero_jaccard_per 0.7982062780269058 best nonzero_jaccard_per 0.820627802690583
+batch 310, tloss 0.28456432780911844, vscore 0.6463388334582575, nonzero_jaccard_per 0.7802690582959642 best nonzero_jaccard_per 0.820627802690583
+batch 372, tloss 0.2311125474591409, vscore 0.6528280716739533, nonzero_jaccard_per 0.7802690582959642 best nonzero_jaccard_per 0.820627802690583
+batch 434, tloss 0.30628304904507053, vscore 0.6531910868351747, nonzero_jaccard_per 0.7892376681614349 best nonzero_jaccard_per 0.820627802690583
+batch 62, tloss 0.1322573500294839, vscore 0.6807499878245689, nonzero_jaccard_per 0.8116591928251121 best nonzero_jaccard_per 0.820627802690583
+batch 124, tloss 0.0863339324151316, vscore 0.6636389971709774, nonzero_jaccard_per 0.7937219730941704 best nonzero_jaccard_per 0.820627802690583
+batch 186, tloss 0.12168875817329652, vscore 0.6722178995839606, nonzero_jaccard_per 0.7982062780269058 best nonzero_jaccard_per 0.820627802690583
+batch 248, tloss 0.10205529389842864, vscore 0.6747590057125105, nonzero_jaccard_per 0.8026905829596412 best nonzero_jaccard_per 0.820627802690583
+batch 310, tloss 0.08323091653085524, vscore 0.6817345911634324, nonzero_jaccard_per 0.8071748878923767 best nonzero_jaccard_per 0.820627802690583
+batch 372, tloss 0.07664165958281487, vscore 0.6809498378002036, nonzero_jaccard_per 0.8116591928251121 best nonzero_jaccard_per 0.820627802690583
+batch 434, tloss 0.07896825190513365, vscore 0.6805014073069301, nonzero_jaccard_per 0.8071748878923767 best nonzero_jaccard_per 0.820627802690583
+fold 3 best nonzero_jaccard_per 0.820627802690583
+fold 4
+fold 4, only_chaii False, lang None, removecite False, splitjoin False
+fold4 t/v: 2215/222
+initial mean jaccard 0.525961125961126
+initial nonzero jaccard percentage 0.6351351351351351
+using metric: nonzero_jaccard_per
+batch 62, tloss 1.4318167932571904, vscore 0.5970411345411345, nonzero_jaccard_per 0.7207207207207207 best nonzero_jaccard_per 0.7207207207207207
+batch 124, tloss 0.7873646366980768, vscore 0.654000429000429, nonzero_jaccard_per 0.7792792792792793 best nonzero_jaccard_per 0.7792792792792793
+batch 186, tloss 0.6950259054860761, vscore 0.6221060346060344, nonzero_jaccard_per 0.7342342342342343 best nonzero_jaccard_per 0.7792792792792793
+batch 248, tloss 0.7723874122865738, vscore 0.6514712764712766, nonzero_jaccard_per 0.7657657657657657 best nonzero_jaccard_per 0.7792792792792793
+batch 310, tloss 0.5884110081580377, vscore 0.6351424476424476, nonzero_jaccard_per 0.7522522522522522 best nonzero_jaccard_per 0.7792792792792793
+batch 372, tloss 0.6374275453629032, vscore 0.6582514332514332, nonzero_jaccard_per 0.7747747747747747 best nonzero_jaccard_per 0.7792792792792793
+batch 434, tloss 0.6660876427927325, vscore 0.654561867061867, nonzero_jaccard_per 0.7837837837837838 best nonzero_jaccard_per 0.7837837837837838
+batch 62, tloss 0.38053941342138475, vscore 0.6690583440583441, nonzero_jaccard_per 0.7927927927927928 best nonzero_jaccard_per 0.7927927927927928
+batch 124, tloss 0.2930379106152442, vscore 0.6396718146718147, nonzero_jaccard_per 0.7612612612612613 best nonzero_jaccard_per 0.7927927927927928
+batch 186, tloss 0.2934115932833764, vscore 0.6458109369874075, nonzero_jaccard_per 0.7702702702702703 best nonzero_jaccard_per 0.7927927927927928
+batch 248, tloss 0.30845511536444387, vscore 0.6681949806949807, nonzero_jaccard_per 0.7882882882882883 best nonzero_jaccard_per 0.7927927927927928
+batch 310, tloss 0.28618506846889374, vscore 0.6521415896415896, nonzero_jaccard_per 0.7792792792792793 best nonzero_jaccard_per 0.7927927927927928
+batch 372, tloss 0.25930168551783406, vscore 0.6731304356304356, nonzero_jaccard_per 0.7927927927927928 best nonzero_jaccard_per 0.7927927927927928
+batch 434, tloss 0.28752734584193074, vscore 0.643473830973831, nonzero_jaccard_per 0.7567567567567568 best nonzero_jaccard_per 0.7927927927927928
+batch 62, tloss 0.1773481272882031, vscore 0.6562814437814438, nonzero_jaccard_per 0.7837837837837838 best nonzero_jaccard_per 0.7927927927927928
+batch 124, tloss 0.0759471385709701, vscore 0.6599493974493975, nonzero_jaccard_per 0.7747747747747747 best nonzero_jaccard_per 0.7927927927927928
+batch 186, tloss 0.07550755816121255, vscore 0.6543275418275417, nonzero_jaccard_per 0.7657657657657657 best nonzero_jaccard_per 0.7927927927927928
+batch 248, tloss 0.11075565891881142, vscore 0.6611843986843987, nonzero_jaccard_per 0.7747747747747747 best nonzero_jaccard_per 0.7927927927927928
+batch 310, tloss 0.10163404287830476, vscore 0.66243564993565, nonzero_jaccard_per 0.7747747747747747 best nonzero_jaccard_per 0.7927927927927928
+batch 372, tloss 0.07718553081635506, vscore 0.6592181467181468, nonzero_jaccard_per 0.7747747747747747 best nonzero_jaccard_per 0.7927927927927928
+batch 434, tloss 0.10293084383010864, vscore 0.6592181467181468, nonzero_jaccard_per 0.7747747747747747 best nonzero_jaccard_per 0.7927927927927928
+fold 4 best nonzero_jaccard_per 0.7927927927927928
+5 fold cv nonzero_jaccard_per: 0.8096796347917424
+fold 0
+fold 0, only_chaii True, lang None, removecite False, splitjoin False
+fold0 t/v: 891/223
+0.6343532814443836
+language
+hindi    0.657752
+tamil    0.587240
+Name: jaccard, dtype: float64
+fold 1
+fold 1, only_chaii True, lang None, removecite False, splitjoin False
+fold1 t/v: 891/223
+0.6736760623531924
+language
+hindi    0.744687
+tamil    0.530695
+Name: jaccard, dtype: float64
+fold 2
+fold 2, only_chaii True, lang None, removecite False, splitjoin False
+fold2 t/v: 891/223
+0.7647376228654255
+language
+hindi    0.792079
+tamil    0.709685
+Name: jaccard, dtype: float64
+fold 3
+fold 3, only_chaii True, lang None, removecite False, splitjoin False
+fold3 t/v: 891/223
+0.693998261723067
+language
+hindi    0.782190
+tamil    0.512781
+Name: jaccard, dtype: float64
+fold 4
+fold 4, only_chaii True, lang None, removecite False, splitjoin False
+fold4 t/v: 892/222
+0.6690583440583441
+language
+hindi    0.729962
+tamil    0.544749
+Name: jaccard, dtype: float64
+FINISH

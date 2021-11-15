@@ -1,0 +1,19 @@
+DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
+Traceback (most recent call last):
+  File "train-useall.py", line 48, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(args.model_checkpoint)
+  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/models/auto/tokenization_auto.py", line 480, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 1743, in from_pretrained
+    return cls._from_pretrained(
+  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 1767, in _from_pretrained
+    slow_tokenizer = (cls.slow_tokenizer_class)._from_pretrained(
+  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 1871, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/transformers/models/rembert/tokenization_rembert.py", line 128, in __init__
+    self.sp_model.Load(vocab_file)
+  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/sentencepiece/__init__.py", line 367, in Load
+    return self.LoadFromFile(model_file)
+  File "/gpfsnyu/home/yw3642/.conda/envs/kaggle/lib/python3.8/site-packages/sentencepiece/__init__.py", line 171, in LoadFromFile
+    return _sentencepiece.SentencePieceProcessor_LoadFromFile(self, arg)
+TypeError: not a string
