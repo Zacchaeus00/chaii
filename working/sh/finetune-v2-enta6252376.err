@@ -1,0 +1,2 @@
+DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
+  0%|          | 0/167 [00:00<?, ?ba/s]  1%|          | 1/167 [00:23<1:06:19, 23.98s/ba]  1%|          | 2/167 [00:49<1:07:44, 24.63s/ba]  2%|▏         | 3/167 [01:16<1:10:24, 25.76s/ba]  2%|▏         | 4/167 [01:39<1:07:47, 24.96s/ba]  3%|▎         | 5/167 [02:04<1:07:20, 24.94s/ba]  4%|▎         | 6/167 [02:29<1:06:58, 24.96s/ba]slurmstepd: error: *** JOB 6252376 ON agpu8 CANCELLED AT 2021-11-15T18:31:06 ***

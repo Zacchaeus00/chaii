@@ -42,7 +42,8 @@ with open(out_dir/'hyp.json', 'w') as f:
 args = TrainingArguments(
     out_dir,
     evaluation_strategy="no",
-    save_strategy="epoch",
+    save_strategy="steps",
+    save_steps=5000,
     learning_rate=args.lr,
     warmup_ratio=args.warmup_ratio,
     gradient_accumulation_steps=args.accumulation_steps,
