@@ -1,1 +1,2 @@
 DeprecationWarning: 'source deactivate' is deprecated. Use 'conda deactivate'.
+  0%|          | 0/17 [00:00<?, ?ba/s]  6%|▌         | 1/17 [00:03<00:55,  3.47s/ba] 12%|█▏        | 2/17 [00:06<00:47,  3.19s/ba] 18%|█▊        | 3/17 [00:09<00:41,  3.00s/ba] 24%|██▎       | 4/17 [00:11<00:36,  2.84s/ba]
